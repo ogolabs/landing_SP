@@ -16,13 +16,13 @@ const ThemeContext = createContext<ThemeContextType | undefined>(undefined);
 const STORAGE_KEY = "sellerpadi_theme";
 
 export function ThemeProvider({ children }: { children: React.ReactNode }) {
-  const [theme, setThemeState] = useState<Theme>("system");
-  const [resolvedTheme, setResolvedTheme] = useState<ResolvedTheme>("dark");
+  const [theme, setThemeState] = useState<Theme>("light");
+  const [resolvedTheme, setResolvedTheme] = useState<ResolvedTheme>("light");
   const [mounted, setMounted] = useState(false);
 
   // Compute resolved theme from system preference
   const getSystemTheme = useCallback((): ResolvedTheme => {
-    if (typeof window === "undefined") return "dark";
+    if (typeof window === "undefined") return "light";
     return window.matchMedia("(prefers-color-scheme: dark)").matches ? "dark" : "light";
   }, []);
 
@@ -43,7 +43,7 @@ export function ThemeProvider({ children }: { children: React.ReactNode }) {
     }
   }, [getSystemTheme]);
 
-  // Initial mount: load saved theme from localStorage
+  // Initial mount: load saved theme from localStorage, default to 'light'
   useEffect(() => {
     setMounted(true);
     try {
@@ -52,10 +52,12 @@ export function ThemeProvider({ children }: { children: React.ReactNode }) {
         setThemeState(saved);
         applyTheme(saved);
       } else {
-        applyTheme("system");
+        setThemeState("light");
+        applyTheme("light");
       }
     } catch {
-      applyTheme("system");
+      setThemeState("light");
+      applyTheme("light");
     }
   }, [applyTheme]);
 
