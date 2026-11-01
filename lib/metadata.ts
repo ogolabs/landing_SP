@@ -18,6 +18,6 @@ export function getMetadataBaseUrl(): URL {
   try {
     return new URL(LANDING_BASE_URL);
   } catch {
-    return new URL("https://app-SellerPadi.vercel.app");
+    return new URL("https://app.sellerpadi.com");
   }
 }
