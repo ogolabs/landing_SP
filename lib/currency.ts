@@ -238,6 +238,8 @@ export interface PlanTierConfig {
   id: string;
   name: string;
   ngnMonthly: number;
+  /** Fixed international monthly USD price (no runtime multipliers). */
+  usdMonthly: number;
   quota: number; // Dispatches and receipts combined
   branches: number;
   salesReps: number;
@@ -251,6 +253,7 @@ export const PLAN_TIERS: Record<string, PlanTierConfig> = {
     id: "free",
     name: "Free",
     ngnMonthly: 0,
+    usdMonthly: 0,
     quota: 100,
     branches: 0,
     salesReps: 1,
@@ -262,6 +265,7 @@ export const PLAN_TIERS: Record<string, PlanTierConfig> = {
     id: "starter_500",
     name: "Starter",
     ngnMonthly: 500,
+    usdMonthly: 2.01,
     quota: 500,
     branches: 1,
     salesReps: 1,
@@ -273,6 +277,7 @@ export const PLAN_TIERS: Record<string, PlanTierConfig> = {
     id: "growth_1000",
     name: "Growth",
     ngnMonthly: 1000,
+    usdMonthly: 3.03,
     quota: 1000,
     branches: 2,
     salesReps: 4,
@@ -284,6 +289,7 @@ export const PLAN_TIERS: Record<string, PlanTierConfig> = {
     id: "business_2500",
     name: "Business",
     ngnMonthly: 2500,
+    usdMonthly: 6.07,
     quota: 2500,
     branches: 3,
     salesReps: 6,
@@ -295,6 +301,7 @@ export const PLAN_TIERS: Record<string, PlanTierConfig> = {
     id: "scale_5000",
     name: "Scale",
     ngnMonthly: 5000,
+    usdMonthly: 11.14,
     quota: 5000,
     branches: 5,
     salesReps: 10,
@@ -314,10 +321,23 @@ export const OVERAGE_FEE_NGN = OPERATIONS_OVERAGE_FEE_NGN;
 export const OVERAGE_FEE_USD = OPERATIONS_OVERAGE_FEE_USD;
 
 /**
+ * Returns the authoritative fixed international USD price for a plan tier.
+ * Fixed pricing per tier (zero multipliers): Free: $0, Starter: $2.01, Growth: $3.03, Business: $6.07, Scale: $11.14.
+ */
+export function getPlanUsdPrice(planOrNgn?: string | number | null): number {
+  if (!planOrNgn) return 0;
+  if (typeof planOrNgn === "string") {
+    return PLAN_TIERS[planOrNgn]?.usdMonthly ?? 0;
+  }
+  const found = Object.values(PLAN_TIERS).find((t) => t.ngnMonthly === planOrNgn);
+  return found?.usdMonthly ?? 0;
+}
+
+/**
  * Converts a base NGN amount to the user's detected local currency.
  * If user is in Nigeria, returns exact NGN without foreign exchange.
- * If user is outside Nigeria, applies 3x tier multiplier, or fixed rates for overage fees.
- * Single currency format strictly enforced (e.g. "₦500" or "$1.05").
+ * If user is outside Nigeria, uses the fixed international USD tier price, or fixed rates for overage fees.
+ * Single currency format strictly enforced (e.g. "₦500" or "$2.01").
  */
 export function convertNgnPrice(ngnAmount: number, currencyInfo?: UserCurrencyInfo | null): ConvertedPrice {
   const info = currencyInfo || DEFAULT_CURRENCY;
@@ -376,9 +396,8 @@ export function convertNgnPrice(ngnAmount: number, currencyInfo?: UserCurrencyIn
     };
   }
 
-  // Triple price for international users (outside Nigeria)
-  const effectiveNgn = ngnAmount * 3;
-  const usdAmount = effectiveNgn / (cachedNgnUsdRate || 1480);
+  // Fixed international price for users outside Nigeria (zero multipliers)
+  const usdAmount = getPlanUsdPrice(ngnAmount);
   const rawLocal = usdAmount * info.rateAgainstUSD;
   const roundedLocal = Math.round(rawLocal * 100) / 100;
   const formattedAmount = roundedLocal.toLocaleString(undefined, {
