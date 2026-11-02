@@ -21,6 +21,7 @@ import {
   ShieldCheck,
   Code2,
   Boxes,
+  Calendar,
 } from "lucide-react";
 
 export default function Home() {
@@ -92,35 +93,21 @@ export default function Home() {
               {/* Action CTAs */}
               <div className="pt-2 flex flex-col sm:flex-row gap-3 xl:gap-4 justify-center items-center">
                 <a
-                  href={salesBookUrl}
+                  href={workspaceUrl}
                   className="w-full sm:w-auto bg-blue-600 hover:bg-blue-500 text-white font-bold rounded-2xl px-6 py-3.5 xl:px-8 xl:py-4.5 2xl:px-10 2xl:py-5 text-sm xl:text-base 2xl:text-lg transition-all shadow-xs text-center flex items-center justify-center gap-2 xl:gap-2.5 cursor-pointer"
                 >
-                  <Receipt className="w-4 h-4 xl:w-5 xl:h-5 text-emerald-300" />
-                  <span>Open Digital Sales Book</span>
-                </a>
-
-                <a
-                  href={inventoryUrl}
-                  className="w-full sm:w-auto bg-white dark:bg-slate-900 hover:bg-slate-100 dark:hover:bg-slate-800 border border-slate-200 dark:border-slate-800 text-slate-900 dark:text-white font-semibold rounded-2xl px-5 py-3.5 xl:px-7 xl:py-4.5 2xl:px-9 2xl:py-5 text-sm xl:text-base 2xl:text-lg transition-all shadow-2xs text-center flex items-center justify-center gap-2 xl:gap-2.5 cursor-pointer"
-                >
-                  <Boxes className="w-4 h-4 xl:w-5 xl:h-5 text-teal-600 dark:text-teal-400" />
-                  <span>Manage Inventory</span>
-                </a>
-
-                <a
-                  href={shipmentsUrl}
-                  className="w-full sm:w-auto bg-white dark:bg-slate-900 hover:bg-slate-100 dark:hover:bg-slate-800 border border-slate-200 dark:border-slate-800 text-slate-900 dark:text-white font-semibold rounded-2xl px-5 py-3.5 xl:px-7 xl:py-4.5 2xl:px-9 2xl:py-5 text-sm xl:text-base 2xl:text-lg transition-all shadow-2xs text-center flex items-center justify-center gap-2 xl:gap-2.5 cursor-pointer"
-                >
-                  <Truck className="w-4 h-4 xl:w-5 xl:h-5 text-blue-600 dark:text-blue-400" />
-                  <span>Track Shipments</span>
-                </a>
-
-                <a
-                  href={workspaceUrl}
-                  className="w-full sm:w-auto bg-white dark:bg-slate-900 hover:bg-slate-100 dark:hover:bg-slate-800 border border-slate-200 dark:border-slate-800 text-slate-700 dark:text-slate-300 font-semibold rounded-2xl px-5 py-3.5 xl:px-7 xl:py-4.5 2xl:px-9 2xl:py-5 text-sm xl:text-base 2xl:text-lg transition-all shadow-2xs text-center flex items-center justify-center gap-2 xl:gap-2.5 cursor-pointer"
-                >
-                  <Store className="w-4 h-4 xl:w-5 xl:h-5 text-slate-500" />
+                  <Store className="w-4 h-4 xl:w-5 xl:h-5 text-white" />
                   <span>Store Workspace</span>
+                </a>
+
+                <a
+                  href="https://calendly.com/adesholatajudeen1/30-mins-meetin-with-isiaq"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="w-full sm:w-auto bg-white dark:bg-slate-900 hover:bg-slate-100 dark:hover:bg-slate-800 border border-slate-200 dark:border-slate-800 text-slate-900 dark:text-white font-semibold rounded-2xl px-6 py-3.5 xl:px-8 xl:py-4.5 2xl:px-10 2xl:py-5 text-sm xl:text-base 2xl:text-lg transition-all shadow-2xs text-center flex items-center justify-center gap-2 xl:gap-2.5 cursor-pointer"
+                >
+                  <Calendar className="w-4 h-4 xl:w-5 xl:h-5 text-blue-600 dark:text-blue-400" />
+                  <span>Book a Demo</span>
                 </a>
               </div>
 
