@@ -131,7 +131,7 @@ export default function TermsOfServicePage() {
                     <td className="py-2.5 px-3 font-semibold text-slate-900 dark:text-white">Starter 500</td>
                     <td className="py-2.5 px-3">500 / mo</td>
                     <td className="py-2.5 px-3">150 items</td>
-                    <td className="py-2.5 px-3 font-mono font-medium text-slate-900 dark:text-white">₦500 / mo</td>
+                    <td className="py-2.5 px-3 font-mono font-medium text-slate-900 dark:text-white">₦1,000 / mo</td>
                     <td className="py-2.5 px-3 font-mono font-medium text-slate-900 dark:text-white">$2.01 USD / mo</td>
                     <td className="py-2.5 px-3">1 branch &bull; 1 manager &bull; 1 rep</td>
                   </tr>
@@ -139,7 +139,7 @@ export default function TermsOfServicePage() {
                     <td className="py-2.5 px-3 font-semibold text-slate-900 dark:text-white">Growth 1,000</td>
                     <td className="py-2.5 px-3">1,000 / mo</td>
                     <td className="py-2.5 px-3">500 items</td>
-                    <td className="py-2.5 px-3 font-mono font-medium text-slate-900 dark:text-white">₦1,000 / mo</td>
+                    <td className="py-2.5 px-3 font-mono font-medium text-slate-900 dark:text-white">₦2,000 / mo</td>
                     <td className="py-2.5 px-3 font-mono font-medium text-slate-900 dark:text-white">$3.03 USD / mo</td>
                     <td className="py-2.5 px-3">2 branches &bull; 2 managers &bull; 4 reps</td>
                   </tr>
@@ -147,7 +147,7 @@ export default function TermsOfServicePage() {
                     <td className="py-2.5 px-3 font-semibold text-slate-900 dark:text-white">Business 2,500</td>
                     <td className="py-2.5 px-3">2,500 / mo</td>
                     <td className="py-2.5 px-3">1,500 items</td>
-                    <td className="py-2.5 px-3 font-mono font-medium text-slate-900 dark:text-white">₦2,500 / mo</td>
+                    <td className="py-2.5 px-3 font-mono font-medium text-slate-900 dark:text-white">₦5,000 / mo</td>
                     <td className="py-2.5 px-3 font-mono font-medium text-slate-900 dark:text-white">$6.07 USD / mo</td>
                     <td className="py-2.5 px-3">3 branches &bull; 3 managers &bull; 6 reps</td>
                   </tr>
@@ -155,7 +155,7 @@ export default function TermsOfServicePage() {
                     <td className="py-2.5 px-3 font-semibold text-slate-900 dark:text-white">Scale 5,000</td>
                     <td className="py-2.5 px-3">5,000 / mo</td>
                     <td className="py-2.5 px-3">Unlimited</td>
-                    <td className="py-2.5 px-3 font-mono font-medium text-slate-900 dark:text-white">₦5,000 / mo</td>
+                    <td className="py-2.5 px-3 font-mono font-medium text-slate-900 dark:text-white">₦10,000 / mo</td>
                     <td className="py-2.5 px-3 font-mono font-medium text-slate-900 dark:text-white">$11.14 USD / mo</td>
                     <td className="py-2.5 px-3">5 branches &bull; 5 managers &bull; 10 reps</td>
                   </tr>
@@ -174,7 +174,7 @@ export default function TermsOfServicePage() {
                   <span>Operations Overage</span>
                 </span>
                 <p className="text-slate-600 dark:text-slate-400 text-xs">
-                  Excess receipts &amp; dispatches: Flat <strong>₦1 NGN per unit</strong> in Nigeria; flat <strong>$0.003 USD per unit</strong> internationally.
+                  Excess receipts &amp; dispatches: Flat <strong>₦10 NGN per unit</strong> in Nigeria; flat <strong>$0.003 USD per unit</strong> internationally.
                 </p>
               </div>
               <div className="bg-slate-50 dark:bg-slate-800/50 p-3.5 rounded-xl border border-slate-200 dark:border-slate-800 space-y-1">
@@ -183,7 +183,7 @@ export default function TermsOfServicePage() {
                   <span>Expansion Overage</span>
                 </span>
                 <p className="text-slate-600 dark:text-slate-400 text-xs">
-                  Extra branches or staff: Flat <strong>₦10 NGN</strong> in Nigeria; flat <strong>$0.10 USD</strong> internationally.
+                  Extra branches or staff: Flat <strong>₦100 NGN</strong> in Nigeria; flat <strong>$0.10 USD</strong> internationally.
                 </p>
               </div>
             </div>

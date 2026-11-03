@@ -4,7 +4,7 @@ import { sharedOpenGraph } from "@/lib/metadata";
 export const metadata: Metadata = {
   title: "Pricing & Merchant Subscription Plans",
   description:
-    "Transparent pricing for modern merchants. Start with 100 operations free each month, with predictable tiers starting at ₦500/mo and universal overage.",
+    "Transparent pricing for modern merchants. Start with 100 operations free each month, with predictable tiers starting at ₦1,000/mo and universal overage.",
   openGraph: {
     ...sharedOpenGraph,
     title: "Pricing & Merchant Subscription Plans | SellerPadi",
