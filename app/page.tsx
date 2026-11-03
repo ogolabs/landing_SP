@@ -19,7 +19,7 @@ import {
   Building2,
   Smartphone,
   ShieldCheck,
-  Code2,
+  // Code2,
   Boxes,
   Calendar,
 } from "lucide-react";
@@ -452,7 +452,7 @@ export default function Home() {
               </p>
             </div>
 
-            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-5 xl:gap-8">
+            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-5 xl:gap-8">
               <div className="bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-800 rounded-2xl xl:rounded-3xl p-6 xl:p-8 2xl:p-10 space-y-3 xl:space-y-4 shadow-2xs">
                 <div className="p-2.5 xl:p-3.5 bg-blue-50 dark:bg-blue-950/60 rounded-xl xl:rounded-2xl w-max text-blue-600 dark:text-blue-400">
                   <Smartphone className="w-5 h-5 xl:w-7 xl:h-7" />
@@ -489,6 +489,7 @@ export default function Home() {
                 </p>
               </div>
 
+              {/* Temporarily commented out Developer APIs highlight card
               <div className="bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-800 rounded-2xl xl:rounded-3xl p-6 xl:p-8 2xl:p-10 space-y-3 xl:space-y-4 shadow-2xs">
                 <div className="p-2.5 xl:p-3.5 bg-purple-50 dark:bg-purple-950/60 rounded-xl xl:rounded-2xl w-max text-purple-600 dark:text-purple-400">
                   <Code2 className="w-5 h-5 xl:w-7 xl:h-7" />
@@ -500,6 +501,7 @@ export default function Home() {
                   Automate receipt issuance and delivery dispatches directly from custom storefronts, ERPs, or billing pipelines.
                 </p>
               </div>
+              */}
             </div>
 
             {/* Bottom Callout Banner */}

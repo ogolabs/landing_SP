@@ -2,7 +2,7 @@
 
 import Header from "@/components/Header/Header";
 import Footer from "@/components/Footer/Footer";
-import { ArrowRight, Truck, Smartphone, Receipt, Users, Building2, Code2, Boxes } from "lucide-react";
+import { ArrowRight, Truck, Smartphone, Receipt, Users, Building2, RotateCcw, Boxes } from "lucide-react";
 import { APP_BASE_URL } from "@/lib/config";
 
 export default function AboutPage() {
@@ -34,8 +34,8 @@ export default function AboutPage() {
     },
     {
       num: "05",
-      title: "Permanent Audit Trails & Developer APIs",
-      desc: "Every receipt issued, debtor settlement recorded, and package handover completed is certified with an immutable verification code. Integrate existing billing software, webhooks, and ERPs using SellerPadi's REST API.",
+      title: "Permanent Audit Trails & Proof Records",
+      desc: "Every receipt issued, debtor settlement recorded, and package handover completed is certified with an immutable verification code, ensuring complete operational transparency for store owners.",
     },
   ];
 
@@ -139,10 +139,10 @@ export default function AboutPage() {
 
               <div className="space-y-2 xl:space-y-2.5">
                 <h4 className="font-bold text-slate-900 dark:text-white flex items-center gap-1.5 xl:gap-2 text-sm xl:text-lg">
-                  <Code2 className="w-4 h-4 xl:w-5 xl:h-5 text-blue-600 dark:text-blue-400" /> Developer REST API
+                  <RotateCcw className="w-4 h-4 xl:w-5 xl:h-5 text-blue-600 dark:text-blue-400" /> Reverse Logistics &amp; Returns
                 </h4>
                 <p className="text-slate-600 dark:text-slate-400">
-                  Connect SellerPadi directly to custom e-commerce checkouts, billing systems, or dispatch fleets via simple REST endpoints.
+                  Doorstep dispute filing, verified return rider custody stamps, and 1-click restock or re-dispatch for rejected items.
                 </p>
               </div>
             </div>
