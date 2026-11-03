@@ -53,7 +53,7 @@ export const metadata: Metadata = {
     "delivery verification",
     "multi-branch store management",
     "debtor tracking",
-    "developer REST API",
+    "paperless retail receipts",
     "Avalanche",
   ],
   authors: [{ name: "SellerPadi" }],
