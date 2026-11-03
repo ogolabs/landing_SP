@@ -12,7 +12,6 @@ import { APP_BASE_URL } from "@/lib/config";
 const NAV_LINKS = [
   { name: "Home", href: "/" },
   { name: "Pricing", href: "/pricing" },
-  // { name: "Developers", href: "/developers" },
   { name: "About", href: "/about" },
 ];
 

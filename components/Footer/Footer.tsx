@@ -7,7 +7,6 @@ import {
   Zap,
   Lock,
   Globe2,
-  // Terminal,
   Store,
   ExternalLink,
 } from "lucide-react";
@@ -94,43 +93,7 @@ export default function Footer() {
             </ul>
           </div>
 
-          {/* Col 2: Platform & API - Temporarily commented out
-          <div className="space-y-3.5">
-            <h4 className="text-xs xl:text-sm font-bold uppercase tracking-wider text-slate-900 dark:text-white font-display flex items-center gap-2">
-              <Terminal className="w-4 h-4 text-indigo-600 dark:text-indigo-400" />
-              <span>Developer Platform</span>
-            </h4>
-            <ul className="space-y-2.5 text-xs xl:text-sm font-medium text-slate-600 dark:text-slate-400">
-              <li>
-                <Link href="/developers" className="hover:text-blue-600 dark:hover:text-white transition-colors">
-                  REST API Endpoints Reference
-                </Link>
-              </li>
-              <li>
-                <Link href="/developers#sandbox" className="hover:text-blue-600 dark:hover:text-white transition-colors">
-                  Interactive API Sandbox Console
-                </Link>
-              </li>
-              <li>
-                <Link href="/developers#webhooks" className="hover:text-blue-600 dark:hover:text-white transition-colors">
-                  Webhook Event Dispatcher
-                </Link>
-              </li>
-              <li>
-                <a href={`${APP_BASE_URL}/settings`} className="hover:text-blue-600 dark:hover:text-white transition-colors">
-                  Merchant API Keys &amp; Secret
-                </a>
-              </li>
-              <li>
-                <Link href="/pricing" className="hover:text-blue-600 dark:hover:text-white transition-colors">
-                  Developer API Rate Limits &amp; Plans
-                </Link>
-              </li>
-            </ul>
-          </div>
-          */}
-
-          {/* Col 2 (Formerly Col 3): Trust & Company */}
+          {/* Col 2: Trust & Company */}
           <div className="space-y-3.5">
             <h4 className="text-xs xl:text-sm font-bold uppercase tracking-wider text-slate-900 dark:text-white font-display flex items-center gap-2">
               <ShieldCheck className="w-4 h-4 text-emerald-600 dark:text-emerald-400" />
@@ -226,10 +189,6 @@ export default function Footer() {
             <Link href="/terms" className="hover:text-slate-900 dark:hover:text-white transition-colors">
               Terms of Service
             </Link>
-            {/* <span className="text-slate-300 dark:text-slate-700">•</span>
-            <Link href="/developers" className="hover:text-slate-900 dark:hover:text-white transition-colors">
-              API Docs
-            </Link> */}
           </div>
         </div>
 
