@@ -198,6 +198,122 @@ res = requests.patch(
 )
 print(res.json())`,
   },
+  returnHandover: {
+    curl: `curl -X POST "https://app.sellerpadi.com/api/v1/shipments/SHPT-8F912A3B4C5D/return-handover" \\
+  -H "Authorization: Bearer rst_live_8f921a4b901e23f..." \\
+  -H "Content-Type: application/json" \\
+  -d '{ "riderName": "Emmanuel Return Rider", "riderPhone": "+2348011223344", "location": "Lekki Return Hub, Lagos" }'`,
+    javascript: `const res = await fetch('https://app.sellerpadi.com/api/v1/shipments/SHPT-8F912A3B4C5D/return-handover', {
+  method: 'POST',
+  headers: {
+    'Authorization': 'Bearer rst_live_8f921a4b901e23f...',
+    'Content-Type': 'application/json'
+  },
+  body: JSON.stringify({
+    riderName: 'Emmanuel Return Rider',
+    riderPhone: '+2348011223344',
+    location: 'Lekki Return Hub, Lagos'
+  })
+});
+const result = await res.json();
+console.log('Return Handover Status:', result.shipment.status); // ReturnInTransit`,
+    python: `import requests
+
+res = requests.post(
+    "https://app.sellerpadi.com/api/v1/shipments/SHPT-8F912A3B4C5D/return-handover",
+    headers={"Authorization": "Bearer rst_live_8f921a4b901e23f..."},
+    json={
+        "riderName": "Emmanuel Return Rider",
+        "riderPhone": "+2348011223344",
+        "location": "Lekki Return Hub, Lagos"
+    }
+)
+print(res.json())`,
+  },
+  storeReceived: {
+    curl: `curl -X POST "https://app.sellerpadi.com/api/v1/shipments/SHPT-8F912A3B4C5D/store-received" \\
+  -H "Authorization: Bearer rst_live_8f921a4b901e23f..." \\
+  -H "Content-Type: application/json" \\
+  -d '{ "receivedBy": "Store Manager Grace", "location": "Victoria Island Branch" }'`,
+    javascript: `const res = await fetch('https://app.sellerpadi.com/api/v1/shipments/SHPT-8F912A3B4C5D/store-received', {
+  method: 'POST',
+  headers: {
+    'Authorization': 'Bearer rst_live_8f921a4b901e23f...',
+    'Content-Type': 'application/json'
+  },
+  body: JSON.stringify({
+    receivedBy: 'Store Manager Grace',
+    location: 'Victoria Island Branch'
+  })
+});
+const result = await res.json();
+console.log('Package Arrived at Store:', result.shipment.status); // StoreReceived`,
+    python: `import requests
+
+res = requests.post(
+    "https://app.sellerpadi.com/api/v1/shipments/SHPT-8F912A3B4C5D/store-received",
+    headers={"Authorization": "Bearer rst_live_8f921a4b901e23f..."},
+    json={
+        "receivedBy": "Store Manager Grace",
+        "location": "Victoria Island Branch"
+    }
+)
+print(res.json())`,
+  },
+  resolveDispute: {
+    curl: `curl -X POST "https://app.sellerpadi.com/api/v1/shipments/SHPT-8F912A3B4C5D/resolve" \\
+  -H "Authorization: Bearer rst_live_8f921a4b901e23f..." \\
+  -H "Content-Type: application/json" \\
+  -d '{ "resolutionType": "RefundAndRestock", "resolutionNotes": "Item returned intact; refund credited & stock restored" }'`,
+    javascript: `const res = await fetch('https://app.sellerpadi.com/api/v1/shipments/SHPT-8F912A3B4C5D/resolve', {
+  method: 'POST',
+  headers: {
+    'Authorization': 'Bearer rst_live_8f921a4b901e23f...',
+    'Content-Type': 'application/json'
+  },
+  body: JSON.stringify({
+    resolutionType: 'RefundAndRestock', // 'RefundAndRestock' | 'ExchangeReplacement' | 'DisputeDismissed'
+    resolutionNotes: 'Item returned intact; refund credited & stock restored'
+  })
+});
+const result = await res.json();
+console.log('Resolution Confirmed:', result.shipment.resolutionStatus);`,
+    python: `import requests
+
+res = requests.post(
+    "https://app.sellerpadi.com/api/v1/shipments/SHPT-8F912A3B4C5D/resolve",
+    headers={"Authorization": "Bearer rst_live_8f921a4b901e23f..."},
+    json={
+        "resolutionType": "RefundAndRestock",
+        "resolutionNotes": "Item returned intact; refund credited & stock restored"
+    }
+)
+print(res.json())`,
+  },
+  redispatchShipment: {
+    curl: `curl -X POST "https://app.sellerpadi.com/api/v1/shipments/SHPT-8F912A3B4C5D/redispatch" \\
+  -H "Authorization: Bearer rst_live_8f921a4b901e23f..." \\
+  -H "Content-Type: application/json" \\
+  -d '{ "notes": "Re-dispatched replacement unit to customer" }'`,
+    javascript: `const res = await fetch('https://app.sellerpadi.com/api/v1/shipments/SHPT-8F912A3B4C5D/redispatch', {
+  method: 'POST',
+  headers: {
+    'Authorization': 'Bearer rst_live_8f921a4b901e23f...',
+    'Content-Type': 'application/json'
+  },
+  body: JSON.stringify({ notes: 'Re-dispatched replacement unit to customer' })
+});
+const result = await res.json();
+console.log('New Replacement Package ID:', result.newPackageId);`,
+    python: `import requests
+
+res = requests.post(
+    "https://app.sellerpadi.com/api/v1/shipments/SHPT-8F912A3B4C5D/redispatch",
+    headers={"Authorization": "Bearer rst_live_8f921a4b901e23f..."},
+    json={"notes": "Re-dispatched replacement unit to customer"}
+)
+print(res.json())`,
+  },
 };
 
 export const webhookPayloadExample = `{

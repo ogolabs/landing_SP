@@ -258,14 +258,14 @@ export default function Home() {
                   </div>
                   <div>
                     <span className="inline-flex items-center px-2.5 py-0.5 rounded-full bg-blue-50 dark:bg-blue-950/60 border border-blue-200/80 dark:border-blue-800/60 text-[10px] sm:text-[11px] xl:text-xs font-bold text-blue-600 dark:text-blue-400 uppercase tracking-wider">
-                      Proof of Handover
+                      Forward &amp; Reverse Logistics
                     </span>
                     <h3 className="text-base sm:text-lg xl:text-xl font-bold text-slate-900 dark:text-white font-display mt-1.5">
-                      Tracked Shipments &amp; Dispatch
+                      Tracked Shipments &amp; Returns
                     </h3>
                   </div>
                   <p className="text-xs sm:text-sm text-slate-600 dark:text-slate-400 leading-relaxed">
-                    Connect delivery orders to tracked packages. Dual-layer QR labels and scratch-off PINs verify handovers without buyer app downloads.
+                    Connect orders to tracked dispatches. Dual-layer QR labels and scratch-off PINs verify handovers, with end-to-end custody tracking for doorstep disputes and returns.
                   </p>
                   <ul className="space-y-2 text-xs sm:text-sm text-slate-600 dark:text-slate-400">
                     <li className="flex items-center gap-2">
@@ -278,11 +278,15 @@ export default function Home() {
                     </li>
                     <li className="flex items-center gap-2">
                       <span className="h-1.5 w-1.5 rounded-full bg-blue-600 shrink-0" />
-                      <span>Dispatch rider links with live custody status</span>
+                      <span>Doorstep dispute filing with review confirmation</span>
                     </li>
                     <li className="flex items-center gap-2">
                       <span className="h-1.5 w-1.5 rounded-full bg-blue-600 shrink-0" />
-                      <span>Automated delivery dispute protection</span>
+                      <span>Return rider custody &amp; store arrival verification</span>
+                    </li>
+                    <li className="flex items-center gap-2">
+                      <span className="h-1.5 w-1.5 rounded-full bg-blue-600 shrink-0" />
+                      <span>Automated dispute settlement (refund &amp; restock or re-dispatch)</span>
                     </li>
                   </ul>
                 </div>
@@ -418,7 +422,7 @@ export default function Home() {
                       </h4>
                     </div>
                     <p className="text-xs sm:text-sm xl:text-base 2xl:text-lg text-slate-600 dark:text-slate-400 leading-relaxed">
-                      Affix custom branded retail stickers and dual-layer QR labels to packages. Customers re-order instantly via direct WhatsApp &amp; Facebook QRs, while secret scratch-off PINs eliminate delivery disputes.
+                      Affix custom branded retail stickers and dual-layer QR labels to packages. Customers re-order instantly via direct WhatsApp &amp; Facebook QRs, secret scratch-off PINs secure handovers, and doorstep disputes trigger transparent reverse logistics.
                     </p>
                     <div className="pt-2">
                       <a
