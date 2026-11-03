@@ -14,6 +14,9 @@ import {
   Clock,
   Scan,
   Store,
+  RotateCcw,
+  Building2,
+  AlertTriangle,
 } from "lucide-react";
 import { APP_BASE_URL } from "@/lib/config";
 
@@ -51,18 +54,19 @@ const STEPS: StepDetail[] = [
   {
     id: 3,
     label: "Step 3",
-    badge: "Tamperproof Proof",
-    title: "Audit Trail Stamped & Dispatches Protected",
+    badge: "Forward & Reverse Logistics",
+    title: "Handover Verification & Return Custody",
     description:
-      "Every sale receives an immutable audit seal. For parcels and rider deliveries, generate dual-layer shipping labels with secret scratch-off handover PINs.",
+      "Deliveries are secured with secret scratch-off handover PINs. If rejected or damaged, doorstep disputes trigger transparent reverse logistics and auto-restocking.",
     actor: "Store Manager & Logistics",
-    keyBenefit: "Anti-void theft protection · Dispatch handover PIN · No chargebacks",
+    keyBenefit: "Scratch handover PIN · Doorstep return custody · Auto-void & restock",
   },
 ];
 
 export default function InteractiveFeatureFlow() {
   const [activeStep, setActiveStep] = useState<number>(1);
   const [pinRevealed, setPinRevealed] = useState<boolean>(false);
+  const [logisticsMode, setLogisticsMode] = useState<"forward" | "reverse">("forward");
 
   const current = STEPS.find((s) => s.id === activeStep) ?? STEPS[0];
 
@@ -300,78 +304,214 @@ export default function InteractiveFeatureFlow() {
         )}
 
         {activeStep === 3 && (
-          <div className="grid grid-cols-1 md:grid-cols-12 gap-6 items-center">
-            {/* Left: Explanation */}
-            <div className="md:col-span-6 space-y-4">
-              <p className="text-sm text-slate-600 dark:text-slate-300 leading-relaxed">
-                SellerPadi provides two layers of commercial security: tamperproof sale records that cashiers cannot secretly delete, plus dual-layer QR shipping labels with scratch-off handover PINs for parcels dispatched to buyers.
-              </p>
-
-              <div className="space-y-2.5 text-xs text-slate-600 dark:text-slate-400">
-                <div className="flex items-center gap-2">
-                  <CheckCircle2 className="w-4 h-4 text-emerald-600 dark:text-emerald-400 shrink-0" />
-                  <span>Void audits require manager authorization and leave permanent actor stamps</span>
-                </div>
-                <div className="flex items-center gap-2">
-                  <CheckCircle2 className="w-4 h-4 text-emerald-600 dark:text-emerald-400 shrink-0" />
-                  <span>Riders cannot mark packages delivered without entering the customer PIN</span>
-                </div>
-                <div className="flex items-center gap-2">
-                  <CheckCircle2 className="w-4 h-4 text-emerald-600 dark:text-emerald-400 shrink-0" />
-                  <span>Eliminates fraudulent delivery disputes and unverified chargebacks</span>
-                </div>
-              </div>
-
-              <div className="pt-2">
-                <a
-                  href={`${APP_BASE_URL}/shipments`}
-                  className="inline-flex items-center gap-2 bg-blue-600 hover:bg-blue-500 text-white font-bold text-xs xl:text-sm px-4 py-2.5 xl:px-6 xl:py-3.5 rounded-xl transition-all shadow-2xs"
+          <div className="space-y-6">
+            {/* Mode Selector Toggle: Forward Handover vs Reverse Logistics */}
+            <div className="flex items-center justify-between flex-wrap gap-3 pb-2 border-b border-slate-100 dark:border-slate-800">
+              <span className="text-xs font-semibold text-slate-500 dark:text-slate-400">
+                Logistics Lifecycle Simulation:
+              </span>
+              <div className="flex items-center gap-1.5 p-1 bg-slate-100 dark:bg-slate-800 rounded-xl">
+                <button
+                  type="button"
+                  onClick={() => setLogisticsMode("forward")}
+                  className={`px-3 py-1.5 text-xs font-bold rounded-lg transition-all cursor-pointer flex items-center gap-1.5 ${
+                    logisticsMode === "forward"
+                      ? "bg-white dark:bg-slate-900 text-blue-600 dark:text-blue-400 shadow-2xs"
+                      : "text-slate-600 dark:text-slate-400 hover:text-slate-900 dark:hover:text-white"
+                  }`}
                 >
-                  <Truck className="w-3.5 h-3.5 xl:w-4 xl:h-4" />
-                  <span>Track Parcels & Logistics</span>
-                </a>
+                  <Lock className="w-3.5 h-3.5" />
+                  <span>Forward Handover</span>
+                </button>
+                <button
+                  type="button"
+                  onClick={() => setLogisticsMode("reverse")}
+                  className={`px-3 py-1.5 text-xs font-bold rounded-lg transition-all cursor-pointer flex items-center gap-1.5 ${
+                    logisticsMode === "reverse"
+                      ? "bg-white dark:bg-slate-900 text-blue-600 dark:text-blue-400 shadow-2xs"
+                      : "text-slate-600 dark:text-slate-400 hover:text-slate-900 dark:hover:text-white"
+                  }`}
+                >
+                  <RotateCcw className="w-3.5 h-3.5" />
+                  <span>Doorstep Return &amp; Custody</span>
+                </button>
               </div>
             </div>
 
-            {/* Right: Simulated Dispatch Handover PIN Box */}
-            <div className="md:col-span-6 bg-slate-50 dark:bg-slate-950 border border-slate-200 dark:border-slate-800 rounded-2xl p-5 space-y-4">
-              <div className="flex items-center justify-between pb-2 border-b border-slate-200 dark:border-slate-800">
-                <span className="text-xs font-bold text-slate-800 dark:text-slate-200 flex items-center gap-2">
-                  <Lock className="w-4 h-4 text-emerald-600 dark:text-emerald-400" />
-                  Dual-Layer Delivery Verification
-                </span>
-                <span className="text-[10px] font-mono text-slate-500">TRACKED DISPATCH</span>
-              </div>
+            <div className="grid grid-cols-1 md:grid-cols-12 gap-6 items-center">
+              {/* Left: Explanation */}
+              <div className="md:col-span-6 space-y-4">
+                {logisticsMode === "forward" ? (
+                  <>
+                    <p className="text-sm text-slate-600 dark:text-slate-300 leading-relaxed">
+                      SellerPadi secures package delivery through dual-layer QR shipping labels with scratch-off handover PINs. Riders cannot mark packages as delivered without entering the customer&apos;s physical secret.
+                    </p>
 
-              <p className="text-xs text-slate-600 dark:text-slate-400">
-                The buyer reveals their secret scratch PIN only after inspecting the package physically. Handing this PIN to the dispatch rider proves genuine custody handover.
-              </p>
+                    <div className="space-y-2.5 text-xs text-slate-600 dark:text-slate-400">
+                      <div className="flex items-center gap-2">
+                        <CheckCircle2 className="w-4 h-4 text-emerald-600 dark:text-emerald-400 shrink-0" />
+                        <span>Riders cannot mark packages delivered without entering the customer PIN</span>
+                      </div>
+                      <div className="flex items-center gap-2">
+                        <CheckCircle2 className="w-4 h-4 text-emerald-600 dark:text-emerald-400 shrink-0" />
+                        <span>Buyers inspect items before revealing secret handover scratch codes</span>
+                      </div>
+                      <div className="flex items-center gap-2">
+                        <CheckCircle2 className="w-4 h-4 text-emerald-600 dark:text-emerald-400 shrink-0" />
+                        <span>Eliminates fraudulent delivery disputes and unverified chargebacks</span>
+                      </div>
+                    </div>
+                  </>
+                ) : (
+                  <>
+                    <p className="text-sm text-slate-600 dark:text-slate-300 leading-relaxed">
+                      When a customer rejects a package at their doorstep, SellerPadi activates an auditable reverse logistics workflow. Every custody transfer is timestamped until the parcel safely reaches your store.
+                    </p>
 
-              {/* Secret Handover PIN Display */}
-              <div className="p-3.5 rounded-xl bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-800 flex items-center justify-between">
-                <div>
-                  <span className="text-[10px] text-slate-500 font-mono block">HANDOVER PIN</span>
-                  <div className="font-mono text-sm tracking-widest font-black text-slate-900 dark:text-white mt-0.5">
-                    {pinRevealed ? "8491" : "•••• (Scratch Secret)"}
-                  </div>
+                    <div className="space-y-2.5 text-xs text-slate-600 dark:text-slate-400">
+                      <div className="flex items-center gap-2">
+                        <CheckCircle2 className="w-4 h-4 text-emerald-600 dark:text-emerald-400 shrink-0" />
+                        <span>Doorstep dispute review modal prevents accidental or unauthorized rejections</span>
+                      </div>
+                      <div className="flex items-center gap-2">
+                        <CheckCircle2 className="w-4 h-4 text-emerald-600 dark:text-emerald-400 shrink-0" />
+                        <span>Return rider custody stamps record return rider details and hub handoffs</span>
+                      </div>
+                      <div className="flex items-center gap-2">
+                        <CheckCircle2 className="w-4 h-4 text-emerald-600 dark:text-emerald-400 shrink-0" />
+                        <span>1-click dispute resolution: refund &amp; auto-restock inventory or re-dispatch</span>
+                      </div>
+                    </div>
+                  </>
+                )}
+
+                <div className="pt-2">
+                  <a
+                    href={`${APP_BASE_URL}/shipments`}
+                    className="inline-flex items-center gap-2 bg-blue-600 hover:bg-blue-500 text-white font-bold text-xs xl:text-sm px-4 py-2.5 xl:px-6 xl:py-3.5 rounded-xl transition-all shadow-2xs"
+                  >
+                    <Truck className="w-3.5 h-3.5 xl:w-4 xl:h-4" />
+                    <span>Track Parcels &amp; Logistics</span>
+                  </a>
                 </div>
-
-                <button
-                  type="button"
-                  onClick={() => setPinRevealed(!pinRevealed)}
-                  className="px-3 py-1.5 rounded-lg bg-slate-100 dark:bg-slate-800 hover:bg-slate-200 dark:hover:bg-slate-700 text-xs font-bold text-slate-800 dark:text-slate-200 transition-colors cursor-pointer"
-                >
-                  {pinRevealed ? "Hide PIN" : "Reveal PIN"}
-                </button>
               </div>
 
-              <div className="flex items-center justify-between text-[11px] text-slate-500 pt-1">
-                <span className="flex items-center gap-1 font-mono">
-                  <Clock className="w-3.5 h-3.5 text-slate-400" /> Instant SMS & Web Sync
-                </span>
-                <span className="font-bold text-emerald-600 dark:text-emerald-400">
-                  Tamperproof Handover
-                </span>
+              {/* Right: Interactive Simulation Card */}
+              <div className="md:col-span-6 bg-slate-50 dark:bg-slate-950 border border-slate-200 dark:border-slate-800 rounded-2xl p-5 space-y-4">
+                {logisticsMode === "forward" ? (
+                  <>
+                    <div className="flex items-center justify-between pb-2 border-b border-slate-200 dark:border-slate-800">
+                      <span className="text-xs font-bold text-slate-800 dark:text-slate-200 flex items-center gap-2">
+                        <Lock className="w-4 h-4 text-emerald-600 dark:text-emerald-400" />
+                        Dual-Layer Delivery Verification
+                      </span>
+                      <span className="text-[10px] font-mono text-slate-500">TRACKED DISPATCH</span>
+                    </div>
+
+                    <p className="text-xs text-slate-600 dark:text-slate-400">
+                      The buyer reveals their secret scratch PIN only after inspecting the package physically. Handing this PIN to the dispatch rider proves genuine custody handover.
+                    </p>
+
+                    {/* Secret Handover PIN Display */}
+                    <div className="p-3.5 rounded-xl bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-800 flex items-center justify-between">
+                      <div>
+                        <span className="text-[10px] text-slate-500 font-mono block">HANDOVER PIN</span>
+                        <div className="font-mono text-sm tracking-widest font-black text-slate-900 dark:text-white mt-0.5">
+                          {pinRevealed ? "8491" : "•••• (Scratch Secret)"}
+                        </div>
+                      </div>
+
+                      <button
+                        type="button"
+                        onClick={() => setPinRevealed(!pinRevealed)}
+                        className="px-3 py-1.5 rounded-lg bg-slate-100 dark:bg-slate-800 hover:bg-slate-200 dark:hover:bg-slate-700 text-xs font-bold text-slate-800 dark:text-slate-200 transition-colors cursor-pointer"
+                      >
+                        {pinRevealed ? "Hide PIN" : "Reveal PIN"}
+                      </button>
+                    </div>
+
+                    <div className="flex items-center justify-between text-[11px] text-slate-500 pt-1">
+                      <span className="flex items-center gap-1 font-mono">
+                        <Clock className="w-3.5 h-3.5 text-slate-400" /> Instant SMS &amp; Web Sync
+                      </span>
+                      <span className="font-bold text-emerald-600 dark:text-emerald-400">
+                        Tamperproof Handover
+                      </span>
+                    </div>
+                  </>
+                ) : (
+                  <>
+                    <div className="flex items-center justify-between pb-2 border-b border-slate-200 dark:border-slate-800">
+                      <span className="text-xs font-bold text-slate-800 dark:text-slate-200 flex items-center gap-2">
+                        <RotateCcw className="w-4 h-4 text-blue-600 dark:text-blue-400" />
+                        Reverse Logistics Custody Trail
+                      </span>
+                      <span className="text-[10px] font-mono text-rose-600 dark:text-rose-400 font-bold">
+                        DISPUTE &amp; RETURN
+                      </span>
+                    </div>
+
+                    {/* 3-Step Return Trail */}
+                    <div className="space-y-2 text-xs">
+                      {/* Step A: Doorstep Dispute */}
+                      <div className="p-2.5 rounded-xl bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-800 flex items-start gap-3">
+                        <div className="w-6 h-6 rounded-lg bg-rose-50 dark:bg-rose-950/60 border border-rose-200 dark:border-rose-900 flex items-center justify-center shrink-0 mt-0.5">
+                          <AlertTriangle className="w-3.5 h-3.5 text-rose-600 dark:text-rose-400" />
+                        </div>
+                        <div className="min-w-0 flex-1">
+                          <div className="flex items-center justify-between gap-1">
+                            <span className="font-bold text-slate-900 dark:text-white">1. Doorstep Dispute</span>
+                            <span className="text-[10px] font-mono px-1.5 py-0.5 rounded bg-rose-50 dark:bg-rose-950 text-rose-600 dark:text-rose-400 font-bold">Disputed</span>
+                          </div>
+                          <p className="text-[11px] text-slate-500 mt-0.5">
+                            Customer reviews &amp; confirms reason: &quot;Incorrect model received&quot;.
+                          </p>
+                        </div>
+                      </div>
+
+                      {/* Step B: Return Rider Custody */}
+                      <div className="p-2.5 rounded-xl bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-800 flex items-start gap-3">
+                        <div className="w-6 h-6 rounded-lg bg-blue-50 dark:bg-blue-950/60 border border-blue-200 dark:border-blue-900 flex items-center justify-center shrink-0 mt-0.5">
+                          <Truck className="w-3.5 h-3.5 text-blue-600 dark:text-blue-400" />
+                        </div>
+                        <div className="min-w-0 flex-1">
+                          <div className="flex items-center justify-between gap-1">
+                            <span className="font-bold text-slate-900 dark:text-white">2. Return Rider Stamp</span>
+                            <span className="text-[10px] font-mono px-1.5 py-0.5 rounded bg-blue-50 dark:bg-blue-950 text-blue-600 dark:text-blue-400 font-bold">ReturnInTransit</span>
+                          </div>
+                          <p className="text-[11px] text-slate-500 mt-0.5">
+                            Assigned to Return Rider Emmanuel (+23480...) with hub location stamp.
+                          </p>
+                        </div>
+                      </div>
+
+                      {/* Step C: Store Arrival & Resolution */}
+                      <div className="p-2.5 rounded-xl bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-800 flex items-start gap-3">
+                        <div className="w-6 h-6 rounded-lg bg-emerald-50 dark:bg-emerald-950/60 border border-emerald-200 dark:border-emerald-900 flex items-center justify-center shrink-0 mt-0.5">
+                          <Building2 className="w-3.5 h-3.5 text-emerald-600 dark:text-emerald-400" />
+                        </div>
+                        <div className="min-w-0 flex-1">
+                          <div className="flex items-center justify-between gap-1">
+                            <span className="font-bold text-slate-900 dark:text-white">3. Store Received &amp; Restocked</span>
+                            <span className="text-[10px] font-mono px-1.5 py-0.5 rounded bg-emerald-50 dark:bg-emerald-950 text-emerald-600 dark:text-emerald-400 font-bold">Resolved</span>
+                          </div>
+                          <p className="text-[11px] text-slate-500 mt-0.5">
+                            Store manager inspects package; 1-click refund voids receipt &amp; restores inventory.
+                          </p>
+                        </div>
+                      </div>
+                    </div>
+
+                    <div className="flex items-center justify-between text-[11px] text-slate-500 pt-1">
+                      <span className="flex items-center gap-1 font-mono">
+                        <Clock className="w-3.5 h-3.5 text-slate-400" /> 100% Chain-of-Custody
+                      </span>
+                      <span className="font-bold text-blue-600 dark:text-blue-400">
+                        Zero Inventory Leakage
+                      </span>
+                    </div>
+                  </>
+                )}
               </div>
             </div>
           </div>

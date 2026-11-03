@@ -1,7 +1,7 @@
 "use client";
 
 import { useState } from "react";
-import { Server, Code, Copy, Check, Key } from "lucide-react";
+import { Server, Code, Copy, Check, Key, RotateCcw, Building2, RefreshCw, AlertTriangle } from "lucide-react";
 import { codeExamples, SupportedLang } from "./codeSnippets";
 import { NETWORK_NAME } from "@/lib/config";
 
@@ -301,22 +301,21 @@ export default function ApiEndpointsReference() {
         <div className="bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-800 rounded-2xl p-6 sm:p-8 space-y-4 shadow-xs">
           <div className="flex flex-wrap items-center justify-between gap-3 border-b border-slate-100 dark:border-slate-800 pb-4">
             <div className="flex items-center gap-2.5">
-              <span className="bg-emerald-500 text-white font-extrabold text-xs px-2.5 py-1 rounded-lg uppercase">
+              <span className="bg-rose-600 text-white font-extrabold text-xs px-2.5 py-1 rounded-lg uppercase">
                 POST
               </span>
               <code className="text-sm font-mono font-bold text-slate-900 dark:text-white">/shipments/[id]/dispute</code>
             </div>
-            <span className="text-xs font-semibold text-slate-700 dark:text-slate-300 bg-slate-100 dark:bg-slate-800 px-2.5 py-0.5 rounded-full border border-slate-200 dark:border-slate-700 flex items-center gap-1">
-              <Key className="w-3 h-3" />
-              <span>API Key Required</span>
+            <span className="text-xs font-semibold text-rose-700 dark:text-rose-300 bg-rose-50 dark:bg-rose-950/60 px-2.5 py-0.5 rounded-full border border-rose-200 dark:border-rose-800 flex items-center gap-1">
+              <AlertTriangle className="w-3 h-3 text-rose-600 dark:text-rose-400" />
+              <span>Delivery Dispute</span>
             </span>
           </div>
 
           <p className="text-xs sm:text-sm text-slate-600 dark:text-slate-400 leading-relaxed">
-            Files a formal delivery dispute for damaged, stolen, or missing contents.{" "}
+            Files a formal delivery dispute for damaged, incorrect, or missing contents.{" "}
             <strong>Requires the package to be in &quot;InTransit&quot; status</strong> (i.e. handed over for delivery).
-            Updates package status to &quot;Disputed&quot;, records an on-chain event, and triggers a{" "}
-            <code className="bg-slate-100 dark:bg-slate-800 px-1 rounded text-slate-800 dark:text-slate-200">shipment.disputed</code> webhook.
+            Updates package status to &quot;Disputed&quot;, records a timestamped audit event, and initiates reverse logistics.
           </p>
 
           <div className="bg-slate-950 text-slate-100 rounded-xl p-4 font-mono text-xs overflow-x-auto relative">
@@ -332,7 +331,162 @@ export default function ApiEndpointsReference() {
           </div>
         </div>
 
-        {/* Endpoint 8: Edit Package Details */}
+        {/* Endpoint 8: Return Rider Handover */}
+        <div className="bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-800 rounded-2xl p-6 sm:p-8 space-y-4 shadow-xs">
+          <div className="flex flex-wrap items-center justify-between gap-3 border-b border-slate-100 dark:border-slate-800 pb-4">
+            <div className="flex items-center gap-2.5">
+              <span className="bg-emerald-500 text-white font-extrabold text-xs px-2.5 py-1 rounded-lg uppercase">
+                POST
+              </span>
+              <code className="text-sm font-mono font-bold text-slate-900 dark:text-white">/shipments/[id]/return-handover</code>
+            </div>
+            <span className="text-xs font-semibold text-blue-700 bg-blue-50 dark:bg-blue-950/60 dark:text-blue-300 px-2.5 py-0.5 rounded-full border border-blue-200 dark:border-blue-800 flex items-center gap-1">
+              <RotateCcw className="w-3 h-3" />
+              <span>Reverse Logistics</span>
+            </span>
+          </div>
+
+          <p className="text-xs sm:text-sm text-slate-600 dark:text-slate-400 leading-relaxed">
+            Transfers custody of a disputed or rejected parcel to a return rider. Updates package status to{" "}
+            &quot;ReturnInTransit&quot;, logs return rider identity and contact number, and records an auditable return checkpoint.
+          </p>
+
+          <div className="bg-slate-950 text-slate-100 rounded-xl p-4 font-mono text-xs overflow-x-auto relative">
+            <button
+              type="button"
+              onClick={() => copyToClipboard(codeExamples.returnHandover[activeLang], "returnHandover")}
+              className="absolute top-3 right-3 bg-slate-800 hover:bg-slate-700 text-slate-300 p-1.5 rounded-lg transition-colors cursor-pointer"
+              title="Copy code"
+            >
+              {copiedSnippet === "returnHandover" ? <Check className="w-4 h-4 text-emerald-400" /> : <Copy className="w-4 h-4" />}
+            </button>
+            <pre>{codeExamples.returnHandover[activeLang]}</pre>
+          </div>
+
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-4 pt-2 text-xs">
+            <div className="bg-slate-50 dark:bg-slate-800/60 p-3.5 rounded-xl border border-slate-200 dark:border-slate-800 space-y-1">
+              <span className="font-bold text-slate-900 dark:text-white block">Request Body Parameters:</span>
+              <ul className="space-y-1 text-slate-600 dark:text-slate-400 font-mono">
+                <li>• <strong className="text-slate-900 dark:text-white">riderName</strong> (string, required): Return rider name</li>
+                <li>• <strong className="text-slate-900 dark:text-white">riderPhone</strong> (string, optional): Return rider phone</li>
+                <li>• <strong className="text-slate-900 dark:text-white">location</strong> (string, optional): Hub or dispatch address</li>
+              </ul>
+            </div>
+            <div className="bg-slate-50 dark:bg-slate-800/60 p-3.5 rounded-xl border border-slate-200 dark:border-slate-800 space-y-1">
+              <span className="font-bold text-slate-900 dark:text-white block">200 OK Response:</span>
+              <ul className="space-y-1 text-slate-600 dark:text-slate-400 font-mono">
+                <li>• <strong className="text-emerald-600">success</strong>: true</li>
+                <li>• <strong className="text-emerald-600">status</strong>: &quot;ReturnInTransit&quot;</li>
+                <li>• <strong className="text-emerald-600">returnRider</strong>: Name &amp; contact record</li>
+              </ul>
+            </div>
+          </div>
+        </div>
+
+        {/* Endpoint 9: Store Received Return */}
+        <div className="bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-800 rounded-2xl p-6 sm:p-8 space-y-4 shadow-xs">
+          <div className="flex flex-wrap items-center justify-between gap-3 border-b border-slate-100 dark:border-slate-800 pb-4">
+            <div className="flex items-center gap-2.5">
+              <span className="bg-emerald-500 text-white font-extrabold text-xs px-2.5 py-1 rounded-lg uppercase">
+                POST
+              </span>
+              <code className="text-sm font-mono font-bold text-slate-900 dark:text-white">/shipments/[id]/store-received</code>
+            </div>
+            <span className="text-xs font-semibold text-blue-700 bg-blue-50 dark:bg-blue-950/60 dark:text-blue-300 px-2.5 py-0.5 rounded-full border border-blue-200 dark:border-blue-800 flex items-center gap-1">
+              <Building2 className="w-3 h-3" />
+              <span>Store Arrival</span>
+            </span>
+          </div>
+
+          <p className="text-xs sm:text-sm text-slate-600 dark:text-slate-400 leading-relaxed">
+            Confirms physical delivery of the returned package back at the merchant store or fulfillment center.
+            Updates package status to &quot;StoreReceived&quot;, releasing the return rider from custody and enabling resolution.
+          </p>
+
+          <div className="bg-slate-950 text-slate-100 rounded-xl p-4 font-mono text-xs overflow-x-auto relative">
+            <button
+              type="button"
+              onClick={() => copyToClipboard(codeExamples.storeReceived[activeLang], "storeReceived")}
+              className="absolute top-3 right-3 bg-slate-800 hover:bg-slate-700 text-slate-300 p-1.5 rounded-lg transition-colors cursor-pointer"
+              title="Copy code"
+            >
+              {copiedSnippet === "storeReceived" ? <Check className="w-4 h-4 text-emerald-400" /> : <Copy className="w-4 h-4" />}
+            </button>
+            <pre>{codeExamples.storeReceived[activeLang]}</pre>
+          </div>
+        </div>
+
+        {/* Endpoint 10: Settle Dispute & Auto-Restock */}
+        <div className="bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-800 rounded-2xl p-6 sm:p-8 space-y-4 shadow-xs">
+          <div className="flex flex-wrap items-center justify-between gap-3 border-b border-slate-100 dark:border-slate-800 pb-4">
+            <div className="flex items-center gap-2.5">
+              <span className="bg-emerald-500 text-white font-extrabold text-xs px-2.5 py-1 rounded-lg uppercase">
+                POST
+              </span>
+              <code className="text-sm font-mono font-bold text-slate-900 dark:text-white">/shipments/[id]/resolve</code>
+            </div>
+            <span className="text-xs font-semibold text-emerald-700 bg-emerald-50 dark:bg-emerald-950/60 dark:text-emerald-300 px-2.5 py-0.5 rounded-full border border-emerald-200 dark:border-emerald-800 flex items-center gap-1">
+              <Check className="w-3 h-3" />
+              <span>Auto-Settlement</span>
+            </span>
+          </div>
+
+          <p className="text-xs sm:text-sm text-slate-600 dark:text-slate-400 leading-relaxed">
+            Resolves a disputed shipment. Store owners or managers can choose{" "}
+            <code className="bg-slate-100 dark:bg-slate-800 px-1 rounded text-slate-800 dark:text-slate-200">RefundAndRestock</code>{" "}
+            (automatically voids linked sale slip and restores inventory stock),{" "}
+            <code className="bg-slate-100 dark:bg-slate-800 px-1 rounded text-slate-800 dark:text-slate-200">ExchangeReplacement</code>{" "}
+            (prepares for re-dispatch), or{" "}
+            <code className="bg-slate-100 dark:bg-slate-800 px-1 rounded text-slate-800 dark:text-slate-200">DisputeDismissed</code>.
+          </p>
+
+          <div className="bg-slate-950 text-slate-100 rounded-xl p-4 font-mono text-xs overflow-x-auto relative">
+            <button
+              type="button"
+              onClick={() => copyToClipboard(codeExamples.resolveDispute[activeLang], "resolveDispute")}
+              className="absolute top-3 right-3 bg-slate-800 hover:bg-slate-700 text-slate-300 p-1.5 rounded-lg transition-colors cursor-pointer"
+              title="Copy code"
+            >
+              {copiedSnippet === "resolveDispute" ? <Check className="w-4 h-4 text-emerald-400" /> : <Copy className="w-4 h-4" />}
+            </button>
+            <pre>{codeExamples.resolveDispute[activeLang]}</pre>
+          </div>
+        </div>
+
+        {/* Endpoint 11: Re-dispatch Replacement Package */}
+        <div className="bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-800 rounded-2xl p-6 sm:p-8 space-y-4 shadow-xs">
+          <div className="flex flex-wrap items-center justify-between gap-3 border-b border-slate-100 dark:border-slate-800 pb-4">
+            <div className="flex items-center gap-2.5">
+              <span className="bg-emerald-500 text-white font-extrabold text-xs px-2.5 py-1 rounded-lg uppercase">
+                POST
+              </span>
+              <code className="text-sm font-mono font-bold text-slate-900 dark:text-white">/shipments/[id]/redispatch</code>
+            </div>
+            <span className="text-xs font-semibold text-blue-700 bg-blue-50 dark:bg-blue-950/60 dark:text-blue-300 px-2.5 py-0.5 rounded-full border border-blue-200 dark:border-blue-800 flex items-center gap-1">
+              <RefreshCw className="w-3 h-3" />
+              <span>Re-Dispatch</span>
+            </span>
+          </div>
+
+          <p className="text-xs sm:text-sm text-slate-600 dark:text-slate-400 leading-relaxed">
+            Spawns a new tracked replacement shipment linked to the original dispute. Generates a fresh QR shipping label
+            and confidential scratch-off handover PIN for the recipient while maintaining historical audit continuity.
+          </p>
+
+          <div className="bg-slate-950 text-slate-100 rounded-xl p-4 font-mono text-xs overflow-x-auto relative">
+            <button
+              type="button"
+              onClick={() => copyToClipboard(codeExamples.redispatchShipment[activeLang], "redispatchShipment")}
+              className="absolute top-3 right-3 bg-slate-800 hover:bg-slate-700 text-slate-300 p-1.5 rounded-lg transition-colors cursor-pointer"
+              title="Copy code"
+            >
+              {copiedSnippet === "redispatchShipment" ? <Check className="w-4 h-4 text-emerald-400" /> : <Copy className="w-4 h-4" />}
+            </button>
+            <pre>{codeExamples.redispatchShipment[activeLang]}</pre>
+          </div>
+        </div>
+
+        {/* Endpoint 12: Edit Package Details */}
         <div className="bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-800 rounded-2xl p-6 sm:p-8 space-y-4 shadow-xs">
           <div className="flex flex-wrap items-center justify-between gap-3 border-b border-slate-100 dark:border-slate-800 pb-4">
             <div className="flex items-center gap-2.5">
@@ -366,7 +520,7 @@ export default function ApiEndpointsReference() {
           </div>
         </div>
 
-        {/* Endpoint 9: Public QR Generator */}
+        {/* Endpoint 13: Public QR Generator */}
         <div className="bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-800 rounded-2xl p-6 sm:p-8 space-y-4 shadow-xs">
           <div className="flex flex-wrap items-center justify-between gap-3 border-b border-slate-100 dark:border-slate-800 pb-4">
             <div className="flex items-center gap-2.5">
@@ -404,7 +558,7 @@ export default function ApiEndpointsReference() {
           </div>
         </div>
 
-        {/* Endpoint 10: API Health Status Check */}
+        {/* Endpoint 14: API Health Status Check */}
         <div className="bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-800 rounded-2xl p-6 sm:p-8 space-y-4 shadow-xs">
           <div className="flex flex-wrap items-center justify-between gap-3 border-b border-slate-100 dark:border-slate-800 pb-4">
             <div className="flex items-center gap-2.5">
