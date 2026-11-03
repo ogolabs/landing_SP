@@ -264,7 +264,7 @@ export const PLAN_TIERS: Record<string, PlanTierConfig> = {
   starter_500: {
     id: "starter_500",
     name: "Starter",
-    ngnMonthly: 500,
+    ngnMonthly: 1000,
     usdMonthly: 2.01,
     quota: 500,
     branches: 1,
@@ -276,7 +276,7 @@ export const PLAN_TIERS: Record<string, PlanTierConfig> = {
   growth_1000: {
     id: "growth_1000",
     name: "Growth",
-    ngnMonthly: 1000,
+    ngnMonthly: 2000,
     usdMonthly: 3.03,
     quota: 1000,
     branches: 2,
@@ -288,7 +288,7 @@ export const PLAN_TIERS: Record<string, PlanTierConfig> = {
   business_2500: {
     id: "business_2500",
     name: "Business",
-    ngnMonthly: 2500,
+    ngnMonthly: 5000,
     usdMonthly: 6.07,
     quota: 2500,
     branches: 3,
@@ -300,7 +300,7 @@ export const PLAN_TIERS: Record<string, PlanTierConfig> = {
   scale_5000: {
     id: "scale_5000",
     name: "Scale",
-    ngnMonthly: 5000,
+    ngnMonthly: 10000,
     usdMonthly: 11.14,
     quota: 5000,
     branches: 5,
@@ -311,10 +311,10 @@ export const PLAN_TIERS: Record<string, PlanTierConfig> = {
   },
 };
 
-export const OPERATIONS_OVERAGE_FEE_NGN = 1; // ₦1 per extra dispatch or digital receipt in Nigeria
+export const OPERATIONS_OVERAGE_FEE_NGN = 10; // ₦10 per extra dispatch or digital receipt in Nigeria
 export const OPERATIONS_OVERAGE_FEE_USD = 0.003; // $0.003 per extra dispatch or digital receipt for non-Nigeria
 
-export const BRANCH_STAFF_OVERAGE_FEE_NGN = 10; // ₦10 per extra branch or sales rep in Nigeria
+export const BRANCH_STAFF_OVERAGE_FEE_NGN = 100; // ₦100 per extra branch or sales rep in Nigeria
 export const BRANCH_STAFF_OVERAGE_FEE_USD = 0.1; // $0.10 per extra branch or sales rep for non-Nigeria
 
 export const OVERAGE_FEE_NGN = OPERATIONS_OVERAGE_FEE_NGN;
@@ -477,7 +477,7 @@ export function convertUsdPrice(usdAmount: number, currencyInfo?: UserCurrencyIn
 
 /**
  * Formats accrued overage charges for the merchant dashboard.
- * If user is Nigerian, formatted as integer Naira (₦1 per excess unit).
+ * If user is Nigerian, formatted as integer Naira (₦10 per excess unit).
  * If non-Nigerian, formatted in single local currency using USD micro-fee rate ($0.003 per unit).
  */
 export function formatOverageCharges(amount: number, currencyInfo?: UserCurrencyInfo | null): string {
