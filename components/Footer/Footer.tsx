@@ -7,7 +7,7 @@ import {
   Zap,
   Lock,
   Globe2,
-  Terminal,
+  // Terminal,
   Store,
   ExternalLink,
 } from "lucide-react";
@@ -52,8 +52,8 @@ export default function Footer() {
           </div>
         </div>
 
-        {/* 4 Navigation Columns */}
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8 lg:gap-10 pb-12">
+        {/* Navigation Columns */}
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8 lg:gap-10 pb-12">
           {/* Col 1: Solutions */}
           <div className="space-y-3.5">
             <h4 className="text-xs font-bold uppercase tracking-wider text-slate-900 dark:text-white font-display flex items-center gap-2">
@@ -94,7 +94,7 @@ export default function Footer() {
             </ul>
           </div>
 
-          {/* Col 2: Platform & API */}
+          {/* Col 2: Platform & API - Temporarily commented out
           <div className="space-y-3.5">
             <h4 className="text-xs xl:text-sm font-bold uppercase tracking-wider text-slate-900 dark:text-white font-display flex items-center gap-2">
               <Terminal className="w-4 h-4 text-indigo-600 dark:text-indigo-400" />
@@ -128,8 +128,9 @@ export default function Footer() {
               </li>
             </ul>
           </div>
+          */}
 
-          {/* Col 3: Trust & Company */}
+          {/* Col 2 (Formerly Col 3): Trust & Company */}
           <div className="space-y-3.5">
             <h4 className="text-xs xl:text-sm font-bold uppercase tracking-wider text-slate-900 dark:text-white font-display flex items-center gap-2">
               <ShieldCheck className="w-4 h-4 text-emerald-600 dark:text-emerald-400" />
@@ -225,10 +226,10 @@ export default function Footer() {
             <Link href="/terms" className="hover:text-slate-900 dark:hover:text-white transition-colors">
               Terms of Service
             </Link>
-            <span className="text-slate-300 dark:text-slate-700">•</span>
+            {/* <span className="text-slate-300 dark:text-slate-700">•</span>
             <Link href="/developers" className="hover:text-slate-900 dark:hover:text-white transition-colors">
               API Docs
-            </Link>
+            </Link> */}
           </div>
         </div>
 
