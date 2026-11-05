@@ -9,7 +9,8 @@ export default function AboutPage() {
   const salesBookUrl = `${APP_BASE_URL}/receipts/new`;
   const inventoryUrl = `${APP_BASE_URL}/workspace?tab=inventory`;
   const shipmentsUrl = `${APP_BASE_URL}/shipments`;
-  const teamUrl = `${APP_BASE_URL}/workspace?tab=team`;
+  const vendorsUrl = `${APP_BASE_URL}/workspace?tab=vendors`;
+  const teamUrl = `${APP_BASE_URL}/settings`;
 
   const steps = [
     {
@@ -34,8 +35,13 @@ export default function AboutPage() {
     },
     {
       num: "05",
+      title: "Wholesale Vendors & Accounts Payable (AP)",
+      desc: "Maintain full wholesale supplier profiles with verified bank remittance details. Record purchase bills with automatic branch stock replenishment, track supplier debt across 30/60/90+ day aging maturity buckets, and compare item prices across vendors to safeguard store profit margins.",
+    },
+    {
+      num: "06",
       title: "Permanent Audit Trails & Proof Records",
-      desc: "Every receipt issued, debtor settlement recorded, and package handover completed is certified with an immutable verification code, ensuring complete operational transparency for store owners.",
+      desc: "Every receipt issued, debtor settlement recorded, purchase bill logged, and package handover completed is certified with an immutable verification code, ensuring complete operational transparency for store owners.",
     },
   ];
 
@@ -60,7 +66,7 @@ export default function AboutPage() {
               Modern Commerce Without Paper Waste
             </h1>
             <p className="text-sm sm:text-base lg:text-lg xl:text-xl 2xl:text-2xl text-slate-600 dark:text-slate-400 leading-relaxed">
-              Record sales, track inventory, manage staff, and verify shipments. Switch to SellerPadi for smart QR receipts and multi-branch stock control that bridge in-store purchases, delivery handovers, and store bookkeeping into one cohesive system.
+              Record sales, track inventory, manage vendor bills, supervise staff, and verify shipments. Switch to SellerPadi for smart QR receipts, multi-branch stock control, and accounts payable that bridge in-store purchases, supplier procurement, and delivery handovers into one cohesive system.
             </p>
           </div>
 
@@ -145,6 +151,15 @@ export default function AboutPage() {
                   Doorstep dispute filing, verified return rider custody stamps, and 1-click restock or re-dispatch for rejected items.
                 </p>
               </div>
+
+              <div className="space-y-2 xl:space-y-2.5">
+                <h4 className="font-bold text-slate-900 dark:text-white flex items-center gap-1.5 xl:gap-2 text-sm xl:text-lg">
+                  <Building2 className="w-4 h-4 xl:w-5 xl:h-5 text-blue-700 dark:text-blue-400" /> Vendor Remittance &amp; Debt Safeguards
+                </h4>
+                <p className="text-slate-600 dark:text-slate-400">
+                  Wholesale purchase bills, payment ledgers, and supplier bank remittance details are stored with permanent actor audit stamps and overdue maturity tracking.
+                </p>
+              </div>
             </div>
           </div>
 
@@ -157,7 +172,7 @@ export default function AboutPage() {
               </p>
             </div>
 
-            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-5 xl:gap-8 text-xs sm:text-sm">
+            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-5 gap-5 xl:gap-8 text-xs sm:text-sm">
               <div className="space-y-2 bg-emerald-50/50 dark:bg-emerald-950/20 p-5 xl:p-8 rounded-xl xl:rounded-2xl border border-emerald-200/60 dark:border-emerald-900/60 flex flex-col justify-between">
                 <div>
                   <h4 className="font-bold text-slate-900 dark:text-white flex items-center gap-1.5 xl:gap-2 text-sm sm:text-base xl:text-xl">
@@ -218,6 +233,22 @@ export default function AboutPage() {
                 <div className="pt-3">
                   <a href={teamUrl} className="text-xs sm:text-sm xl:text-base font-bold text-blue-600 dark:text-blue-400 hover:underline flex items-center gap-1">
                     <span>Manage Team</span> <ArrowRight className="w-3.5 h-3.5 xl:w-4 xl:h-4" />
+                  </a>
+                </div>
+              </div>
+
+              <div className="space-y-2 bg-blue-50/50 dark:bg-blue-950/20 p-5 xl:p-8 rounded-xl xl:rounded-2xl border border-blue-200/60 dark:border-blue-900/60 flex flex-col justify-between">
+                <div>
+                  <h4 className="font-bold text-slate-900 dark:text-white flex items-center gap-1.5 xl:gap-2 text-sm sm:text-base xl:text-xl">
+                    <Building2 className="w-4 h-4 xl:w-5 xl:h-5 text-blue-700 dark:text-blue-400" /> Vendors &amp; AP Suite
+                  </h4>
+                  <p className="text-xs sm:text-sm xl:text-base text-slate-600 dark:text-slate-400 leading-relaxed mt-1">
+                    Record purchase bills, track supplier debt, and monitor AP aging buckets.
+                  </p>
+                </div>
+                <div className="pt-3">
+                  <a href={vendorsUrl} className="text-xs sm:text-sm xl:text-base font-bold text-blue-700 dark:text-blue-400 hover:underline flex items-center gap-1">
+                    <span>Manage Vendors</span> <ArrowRight className="w-3.5 h-3.5 xl:w-4 xl:h-4" />
                   </a>
                 </div>
               </div>

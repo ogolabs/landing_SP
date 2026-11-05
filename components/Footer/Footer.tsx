@@ -81,7 +81,12 @@ export default function Footer() {
                 </a>
               </li>
               <li>
-                <a href={`${APP_BASE_URL}/workspace?tab=team`} className="hover:text-blue-600 dark:hover:text-white transition-colors">
+                <a href={`${APP_BASE_URL}/workspace?tab=vendors`} className="hover:text-blue-600 dark:hover:text-white transition-colors">
+                  Vendor Directory &amp; Accounts Payable
+                </a>
+              </li>
+              <li>
+                <a href={`${APP_BASE_URL}/settings`} className="hover:text-blue-600 dark:hover:text-white transition-colors">
                   Multi-Branch &amp; Staff Roles
                 </a>
               </li>

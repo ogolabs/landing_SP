@@ -441,6 +441,32 @@ export default function PricingPage() {
                       </div>
                     </div>
 
+                    {/* Full Vendor Directory & AP Tracking */}
+                    <div className="flex items-start gap-2.5">
+                      <Check className="w-4 h-4 xl:w-5 xl:h-5 text-emerald-600 dark:text-emerald-400 shrink-0 mt-0.5" />
+                      <div className="leading-tight">
+                        <span className="font-semibold text-slate-900 dark:text-white">
+                          Full Vendor Directory &amp; Accounts Payable
+                        </span>
+                        <span className="block text-[11px] sm:text-xs text-slate-500 dark:text-slate-400 mt-0.5">
+                          Supplier profiles, bank remittance details, purchase bills &amp; debt ledgers
+                        </span>
+                      </div>
+                    </div>
+
+                    {/* AP Aging & Multi-Supplier Price Matrix */}
+                    <div className="flex items-start gap-2.5">
+                      <Check className="w-4 h-4 xl:w-5 xl:h-5 text-emerald-600 dark:text-emerald-400 shrink-0 mt-0.5" />
+                      <div className="leading-tight">
+                        <span className="font-semibold text-slate-900 dark:text-white">
+                          30/60/90+ Day AP Aging &amp; Price Matrix
+                        </span>
+                        <span className="block text-[11px] sm:text-xs text-slate-500 dark:text-slate-400 mt-0.5">
+                          Overdue debt maturity buckets, 90-day spend analytics &amp; SKU price comparisons
+                        </span>
+                      </div>
+                    </div>
+
                     {/* Universal Overage Line */}
                     <div className="flex items-start gap-2.5 pt-1.5 border-t border-slate-100 dark:border-slate-800">
                       <ShieldCheck className="w-4 h-4 xl:w-5 xl:h-5 text-emerald-600 dark:text-emerald-400 shrink-0 mt-0.5" />
