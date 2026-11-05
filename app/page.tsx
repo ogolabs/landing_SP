@@ -34,7 +34,8 @@ export default function Home() {
   const inventoryUrl = `${APP_BASE_URL}/workspace?tab=inventory`;
   const shipmentsUrl = `${APP_BASE_URL}/shipments`;
   const workspaceUrl = `${APP_BASE_URL}/workspace`;
-  const teamUrl = `${APP_BASE_URL}/workspace?tab=team`;
+  const vendorsUrl = `${APP_BASE_URL}/workspace?tab=vendors`;
+  const teamUrl = `${APP_BASE_URL}/settings`;
 
   const overageText = userCurrency
     ? `universal ${convertNgnPrice(OVERAGE_FEE_NGN, userCurrency).formattedLocal} overage fees`
@@ -75,18 +76,20 @@ export default function Home() {
                   <span className="text-blue-400/80 dark:text-blue-500/80">·</span>
                   <span className="text-blue-900 dark:text-blue-100 font-extrabold">Inventory &amp; Sales Book</span>
                   <span className="text-blue-400/80 dark:text-blue-500/80">·</span>
+                  <span>Vendor AP Bills</span>
+                  <span className="text-blue-400/80 dark:text-blue-500/80">·</span>
                   <span>Package Tracking</span>
                 </span>
               </div>
 
               {/* Master Pitch Headline */}
               <h1 className="text-2xl sm:text-4xl lg:text-6xl xl:text-7xl 2xl:text-8xl font-extrabold tracking-tight text-slate-900 dark:text-white font-display leading-[1.12] sm:leading-[1.08] xl:leading-[1.04] wrap-break-word">
-                Record sales, track inventory, and verify shipments.
+                Record sales, track inventory, manage vendor bills, and verify shipments.
               </h1>
 
               {/* Sub-headline */}
               <p className="text-base sm:text-lg lg:text-xl xl:text-2xl 2xl:text-3xl text-slate-600 dark:text-slate-300 leading-relaxed max-w-2xl lg:max-w-3xl xl:max-w-4xl 2xl:max-w-5xl mx-auto font-normal">
-                Switch to <span className="font-bold text-slate-900 dark:text-white">SellerPadi</span> for smart QR receipts and multi-branch stock control. Replace lost paper slips, unverified deliveries, and manual stocktaking with verified digital records for your store.
+                Switch to <span className="font-bold text-slate-900 dark:text-white">SellerPadi</span> for smart QR receipts, multi-branch stock control, and vendor accounts payable. Replace lost paper slips, supplier payment confusion, and unverified deliveries with verified digital records for your store.
               </p>
 
               {/* Action CTAs */}
@@ -148,11 +151,11 @@ export default function Home() {
                 Engineered for Modern Retail &amp; Commerce
               </h2>
               <p className="text-xs sm:text-sm lg:text-base xl:text-lg 2xl:text-xl text-slate-600 dark:text-slate-400 leading-relaxed">
-                Everything you need to issue digital sales slips, track customer balances, dispatch goods safely, and supervise your team.
+                Everything you need to issue digital sales slips, track customer balances, dispatch goods safely, manage vendor debt, and supervise your team.
               </p>
             </div>
 
-            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 xl:gap-8">
+            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 xl:gap-8">
               {/* Pillar 1: Smart QR Receipts & Digital Sales Book */}
               <div className="bg-slate-50 dark:bg-slate-950/70 border border-slate-200 dark:border-slate-800 rounded-3xl p-5 sm:p-7 xl:p-8 space-y-5 flex flex-col justify-between shadow-2xs hover:border-slate-300 dark:hover:border-slate-700 transition-all">
                 <div className="space-y-4">
@@ -345,6 +348,56 @@ export default function Home() {
                     className="text-xs sm:text-sm font-bold text-slate-700 dark:text-slate-300 hover:underline inline-flex items-center gap-1"
                   >
                     Manage Team &amp; Branches →
+                  </a>
+                </div>
+              </div>
+
+              {/* Pillar 5: Vendor Directory & Accounts Payable (AP) */}
+              <div className="bg-slate-50 dark:bg-slate-950/70 border border-slate-200 dark:border-slate-800 rounded-3xl p-5 sm:p-7 xl:p-8 space-y-5 flex flex-col justify-between shadow-2xs hover:border-slate-300 dark:hover:border-slate-700 transition-all">
+                <div className="space-y-4">
+                  <div className="w-11 h-11 xl:w-13 xl:h-13 rounded-2xl bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-800 flex items-center justify-center text-blue-700 dark:text-blue-400 shadow-2xs">
+                    <Building2 className="w-6 h-6 xl:w-7 xl:h-7" />
+                  </div>
+                  <div>
+                    <span className="inline-flex items-center px-2.5 py-0.5 rounded-full bg-blue-50 dark:bg-blue-950/60 border border-blue-200/80 dark:border-blue-800/60 text-[10px] sm:text-[11px] xl:text-xs font-bold text-blue-700 dark:text-blue-400 uppercase tracking-wider">
+                      Accounts Payable
+                    </span>
+                    <h3 className="text-base sm:text-lg xl:text-xl font-bold text-slate-900 dark:text-white font-display mt-1.5">
+                      Vendors &amp; AP Suite
+                    </h3>
+                  </div>
+                  <p className="text-xs sm:text-sm text-slate-600 dark:text-slate-400 leading-relaxed">
+                    Manage supplier profiles, record purchase bills, track outstanding debt with 30/60/90+ day aging buckets, and compare prices across vendors.
+                  </p>
+                  <ul className="space-y-2 text-xs sm:text-sm text-slate-600 dark:text-slate-400">
+                    <li className="flex items-center gap-2">
+                      <span className="h-1.5 w-1.5 rounded-full bg-blue-600 shrink-0" />
+                      <span>Full vendor directory with bank remittance copy</span>
+                    </li>
+                    <li className="flex items-center gap-2">
+                      <span className="h-1.5 w-1.5 rounded-full bg-blue-600 shrink-0" />
+                      <span>Purchase bills with auto-stock replenishment</span>
+                    </li>
+                    <li className="flex items-center gap-2">
+                      <span className="h-1.5 w-1.5 rounded-full bg-blue-600 shrink-0" />
+                      <span>30/60/90+ day overdue debt maturity reports</span>
+                    </li>
+                    <li className="flex items-center gap-2">
+                      <span className="h-1.5 w-1.5 rounded-full bg-blue-600 shrink-0" />
+                      <span>Multi-supplier SKU price comparison matrix</span>
+                    </li>
+                    <li className="flex items-center gap-2">
+                      <span className="h-1.5 w-1.5 rounded-full bg-blue-600 shrink-0" />
+                      <span>3-month supplier spend analytics &amp; partial settlement</span>
+                    </li>
+                  </ul>
+                </div>
+                <div className="pt-4 border-t border-slate-200/80 dark:border-slate-800">
+                  <a
+                    href={vendorsUrl}
+                    className="text-xs sm:text-sm font-bold text-blue-700 dark:text-blue-400 hover:underline inline-flex items-center gap-1"
+                  >
+                    Manage Vendors &amp; AP →
                   </a>
                 </div>
               </div>
