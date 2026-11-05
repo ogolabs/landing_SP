@@ -343,12 +343,12 @@ export default function PricingComparisonTable({ userCurrency }: PricingComparis
   const renderValue = (val: string | boolean) => {
     if (typeof val === "boolean") {
       return val ? (
-        <Check className="w-4 h-4 text-emerald-600 dark:text-emerald-400 mx-auto" />
+        <Check className="w-4 h-4 text-emerald-600 dark:text-emerald-400 mx-auto shrink-0" />
       ) : (
-        <Minus className="w-4 h-4 text-slate-300 dark:text-slate-600 mx-auto" />
+        <Minus className="w-4 h-4 text-slate-300 dark:text-slate-600 mx-auto shrink-0" />
       );
     }
-    return <span className="font-semibold text-slate-900 dark:text-white">{val}</span>;
+    return <span className="font-semibold text-slate-900 dark:text-white whitespace-nowrap">{val}</span>;
   };
 
   return (
@@ -364,32 +364,32 @@ export default function PricingComparisonTable({ userCurrency }: PricingComparis
 
       {/* Overflow wrapper for table responsiveness */}
       <div className="overflow-x-auto -mx-4 sm:mx-0 px-4 sm:px-0">
-        <table className="w-full min-w-190 text-left border-collapse text-xs sm:text-sm">
+        <table className="w-full min-w-190 text-left border-collapse text-xs sm:text-sm whitespace-nowrap">
           {/* Table Header */}
           <thead>
             <tr className="border-b border-slate-200 dark:border-slate-800">
-              <th className="py-4 px-3 sm:px-4 text-slate-500 dark:text-slate-400 font-bold uppercase tracking-wider text-[11px] sm:text-xs w-1/4">
+              <th className="py-4 px-3 sm:px-4 text-slate-500 dark:text-slate-400 font-bold uppercase tracking-wider text-[11px] sm:text-xs w-1/4 whitespace-nowrap">
                 Plan Feature
               </th>
-              <th className="py-4 px-3 sm:px-4 text-center">
-                <div className="font-extrabold text-slate-900 dark:text-white text-sm sm:text-base">Free</div>
-                <div className="text-[11px] sm:text-xs text-slate-500 font-normal">{freePrice}</div>
+              <th className="py-4 px-3 sm:px-4 text-center whitespace-nowrap">
+                <div className="font-extrabold text-slate-900 dark:text-white text-sm sm:text-base whitespace-nowrap">Free</div>
+                <div className="text-[11px] sm:text-xs text-slate-500 font-normal whitespace-nowrap">{freePrice}</div>
               </th>
-              <th className="py-4 px-3 sm:px-4 text-center">
-                <div className="font-extrabold text-slate-900 dark:text-white text-sm sm:text-base">Starter</div>
-                <div className="text-[11px] sm:text-xs text-slate-500 font-normal">{starterPrice}</div>
+              <th className="py-4 px-3 sm:px-4 text-center whitespace-nowrap">
+                <div className="font-extrabold text-slate-900 dark:text-white text-sm sm:text-base whitespace-nowrap">Starter</div>
+                <div className="text-[11px] sm:text-xs text-slate-500 font-normal whitespace-nowrap">{starterPrice}</div>
               </th>
-              <th className="py-4 px-3 sm:px-4 text-center bg-blue-50/50 dark:bg-blue-950/20 border-x border-blue-200/50 dark:border-blue-800/40">
-                <div className="font-extrabold text-blue-600 dark:text-blue-400 text-sm sm:text-base">Growth</div>
-                <div className="text-[11px] sm:text-xs text-blue-600/80 dark:text-blue-400/80 font-normal">{growthPrice}</div>
+              <th className="py-4 px-3 sm:px-4 text-center bg-blue-50/50 dark:bg-blue-950/20 border-x border-blue-200/50 dark:border-blue-800/40 whitespace-nowrap">
+                <div className="font-extrabold text-blue-600 dark:text-blue-400 text-sm sm:text-base whitespace-nowrap">Growth</div>
+                <div className="text-[11px] sm:text-xs text-blue-600/80 dark:text-blue-400/80 font-normal whitespace-nowrap">{growthPrice}</div>
               </th>
-              <th className="py-4 px-3 sm:px-4 text-center">
-                <div className="font-extrabold text-slate-900 dark:text-white text-sm sm:text-base">Business</div>
-                <div className="text-[11px] sm:text-xs text-slate-500 font-normal">{businessPrice}</div>
+              <th className="py-4 px-3 sm:px-4 text-center whitespace-nowrap">
+                <div className="font-extrabold text-slate-900 dark:text-white text-sm sm:text-base whitespace-nowrap">Business</div>
+                <div className="text-[11px] sm:text-xs text-slate-500 font-normal whitespace-nowrap">{businessPrice}</div>
               </th>
-              <th className="py-4 px-3 sm:px-4 text-center">
-                <div className="font-extrabold text-slate-900 dark:text-white text-sm sm:text-base">Scale</div>
-                <div className="text-[11px] sm:text-xs text-slate-500 font-normal">{scalePrice}</div>
+              <th className="py-4 px-3 sm:px-4 text-center whitespace-nowrap">
+                <div className="font-extrabold text-slate-900 dark:text-white text-sm sm:text-base whitespace-nowrap">Scale</div>
+                <div className="text-[11px] sm:text-xs text-slate-500 font-normal whitespace-nowrap">{scalePrice}</div>
               </th>
             </tr>
           </thead>
@@ -401,7 +401,7 @@ export default function PricingComparisonTable({ userCurrency }: PricingComparis
                 <tr className="bg-slate-50 dark:bg-slate-800/50">
                   <td
                     colSpan={6}
-                    className="py-2.5 px-3 sm:px-4 text-[11px] sm:text-xs font-extrabold uppercase tracking-wider text-slate-700 dark:text-slate-300 border-t border-b border-slate-200 dark:border-slate-800"
+                    className="py-2.5 px-3 sm:px-4 text-[11px] sm:text-xs font-extrabold uppercase tracking-wider text-slate-700 dark:text-slate-300 border-t border-b border-slate-200 dark:border-slate-800 whitespace-nowrap"
                   >
                     {section.title}
                   </td>
@@ -412,23 +412,23 @@ export default function PricingComparisonTable({ userCurrency }: PricingComparis
                     key={`row-${sIdx}-${rIdx}`}
                     className="border-b border-slate-100 dark:border-slate-800/60 hover:bg-slate-50/60 dark:hover:bg-slate-800/20 transition-colors"
                   >
-                    <td className="py-3 px-3 sm:px-4 text-slate-700 dark:text-slate-300 font-medium">
-                      <div className="flex items-center gap-1.5">
+                    <td className="py-3 px-3 sm:px-4 text-slate-700 dark:text-slate-300 font-medium whitespace-nowrap">
+                      <div className="flex items-center gap-1.5 whitespace-nowrap">
                         <span>{row.name}</span>
                         {row.tooltip && (
-                          <span title={row.tooltip} className="cursor-help text-slate-400 hover:text-slate-600 dark:hover:text-slate-200">
+                          <span title={row.tooltip} className="cursor-help text-slate-400 hover:text-slate-600 dark:hover:text-slate-200 shrink-0">
                             <HelpCircle className="w-3.5 h-3.5" />
                           </span>
                         )}
                       </div>
                     </td>
-                    <td className="py-3 px-3 sm:px-4 text-center">{renderValue(row.free)}</td>
-                    <td className="py-3 px-3 sm:px-4 text-center">{renderValue(row.starter)}</td>
-                    <td className="py-3 px-3 sm:px-4 text-center bg-blue-50/30 dark:bg-blue-950/10 border-x border-blue-200/50 dark:border-blue-800/40">
+                    <td className="py-3 px-3 sm:px-4 text-center whitespace-nowrap">{renderValue(row.free)}</td>
+                    <td className="py-3 px-3 sm:px-4 text-center whitespace-nowrap">{renderValue(row.starter)}</td>
+                    <td className="py-3 px-3 sm:px-4 text-center bg-blue-50/30 dark:bg-blue-950/10 border-x border-blue-200/50 dark:border-blue-800/40 whitespace-nowrap">
                       {renderValue(row.growth)}
                     </td>
-                    <td className="py-3 px-3 sm:px-4 text-center">{renderValue(row.business)}</td>
-                    <td className="py-3 px-3 sm:px-4 text-center">{renderValue(row.scale)}</td>
+                    <td className="py-3 px-3 sm:px-4 text-center whitespace-nowrap">{renderValue(row.business)}</td>
+                    <td className="py-3 px-3 sm:px-4 text-center whitespace-nowrap">{renderValue(row.scale)}</td>
                   </tr>
                 ))}
               </tr>
@@ -438,43 +438,43 @@ export default function PricingComparisonTable({ userCurrency }: PricingComparis
           {/* Action Footer */}
           <tfoot>
             <tr className="border-t border-slate-200 dark:border-slate-800">
-              <td className="py-4 px-3 sm:px-4 font-bold text-slate-900 dark:text-white">Get Started</td>
-              <td className="py-4 px-3 sm:px-4 text-center">
+              <td className="py-4 px-3 sm:px-4 font-bold text-slate-900 dark:text-white whitespace-nowrap">Get Started</td>
+              <td className="py-4 px-3 sm:px-4 text-center whitespace-nowrap">
                 <a
                   href={`${APP_BASE_URL}/workspace`}
-                  className="inline-block py-2 px-3 rounded-lg text-xs font-bold bg-slate-100 dark:bg-slate-800 hover:bg-slate-200 dark:hover:bg-slate-700 text-slate-900 dark:text-white transition-colors"
+                  className="inline-block py-2 px-3 rounded-lg text-xs font-bold bg-slate-100 dark:bg-slate-800 hover:bg-slate-200 dark:hover:bg-slate-700 text-slate-900 dark:text-white transition-colors whitespace-nowrap shrink-0"
                 >
                   Start Free
                 </a>
               </td>
-              <td className="py-4 px-3 sm:px-4 text-center">
+              <td className="py-4 px-3 sm:px-4 text-center whitespace-nowrap">
                 <a
                   href={`${APP_BASE_URL}/settings?plan=starter_500`}
-                  className="inline-block py-2 px-3 rounded-lg text-xs font-bold bg-slate-100 dark:bg-slate-800 hover:bg-slate-200 dark:hover:bg-slate-700 text-slate-900 dark:text-white transition-colors"
+                  className="inline-block py-2 px-3 rounded-lg text-xs font-bold bg-slate-100 dark:bg-slate-800 hover:bg-slate-200 dark:hover:bg-slate-700 text-slate-900 dark:text-white transition-colors whitespace-nowrap shrink-0"
                 >
                   Choose Starter
                 </a>
               </td>
-              <td className="py-4 px-3 sm:px-4 text-center bg-blue-50/50 dark:bg-blue-950/20 border-x border-blue-200/50 dark:border-blue-800/40">
+              <td className="py-4 px-3 sm:px-4 text-center bg-blue-50/50 dark:bg-blue-950/20 border-x border-blue-200/50 dark:border-blue-800/40 whitespace-nowrap">
                 <a
                   href={`${APP_BASE_URL}/settings?plan=growth_1000`}
-                  className="inline-block py-2 px-3 rounded-lg text-xs font-bold bg-blue-600 hover:bg-blue-700 text-white transition-colors shadow-2xs"
+                  className="inline-block py-2 px-3 rounded-lg text-xs font-bold bg-blue-600 hover:bg-blue-700 text-white transition-colors shadow-2xs whitespace-nowrap shrink-0"
                 >
                   Choose Growth
                 </a>
               </td>
-              <td className="py-4 px-3 sm:px-4 text-center">
+              <td className="py-4 px-3 sm:px-4 text-center whitespace-nowrap">
                 <a
                   href={`${APP_BASE_URL}/settings?plan=business_2500`}
-                  className="inline-block py-2 px-3 rounded-lg text-xs font-bold bg-slate-100 dark:bg-slate-800 hover:bg-slate-200 dark:hover:bg-slate-700 text-slate-900 dark:text-white transition-colors"
+                  className="inline-block py-2 px-3 rounded-lg text-xs font-bold bg-slate-100 dark:bg-slate-800 hover:bg-slate-200 dark:hover:bg-slate-700 text-slate-900 dark:text-white transition-colors whitespace-nowrap shrink-0"
                 >
                   Choose Business
                 </a>
               </td>
-              <td className="py-4 px-3 sm:px-4 text-center">
+              <td className="py-4 px-3 sm:px-4 text-center whitespace-nowrap">
                 <a
                   href={`${APP_BASE_URL}/settings?plan=scale_5000`}
-                  className="inline-block py-2 px-3 rounded-lg text-xs font-bold bg-slate-100 dark:bg-slate-800 hover:bg-slate-200 dark:hover:bg-slate-700 text-slate-900 dark:text-white transition-colors"
+                  className="inline-block py-2 px-3 rounded-lg text-xs font-bold bg-slate-100 dark:bg-slate-800 hover:bg-slate-200 dark:hover:bg-slate-700 text-slate-900 dark:text-white transition-colors whitespace-nowrap shrink-0"
                 >
                   Choose Scale
                 </a>

@@ -72,7 +72,7 @@ export default function LiveNetworkStats() {
           </div>
 
           {/* Card 2: Inventory Items Tracked */}
-          <div className="border-r border-slate-200/70 dark:border-slate-800/80 pr-4 pb-4 sm:pb-0">
+          <div className="border-r-0 sm:border-r border-slate-200/70 dark:border-slate-800/80 pr-0 sm:pr-4 pb-4 sm:pb-0">
             <span className="text-[10px] sm:text-xs xl:text-sm font-mono uppercase tracking-widest text-slate-400 dark:text-slate-500 font-bold block">
               Inventory Tracked
             </span>
@@ -90,7 +90,7 @@ export default function LiveNetworkStats() {
           </div>
 
           {/* Card 3: Shipments Created */}
-          <div className="border-r-0 sm:border-r border-slate-200/70 dark:border-slate-800/80 pr-0 sm:pr-4 pb-4 sm:pb-0">
+          <div className="border-r sm:border-r border-slate-200/70 dark:border-slate-800/80 pr-4 pb-4 sm:pb-0">
             <span className="text-[10px] sm:text-xs xl:text-sm font-mono uppercase tracking-widest text-slate-400 dark:text-slate-500 font-bold block">
               Shipments Created
             </span>
@@ -108,7 +108,7 @@ export default function LiveNetworkStats() {
           </div>
 
           {/* Card 4: Active Branches */}
-          <div className="border-r border-slate-200/70 dark:border-slate-800/80 pr-4 pt-2 sm:pt-0">
+          <div className="border-r-0 sm:border-r border-slate-200/70 dark:border-slate-800/80 pr-0 sm:pr-4 pt-2 sm:pt-0">
             <span className="text-[10px] sm:text-xs xl:text-sm font-mono uppercase tracking-widest text-slate-400 dark:text-slate-500 font-bold block">
               Active Branches
             </span>

@@ -27,7 +27,7 @@ export default function InventoryPage() {
           <div className="max-w-[1920px] 2xl:max-w-[2400px] w-full mx-auto px-4 sm:px-6 lg:px-12 xl:px-16 2xl:px-20 space-y-8">
             <div className="max-w-4xl mx-auto text-center space-y-5">
               <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-teal-50 dark:bg-teal-950/70 border border-teal-200 dark:border-teal-800 text-xs font-bold text-teal-700 dark:text-teal-400">
-                <Boxes className="w-3.5 h-3.5" />
+                <Boxes className="w-3.5 h-3.5 shrink-0" />
                 <span>Multi-Branch Inventory &amp; Stock Control</span>
               </div>
 
@@ -128,23 +128,23 @@ export default function InventoryPage() {
               </div>
 
               <div className="space-y-2.5 pt-2">
-                <div className="p-3 rounded-2xl bg-slate-50 dark:bg-slate-800/40 border border-slate-200/80 dark:border-slate-800 flex items-center justify-between text-xs">
+                <div className="p-3 rounded-2xl bg-slate-50 dark:bg-slate-800/40 border border-slate-200/80 dark:border-slate-800 flex flex-col sm:flex-row sm:items-center justify-between gap-1.5 text-xs">
                   <div>
                     <div className="font-bold text-slate-900 dark:text-white">Smart Solar Inverter 3.5kVA</div>
                     <div className="text-[11px] text-slate-500 font-mono">SKU: INV-35KVA · Ikeja Store</div>
                   </div>
-                  <div className="text-right font-mono">
+                  <div className="text-left sm:text-right font-mono shrink-0">
                     <span className="font-bold text-slate-900 dark:text-white block">14 in stock</span>
                     <span className="text-[10px] text-emerald-600">Cost: ₦180k · Sell: ₦245k</span>
                   </div>
                 </div>
 
-                <div className="p-3 rounded-2xl bg-slate-50 dark:bg-slate-800/40 border border-slate-200/80 dark:border-slate-800 flex items-center justify-between text-xs">
+                <div className="p-3 rounded-2xl bg-slate-50 dark:bg-slate-800/40 border border-slate-200/80 dark:border-slate-800 flex flex-col sm:flex-row sm:items-center justify-between gap-1.5 text-xs">
                   <div>
                     <div className="font-bold text-slate-900 dark:text-white">Deep Cycle Tubular Battery 220Ah</div>
                     <div className="text-[11px] text-slate-500 font-mono">SKU: BAT-220AH · VI Store</div>
                   </div>
-                  <div className="text-right font-mono">
+                  <div className="text-left sm:text-right font-mono shrink-0">
                     <span className="font-bold text-rose-600 dark:text-rose-400 block">3 in stock (Low)</span>
                     <span className="text-[10px] text-emerald-600">Cost: ₦140k · Sell: ₦185k</span>
                   </div>

@@ -34,19 +34,19 @@ export default function Footer() {
 
           {/* Live Network & Security Telemetry */}
           <div className="flex items-center flex-wrap gap-2.5 sm:gap-3 text-xs">
-            <div className="inline-flex items-center gap-2 px-3 py-1.5 rounded-xl bg-slate-50 dark:bg-slate-900 border border-slate-200 dark:border-slate-800 text-slate-700 dark:text-slate-300 font-medium">
+            <div className="inline-flex items-center gap-2 px-3 py-1.5 rounded-xl bg-slate-50 dark:bg-slate-900 border border-slate-200 dark:border-slate-800 text-slate-700 dark:text-slate-300 font-medium whitespace-nowrap shrink-0">
               <span className="w-2 h-2 rounded-full bg-emerald-500 animate-pulse shrink-0" />
-              <span className="font-mono text-[11px]">
+              <span className="font-mono text-[11px] whitespace-nowrap">
                 {isTestnet ? "Testnet Operational" : "Mainnet Operational"}
               </span>
             </div>
-            <div className="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-xl bg-slate-50 dark:bg-slate-900 border border-slate-200 dark:border-slate-800 text-slate-700 dark:text-slate-300 font-medium">
-              <Zap className="w-3.5 h-3.5 text-blue-500" />
-              <span className="font-mono text-[11px]">~42ms Latency</span>
+            <div className="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-xl bg-slate-50 dark:bg-slate-900 border border-slate-200 dark:border-slate-800 text-slate-700 dark:text-slate-300 font-medium whitespace-nowrap shrink-0">
+              <Zap className="w-3.5 h-3.5 text-blue-500 shrink-0" />
+              <span className="font-mono text-[11px] whitespace-nowrap">~42ms Latency</span>
             </div>
-            <div className="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-xl bg-slate-50 dark:bg-slate-900 border border-slate-200 dark:border-slate-800 text-slate-700 dark:text-slate-300 font-medium">
-              <Lock className="w-3.5 h-3.5 text-emerald-500" />
-              <span className="font-mono text-[11px]">Zero-Knowledge Proofs</span>
+            <div className="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-xl bg-slate-50 dark:bg-slate-900 border border-slate-200 dark:border-slate-800 text-slate-700 dark:text-slate-300 font-medium whitespace-nowrap shrink-0">
+              <Lock className="w-3.5 h-3.5 text-emerald-500 shrink-0" />
+              <span className="font-mono text-[11px] whitespace-nowrap">Zero-Knowledge Proofs</span>
             </div>
           </div>
         </div>
