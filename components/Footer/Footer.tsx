@@ -34,96 +34,121 @@ export default function Footer() {
 
           {/* Live Network & Security Telemetry */}
           <div className="flex items-center flex-wrap gap-2.5 sm:gap-3 text-xs">
-            <div className="inline-flex items-center gap-2 px-3 py-1.5 rounded-xl bg-slate-50 dark:bg-slate-900 border border-slate-200 dark:border-slate-800 text-slate-700 dark:text-slate-300 font-medium">
+            <div className="inline-flex items-center gap-2 px-3 py-1.5 rounded-xl bg-slate-50 dark:bg-slate-900 border border-slate-200 dark:border-slate-800 text-slate-700 dark:text-slate-300 font-medium whitespace-nowrap shrink-0">
               <span className="w-2 h-2 rounded-full bg-emerald-500 animate-pulse shrink-0" />
-              <span className="font-mono text-[11px]">
+              <span className="font-mono text-[11px] whitespace-nowrap">
                 {isTestnet ? "Testnet Operational" : "Mainnet Operational"}
               </span>
             </div>
-            <div className="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-xl bg-slate-50 dark:bg-slate-900 border border-slate-200 dark:border-slate-800 text-slate-700 dark:text-slate-300 font-medium">
-              <Zap className="w-3.5 h-3.5 text-blue-500" />
-              <span className="font-mono text-[11px]">~42ms Latency</span>
+            <div className="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-xl bg-slate-50 dark:bg-slate-900 border border-slate-200 dark:border-slate-800 text-slate-700 dark:text-slate-300 font-medium whitespace-nowrap shrink-0">
+              <Zap className="w-3.5 h-3.5 text-blue-500 shrink-0" />
+              <span className="font-mono text-[11px] whitespace-nowrap">~42ms Latency</span>
             </div>
-            <div className="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-xl bg-slate-50 dark:bg-slate-900 border border-slate-200 dark:border-slate-800 text-slate-700 dark:text-slate-300 font-medium">
-              <Lock className="w-3.5 h-3.5 text-emerald-500" />
-              <span className="font-mono text-[11px]">Zero-Knowledge Proofs</span>
+            <div className="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-xl bg-slate-50 dark:bg-slate-900 border border-slate-200 dark:border-slate-800 text-slate-700 dark:text-slate-300 font-medium whitespace-nowrap shrink-0">
+              <Lock className="w-3.5 h-3.5 text-emerald-500 shrink-0" />
+              <span className="font-mono text-[11px] whitespace-nowrap">Zero-Knowledge Proofs</span>
             </div>
           </div>
         </div>
 
         {/* Navigation Columns */}
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8 lg:gap-10 pb-12">
-          {/* Col 1: Solutions */}
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8 lg:gap-10 pb-12">
+          {/* Col 1: Core Features */}
           <div className="space-y-3.5">
             <h4 className="text-xs font-bold uppercase tracking-wider text-slate-900 dark:text-white font-display flex items-center gap-2">
               <Store className="w-4 h-4 text-blue-600 dark:text-blue-400" />
-              <span>Commerce Solutions</span>
+              <span>Platform Features</span>
             </h4>
             <ul className="space-y-2.5 text-xs xl:text-sm font-medium text-slate-600 dark:text-slate-400">
               <li>
-                <a href={`${APP_BASE_URL}/receipts/new`} className="hover:text-blue-600 dark:hover:text-white transition-colors flex items-center gap-1.5">
-                  <span>Digital Sales Book</span>
+                <Link href="/features/sales-receipts" className="hover:text-blue-600 dark:hover:text-white transition-colors">
+                  Smart QR Receipts &amp; Sales Book
+                </Link>
+              </li>
+              <li>
+                <Link href="/features/inventory" className="hover:text-blue-600 dark:hover:text-white transition-colors">
+                  Multi-Branch Inventory &amp; Stock
+                </Link>
+              </li>
+              <li>
+                <Link href="/features/shipments" className="hover:text-blue-600 dark:hover:text-white transition-colors">
+                  Tracked Shipments &amp; PIN Dispatch
+                </Link>
+              </li>
+              <li>
+                <Link href="/features/vendors" className="hover:text-blue-600 dark:hover:text-white transition-colors">
+                  Vendor Directory &amp; AP Suite
+                </Link>
+              </li>
+              <li>
+                <Link href="/features/team-security" className="hover:text-blue-600 dark:hover:text-white transition-colors">
+                  Staff Roles &amp; Security Architecture
+                </Link>
+              </li>
+            </ul>
+          </div>
+
+          {/* Col 2: Live Store Solutions */}
+          <div className="space-y-3.5">
+            <h4 className="text-xs font-bold uppercase tracking-wider text-slate-900 dark:text-white font-display flex items-center gap-2">
+              <Zap className="w-4 h-4 text-emerald-600 dark:text-emerald-400" />
+              <span>Store Workspace</span>
+            </h4>
+            <ul className="space-y-2.5 text-xs xl:text-sm font-medium text-slate-600 dark:text-slate-400">
+              <li>
+                <a href={`${APP_BASE_URL}/receipts/new`} className="hover:text-blue-600 dark:hover:text-white transition-colors">
+                  Counter Sales Book
                 </a>
               </li>
               <li>
                 <a href={`${APP_BASE_URL}/workspace?tab=inventory`} className="hover:text-blue-600 dark:hover:text-white transition-colors">
-                  Multi-Branch Inventory &amp; Stock
+                  Branch Stock Transfers
                 </a>
               </li>
               <li>
-                <a href={`${APP_BASE_URL}/workspace?tab=receipts`} className="hover:text-blue-600 dark:hover:text-white transition-colors">
-                  Digital Customer Receipts
+                <a href={`${APP_BASE_URL}/workspace?tab=vendors`} className="hover:text-blue-600 dark:hover:text-white transition-colors">
+                  Accounts Payable Aging
                 </a>
               </li>
               <li>
-                <a href={`${APP_BASE_URL}/workspace?tab=shipments`} className="hover:text-blue-600 dark:hover:text-white transition-colors">
-                  Tracked Shipments &amp; PIN Dispatch
-                </a>
-              </li>
-              <li>
-                <a href={`${APP_BASE_URL}/workspace?tab=team`} className="hover:text-blue-600 dark:hover:text-white transition-colors">
-                  Multi-Branch &amp; Staff Roles
+                <a href={`${APP_BASE_URL}/workspace/login`} className="hover:text-blue-600 dark:hover:text-white transition-colors">
+                  Staff 6-Digit PIN Portal
                 </a>
               </li>
               <li>
                 <a href={`${APP_BASE_URL}/workspace`} className="hover:text-blue-600 dark:hover:text-white transition-colors">
-                  Merchant Workspace Hub
+                  Merchant Workspace
                 </a>
               </li>
             </ul>
           </div>
 
-          {/* Col 2: Trust & Company */}
+          {/* Col 3: Trust & Company */}
           <div className="space-y-3.5">
             <h4 className="text-xs xl:text-sm font-bold uppercase tracking-wider text-slate-900 dark:text-white font-display flex items-center gap-2">
               <ShieldCheck className="w-4 h-4 text-emerald-600 dark:text-emerald-400" />
-              <span>Trust &amp; Governance</span>
+              <span>Trust &amp; Pricing</span>
             </h4>
             <ul className="space-y-2.5 text-xs xl:text-sm font-medium text-slate-600 dark:text-slate-400">
               <li>
-                <Link href="/about" className="hover:text-blue-600 dark:hover:text-white transition-colors">
-                  About SellerPadi Protocol
+                <Link href="/pricing" className="hover:text-blue-600 dark:hover:text-white transition-colors">
+                  Tiers &amp; Operations Quota Calculator
                 </Link>
               </li>
               <li>
-                <Link href="/pricing" className="hover:text-blue-600 dark:hover:text-white transition-colors">
-                  Tier Quotas &amp; Transparent Billing
+                <Link href="/about" className="hover:text-blue-600 dark:hover:text-white transition-colors">
+                  About SellerPadi
                 </Link>
               </li>
               <li>
                 <Link href="/privacy" className="hover:text-blue-600 dark:hover:text-white transition-colors">
-                  Privacy Policy &amp; Off-Chain PII
+                  Privacy Policy &amp; Zero PII
                 </Link>
               </li>
               <li>
                 <Link href="/terms" className="hover:text-blue-600 dark:hover:text-white transition-colors">
                   Merchant Terms of Service
                 </Link>
-              </li>
-              <li>
-                <a href={`${APP_BASE_URL}/workspace/login`} className="hover:text-blue-600 dark:hover:text-white transition-colors">
-                  Branch Staff PIN Portal
-                </a>
               </li>
             </ul>
           </div>
@@ -159,7 +184,7 @@ export default function Footer() {
                 </div>
               </div>
               <p className="text-[11px] text-slate-600 dark:text-slate-400 leading-relaxed">
-                Every sale receipt and custody handover is stamped with a non-repudiable cryptographic certificate.
+                Every sales receipt and custody handover is certified with an immutable cryptographic audit reference.
               </p>
               <div className="pt-1 border-t border-slate-200/80 dark:border-slate-800 text-[10px] text-slate-500 flex items-center justify-between font-mono">
                 <span>Consensus: Snowman</span>

@@ -244,6 +244,7 @@ export interface PlanTierConfig {
   branches: number;
   salesReps: number;
   managers: number;
+  accountants: number;
   skus: number; // Max inventory items (0 = unlimited)
   description: string;
 }
@@ -258,6 +259,7 @@ export const PLAN_TIERS: Record<string, PlanTierConfig> = {
     branches: 0,
     salesReps: 1,
     managers: 1,
+    accountants: 0,
     skus: 25,
     description: "CEO + 1 HQ Staff · 25 items · 100 dispatches & receipts",
   },
@@ -270,6 +272,7 @@ export const PLAN_TIERS: Record<string, PlanTierConfig> = {
     branches: 1,
     salesReps: 1,
     managers: 1,
+    accountants: 0,
     skus: 150,
     description: "1 branch · 150 items · 1 rep · 1 mgr · 500 dispatches & receipts",
   },
@@ -282,6 +285,7 @@ export const PLAN_TIERS: Record<string, PlanTierConfig> = {
     branches: 2,
     salesReps: 4,
     managers: 2,
+    accountants: 0,
     skus: 500,
     description: "2 branches · 500 items · 4 reps · 2 mgrs · 1,000 dispatches & receipts",
   },
@@ -294,8 +298,9 @@ export const PLAN_TIERS: Record<string, PlanTierConfig> = {
     branches: 3,
     salesReps: 6,
     managers: 3,
+    accountants: 1,
     skus: 1500,
-    description: "3 branches · 1,500 items · 6 reps · 3 mgrs · 2,500 dispatches & receipts",
+    description: "3 branches · 1,500 items · 6 reps · 3 mgrs · 1 Lead Accountant · 2,500 ops · Full Vendor & AP Suite",
   },
   scale_5000: {
     id: "scale_5000",
@@ -306,8 +311,9 @@ export const PLAN_TIERS: Record<string, PlanTierConfig> = {
     branches: 5,
     salesReps: 10,
     managers: 5,
+    accountants: 2,
     skus: 0,
-    description: "5 branches · Unlimited items · 10 reps · 5 mgrs · 5,000 dispatches & receipts",
+    description: "5 branches · Unlimited items · 10 reps · 5 mgrs · 2 Accountants (Lead & Deputy) · 5,000 ops · Full Vendor & AP Suite",
   },
 };
 

@@ -81,7 +81,7 @@ export default function TermsOfServicePage() {
 
             <div className="border-t border-slate-100 dark:border-slate-800 pt-4 space-y-2 text-xs sm:text-sm text-slate-600 dark:text-slate-400 leading-relaxed">
               <p>
-                <strong>Zero Custody of Consumer Funds:</strong> SellerPadi never touches, holds, or intermediates customer checkout payments. When a buyer makes a purchase, funds are paid directly to the merchant via <strong>Cash</strong>, direct <strong>Bank Transfer</strong>, external <strong>POS Card Terminals</strong>, or <strong>Store Credit</strong>. SellerPadi only collects software subscription fees.
+                <strong>Zero Custody of Consumer Funds:</strong> SellerPadi never touches, holds, or intermediates customer checkout payments. When a buyer makes a purchase, funds are paid directly to the merchant via <strong>Cash</strong>, direct <strong>Bank Transfer</strong>, external <strong>Card Payment Terminals</strong>, or <strong>Store Credit</strong>. SellerPadi only collects software subscription fees.
               </p>
               <p>
                 <strong>Merchant Tax Responsibility:</strong> Merchants bear exclusive responsibility for collecting and remitting all statutory retail sales taxes, Value Added Tax (VAT), and adhering to local invoicing regulations (such as Nigeria Revenue Service e-invoicing).

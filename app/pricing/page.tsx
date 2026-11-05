@@ -6,6 +6,8 @@ import Footer from "@/components/Footer/Footer";
 import { HelpCircle, ShieldCheck, Zap, Check } from "lucide-react";
 import { detectUserCurrency, convertNgnPrice, UserCurrencyInfo, PLAN_TIERS, OPERATIONS_OVERAGE_FEE_NGN, BRANCH_STAFF_OVERAGE_FEE_NGN } from "@/lib/currency";
 import { APP_BASE_URL } from "@/lib/config";
+import PricingCalculator from "@/components/Pricing/PricingCalculator";
+import PricingComparisonTable from "@/components/Pricing/PricingComparisonTable";
 
 export default function PricingPage() {
   const [userCurrency, setUserCurrency] = useState<UserCurrencyInfo | null>(null);
@@ -59,7 +61,7 @@ export default function PricingPage() {
                     <span className="text-xs xl:text-sm font-extrabold uppercase tracking-wider text-slate-500 dark:text-slate-400">
                       {freeTier.name}
                     </span>
-                    <span className="bg-slate-100 dark:bg-slate-800 text-slate-700 dark:text-slate-300 border border-slate-200 dark:border-slate-700 text-[10px] sm:text-xs font-bold px-2.5 py-0.5 rounded-full">
+                    <span className="bg-slate-100 dark:bg-slate-800 text-slate-700 dark:text-slate-300 border border-slate-200 dark:border-slate-700 text-[10px] sm:text-xs font-bold px-2.5 py-0.5 rounded-full whitespace-nowrap shrink-0">
                       CEO + 1 HQ Staff
                     </span>
                   </div>
@@ -179,7 +181,7 @@ export default function PricingPage() {
                     <span className="text-xs xl:text-sm font-extrabold uppercase tracking-wider text-slate-500 dark:text-slate-400">
                       {growthTier.name}
                     </span>
-                    <span className="bg-blue-50 dark:bg-blue-950/80 text-blue-700 dark:text-blue-300 border border-blue-200 dark:border-blue-800 text-[10px] sm:text-xs font-bold px-2.5 py-0.5 rounded-full tracking-wide">
+                    <span className="bg-blue-50 dark:bg-blue-950/80 text-blue-700 dark:text-blue-300 border border-blue-200 dark:border-blue-800 text-[10px] sm:text-xs font-bold px-2.5 py-0.5 rounded-full tracking-wide whitespace-nowrap shrink-0">
                       Most Popular
                     </span>
                   </div>
@@ -189,7 +191,7 @@ export default function PricingPage() {
                     <button
                       type="button"
                       onClick={() => setGrowthTierKey("starter_500")}
-                      className={`flex-1 py-1.5 xl:py-2 px-2 rounded-lg text-[11px] sm:text-xs xl:text-sm font-bold transition-all text-center cursor-pointer ${
+                      className={`flex-1 py-1.5 xl:py-2 px-1.5 sm:px-2 rounded-lg text-[10px] sm:text-xs xl:text-sm font-bold transition-all text-center cursor-pointer whitespace-nowrap ${
                         growthTierKey === "starter_500"
                           ? "bg-blue-600 text-white shadow-2xs"
                           : "text-slate-600 dark:text-slate-400 hover:text-slate-900 dark:hover:text-white"
@@ -200,7 +202,7 @@ export default function PricingPage() {
                     <button
                       type="button"
                       onClick={() => setGrowthTierKey("growth_1000")}
-                      className={`flex-1 py-1.5 xl:py-2 px-2 rounded-lg text-[11px] sm:text-xs xl:text-sm font-bold transition-all text-center cursor-pointer ${
+                      className={`flex-1 py-1.5 xl:py-2 px-1.5 sm:px-2 rounded-lg text-[10px] sm:text-xs xl:text-sm font-bold transition-all text-center cursor-pointer whitespace-nowrap ${
                         growthTierKey === "growth_1000"
                           ? "bg-blue-600 text-white shadow-2xs"
                           : "text-slate-600 dark:text-slate-400 hover:text-slate-900 dark:hover:text-white"
@@ -326,7 +328,7 @@ export default function PricingPage() {
                     <span className="text-xs xl:text-sm font-extrabold uppercase tracking-wider text-slate-500 dark:text-slate-400">
                       {scaleTier.name}
                     </span>
-                    <span className="bg-slate-100 dark:bg-slate-800 text-slate-700 dark:text-slate-300 border border-slate-200 dark:border-slate-700 text-[10px] sm:text-xs font-bold px-2.5 py-0.5 rounded-full">
+                    <span className="bg-slate-100 dark:bg-slate-800 text-slate-700 dark:text-slate-300 border border-slate-200 dark:border-slate-700 text-[10px] sm:text-xs font-bold px-2.5 py-0.5 rounded-full whitespace-nowrap shrink-0">
                       High Volume
                     </span>
                   </div>
@@ -336,7 +338,7 @@ export default function PricingPage() {
                     <button
                       type="button"
                       onClick={() => setScaleTierKey("business_2500")}
-                      className={`flex-1 py-1.5 xl:py-2 px-2 rounded-lg text-[11px] sm:text-xs xl:text-sm font-bold transition-all text-center cursor-pointer ${
+                      className={`flex-1 py-1.5 xl:py-2 px-1.5 sm:px-2 rounded-lg text-[10px] sm:text-xs xl:text-sm font-bold transition-all text-center cursor-pointer whitespace-nowrap ${
                         scaleTierKey === "business_2500"
                           ? "bg-blue-600 text-white shadow-2xs"
                           : "text-slate-600 dark:text-slate-400 hover:text-slate-900 dark:hover:text-white"
@@ -347,7 +349,7 @@ export default function PricingPage() {
                     <button
                       type="button"
                       onClick={() => setScaleTierKey("scale_5000")}
-                      className={`flex-1 py-1.5 xl:py-2 px-2 rounded-lg text-[11px] sm:text-xs xl:text-sm font-bold transition-all text-center cursor-pointer ${
+                      className={`flex-1 py-1.5 xl:py-2 px-1.5 sm:px-2 rounded-lg text-[10px] sm:text-xs xl:text-sm font-bold transition-all text-center cursor-pointer whitespace-nowrap ${
                         scaleTierKey === "scale_5000"
                           ? "bg-blue-600 text-white shadow-2xs"
                           : "text-slate-600 dark:text-slate-400 hover:text-slate-900 dark:hover:text-white"
@@ -441,6 +443,32 @@ export default function PricingPage() {
                       </div>
                     </div>
 
+                    {/* Full Vendor Directory & AP Tracking */}
+                    <div className="flex items-start gap-2.5">
+                      <Check className="w-4 h-4 xl:w-5 xl:h-5 text-emerald-600 dark:text-emerald-400 shrink-0 mt-0.5" />
+                      <div className="leading-tight">
+                        <span className="font-semibold text-slate-900 dark:text-white">
+                          Full Vendor Directory &amp; Accounts Payable
+                        </span>
+                        <span className="block text-[11px] sm:text-xs text-slate-500 dark:text-slate-400 mt-0.5">
+                          Supplier profiles, bank remittance details, purchase bills &amp; debt ledgers
+                        </span>
+                      </div>
+                    </div>
+
+                    {/* AP Aging & Multi-Supplier Price Matrix */}
+                    <div className="flex items-start gap-2.5">
+                      <Check className="w-4 h-4 xl:w-5 xl:h-5 text-emerald-600 dark:text-emerald-400 shrink-0 mt-0.5" />
+                      <div className="leading-tight">
+                        <span className="font-semibold text-slate-900 dark:text-white">
+                          30/60/90+ Day AP Aging &amp; Price Matrix
+                        </span>
+                        <span className="block text-[11px] sm:text-xs text-slate-500 dark:text-slate-400 mt-0.5">
+                          Overdue debt maturity buckets, 90-day spend analytics &amp; SKU price comparisons
+                        </span>
+                      </div>
+                    </div>
+
                     {/* Universal Overage Line */}
                     <div className="flex items-start gap-2.5 pt-1.5 border-t border-slate-100 dark:border-slate-800">
                       <ShieldCheck className="w-4 h-4 xl:w-5 xl:h-5 text-emerald-600 dark:text-emerald-400 shrink-0 mt-0.5" />
@@ -487,6 +515,12 @@ export default function PricingPage() {
               </div>
             </div>
           </div>
+
+          {/* Section 2: Interactive Operations & Overage Calculator */}
+          <PricingCalculator userCurrency={userCurrency} />
+
+          {/* Section 3: Full 5-Tier Comparative Matrix */}
+          <PricingComparisonTable userCurrency={userCurrency} />
 
           {/* Section 3: Universal Overage & Fair Pricing Guarantee */}
           <div className="bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-800 text-slate-900 dark:text-white rounded-2xl xl:rounded-3xl p-5 sm:p-8 xl:p-12 shadow-xs space-y-4">
