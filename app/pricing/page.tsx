@@ -61,7 +61,7 @@ export default function PricingPage() {
                     <span className="text-xs xl:text-sm font-extrabold uppercase tracking-wider text-slate-500 dark:text-slate-400">
                       {freeTier.name}
                     </span>
-                    <span className="bg-slate-100 dark:bg-slate-800 text-slate-700 dark:text-slate-300 border border-slate-200 dark:border-slate-700 text-[10px] sm:text-xs font-bold px-2.5 py-0.5 rounded-full">
+                    <span className="bg-slate-100 dark:bg-slate-800 text-slate-700 dark:text-slate-300 border border-slate-200 dark:border-slate-700 text-[10px] sm:text-xs font-bold px-2.5 py-0.5 rounded-full whitespace-nowrap shrink-0">
                       CEO + 1 HQ Staff
                     </span>
                   </div>
@@ -181,7 +181,7 @@ export default function PricingPage() {
                     <span className="text-xs xl:text-sm font-extrabold uppercase tracking-wider text-slate-500 dark:text-slate-400">
                       {growthTier.name}
                     </span>
-                    <span className="bg-blue-50 dark:bg-blue-950/80 text-blue-700 dark:text-blue-300 border border-blue-200 dark:border-blue-800 text-[10px] sm:text-xs font-bold px-2.5 py-0.5 rounded-full tracking-wide">
+                    <span className="bg-blue-50 dark:bg-blue-950/80 text-blue-700 dark:text-blue-300 border border-blue-200 dark:border-blue-800 text-[10px] sm:text-xs font-bold px-2.5 py-0.5 rounded-full tracking-wide whitespace-nowrap shrink-0">
                       Most Popular
                     </span>
                   </div>
@@ -191,7 +191,7 @@ export default function PricingPage() {
                     <button
                       type="button"
                       onClick={() => setGrowthTierKey("starter_500")}
-                      className={`flex-1 py-1.5 xl:py-2 px-2 rounded-lg text-[11px] sm:text-xs xl:text-sm font-bold transition-all text-center cursor-pointer ${
+                      className={`flex-1 py-1.5 xl:py-2 px-1.5 sm:px-2 rounded-lg text-[10px] sm:text-xs xl:text-sm font-bold transition-all text-center cursor-pointer whitespace-nowrap ${
                         growthTierKey === "starter_500"
                           ? "bg-blue-600 text-white shadow-2xs"
                           : "text-slate-600 dark:text-slate-400 hover:text-slate-900 dark:hover:text-white"
@@ -202,7 +202,7 @@ export default function PricingPage() {
                     <button
                       type="button"
                       onClick={() => setGrowthTierKey("growth_1000")}
-                      className={`flex-1 py-1.5 xl:py-2 px-2 rounded-lg text-[11px] sm:text-xs xl:text-sm font-bold transition-all text-center cursor-pointer ${
+                      className={`flex-1 py-1.5 xl:py-2 px-1.5 sm:px-2 rounded-lg text-[10px] sm:text-xs xl:text-sm font-bold transition-all text-center cursor-pointer whitespace-nowrap ${
                         growthTierKey === "growth_1000"
                           ? "bg-blue-600 text-white shadow-2xs"
                           : "text-slate-600 dark:text-slate-400 hover:text-slate-900 dark:hover:text-white"
@@ -328,7 +328,7 @@ export default function PricingPage() {
                     <span className="text-xs xl:text-sm font-extrabold uppercase tracking-wider text-slate-500 dark:text-slate-400">
                       {scaleTier.name}
                     </span>
-                    <span className="bg-slate-100 dark:bg-slate-800 text-slate-700 dark:text-slate-300 border border-slate-200 dark:border-slate-700 text-[10px] sm:text-xs font-bold px-2.5 py-0.5 rounded-full">
+                    <span className="bg-slate-100 dark:bg-slate-800 text-slate-700 dark:text-slate-300 border border-slate-200 dark:border-slate-700 text-[10px] sm:text-xs font-bold px-2.5 py-0.5 rounded-full whitespace-nowrap shrink-0">
                       High Volume
                     </span>
                   </div>
@@ -338,7 +338,7 @@ export default function PricingPage() {
                     <button
                       type="button"
                       onClick={() => setScaleTierKey("business_2500")}
-                      className={`flex-1 py-1.5 xl:py-2 px-2 rounded-lg text-[11px] sm:text-xs xl:text-sm font-bold transition-all text-center cursor-pointer ${
+                      className={`flex-1 py-1.5 xl:py-2 px-1.5 sm:px-2 rounded-lg text-[10px] sm:text-xs xl:text-sm font-bold transition-all text-center cursor-pointer whitespace-nowrap ${
                         scaleTierKey === "business_2500"
                           ? "bg-blue-600 text-white shadow-2xs"
                           : "text-slate-600 dark:text-slate-400 hover:text-slate-900 dark:hover:text-white"
@@ -349,7 +349,7 @@ export default function PricingPage() {
                     <button
                       type="button"
                       onClick={() => setScaleTierKey("scale_5000")}
-                      className={`flex-1 py-1.5 xl:py-2 px-2 rounded-lg text-[11px] sm:text-xs xl:text-sm font-bold transition-all text-center cursor-pointer ${
+                      className={`flex-1 py-1.5 xl:py-2 px-1.5 sm:px-2 rounded-lg text-[10px] sm:text-xs xl:text-sm font-bold transition-all text-center cursor-pointer whitespace-nowrap ${
                         scaleTierKey === "scale_5000"
                           ? "bg-blue-600 text-white shadow-2xs"
                           : "text-slate-600 dark:text-slate-400 hover:text-slate-900 dark:hover:text-white"

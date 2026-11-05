@@ -146,8 +146,9 @@ export default function PricingCalculator({ userCurrency }: PricingCalculatorPro
       <div className="flex flex-col lg:flex-row lg:items-center justify-between gap-4 border-b border-slate-100 dark:border-slate-800 pb-6">
         <div className="space-y-1.5">
           <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-blue-50 dark:bg-blue-950/60 border border-blue-200 dark:border-blue-800 text-[11px] sm:text-xs font-bold text-blue-700 dark:text-blue-300">
-            <Calculator className="w-3.5 h-3.5" />
-            <span>Interactive Universal Overage Calculator</span>
+            <Calculator className="w-3.5 h-3.5 shrink-0" />
+            <span className="sm:hidden">Universal Overage Calculator</span>
+            <span className="hidden sm:inline">Interactive Universal Overage Calculator</span>
           </div>
           <h2 className="text-xl sm:text-2xl xl:text-3xl font-extrabold text-slate-900 dark:text-white font-display">
             Operations Quota &amp; Universal Overage Calculator
@@ -158,11 +159,11 @@ export default function PricingCalculator({ userCurrency }: PricingCalculatorPro
         </div>
 
         {/* Universal Overage Guarantee Badge */}
-        <div className="inline-flex items-center gap-2 p-3 rounded-xl bg-emerald-50 dark:bg-emerald-950/40 border border-emerald-200 dark:border-emerald-800 text-xs text-emerald-800 dark:text-emerald-300 shrink-0">
+        <div className="inline-flex items-center gap-2 p-3 rounded-xl bg-emerald-50 dark:bg-emerald-950/40 border border-emerald-200 dark:border-emerald-800 text-xs text-emerald-800 dark:text-emerald-300 shrink-0 self-start lg:self-auto">
           <ShieldCheck className="w-4 h-4 text-emerald-600 dark:text-emerald-400 shrink-0" />
           <div className="leading-tight">
-            <span className="font-bold block">Universal Overage Guarantee</span>
-            <span className="text-[11px] text-emerald-700 dark:text-emerald-400">
+            <span className="font-bold block whitespace-nowrap">Universal Overage Guarantee</span>
+            <span className="text-[11px] text-emerald-700 dark:text-emerald-400 whitespace-nowrap">
               Operations never halt · Flat {opsUnitRateFormatted}/op
             </span>
           </div>
@@ -248,7 +249,7 @@ export default function PricingCalculator({ userCurrency }: PricingCalculatorPro
 
             {/* Visual Quota vs Overage Meter */}
             <div className="space-y-1.5 pt-1">
-              <div className="flex justify-between text-[11px] font-medium text-slate-600 dark:text-slate-400">
+              <div className="flex flex-col sm:flex-row sm:justify-between gap-1 text-[11px] font-medium text-slate-600 dark:text-slate-400">
                 <span>
                   Base Quota:{" "}
                   <strong>
@@ -383,7 +384,7 @@ export default function PricingCalculator({ userCurrency }: PricingCalculatorPro
         </div>
 
         {/* Detailed Itemized Calculation Receipt Card */}
-        <div className="lg:col-span-5 bg-linear-to-br from-slate-900 to-slate-950 text-white rounded-2xl p-6 sm:p-7 xl:p-8 space-y-6 border border-slate-800 shadow-md">
+        <div className="lg:col-span-5 bg-slate-900 text-white rounded-2xl p-6 sm:p-7 xl:p-8 space-y-6 border border-slate-800 shadow-xs">
           {/* Header */}
           <div className="flex items-center justify-between border-b border-slate-800 pb-4">
             <div>
@@ -394,7 +395,7 @@ export default function PricingCalculator({ userCurrency }: PricingCalculatorPro
                 {calculation.tier.name} Subscription
               </h3>
             </div>
-            <span className="bg-blue-600/30 text-blue-300 border border-blue-500/30 text-xs font-bold px-3 py-1 rounded-full">
+            <span className="bg-blue-600/30 text-blue-300 border border-blue-500/30 text-xs font-bold px-3 py-1 rounded-full whitespace-nowrap shrink-0">
               {calculation.basePriceFormatted}/mo
             </span>
           </div>
