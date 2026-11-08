@@ -6,6 +6,7 @@ import { APP_BASE_URL } from "@/lib/config";
 
 interface PricingComparisonTableProps {
   userCurrency: UserCurrencyInfo | null;
+  billingInterval?: "monthly" | "yearly";
 }
 
 interface FeatureRow {
@@ -23,36 +24,39 @@ interface FeatureSection {
   rows: FeatureRow[];
 }
 
-export default function PricingComparisonTable({ userCurrency }: PricingComparisonTableProps) {
+export default function PricingComparisonTable({ userCurrency, billingInterval = "monthly" }: PricingComparisonTableProps) {
   const opsOverageFormatted = convertNgnPrice(OPERATIONS_OVERAGE_FEE_NGN, userCurrency).formattedLocal;
   const branchOverageFormatted = convertNgnPrice(BRANCH_STAFF_OVERAGE_FEE_NGN, userCurrency).formattedLocal;
 
+  const isYearly = billingInterval === "yearly";
   const freePrice = convertNgnPrice(PLAN_TIERS.free.ngnMonthly, userCurrency).formattedLocal;
-  const starterPrice = convertNgnPrice(PLAN_TIERS.starter_500.ngnMonthly, userCurrency).formattedLocal;
-  const growthPrice = convertNgnPrice(PLAN_TIERS.growth_1000.ngnMonthly, userCurrency).formattedLocal;
-  const businessPrice = convertNgnPrice(PLAN_TIERS.business_2500.ngnMonthly, userCurrency).formattedLocal;
-  const scalePrice = convertNgnPrice(PLAN_TIERS.scale_5000.ngnMonthly, userCurrency).formattedLocal;
+  const starterPrice = convertNgnPrice(isYearly ? PLAN_TIERS.starter_500.ngnYearly : PLAN_TIERS.starter_500.ngnMonthly, userCurrency).formattedLocal;
+  const growthPrice = convertNgnPrice(isYearly ? PLAN_TIERS.growth_1000.ngnYearly : PLAN_TIERS.growth_1000.ngnMonthly, userCurrency).formattedLocal;
+  const businessPrice = convertNgnPrice(isYearly ? PLAN_TIERS.business_2500.ngnYearly : PLAN_TIERS.business_2500.ngnMonthly, userCurrency).formattedLocal;
+  const scalePrice = convertNgnPrice(isYearly ? PLAN_TIERS.scale_5000.ngnYearly : PLAN_TIERS.scale_5000.ngnMonthly, userCurrency).formattedLocal;
+
+  const periodSuffix = isYearly ? "/yr" : "/mo";
 
   const sections: FeatureSection[] = [
     {
       title: "Core Capacities & Quotas",
       rows: [
         {
-          name: "Monthly Base Price",
+          name: isYearly ? "Annual Base Price (5% Off)" : "Monthly Base Price",
           free: freePrice,
-          starter: `${starterPrice}/mo`,
-          growth: `${growthPrice}/mo`,
-          business: `${businessPrice}/mo`,
-          scale: `${scalePrice}/mo`,
+          starter: `${starterPrice}${periodSuffix}`,
+          growth: `${growthPrice}${periodSuffix}`,
+          business: `${businessPrice}${periodSuffix}`,
+          scale: `${scalePrice}${periodSuffix}`,
         },
         {
-          name: "Unified Operations Quota",
+          name: isYearly ? "Annual Operations Quota" : "Monthly Operations Quota",
           tooltip: "Receipts issued + Package dispatches tracked combined",
           free: "100 ops/mo",
-          starter: "500 ops/mo",
-          growth: "1,000 ops/mo",
-          business: "2,500 ops/mo",
-          scale: "5,000 ops/mo",
+          starter: isYearly ? "6,000 ops/yr" : "500 ops/mo",
+          growth: isYearly ? "12,000 ops/yr" : "1,000 ops/mo",
+          business: isYearly ? "30,000 ops/yr" : "2,500 ops/mo",
+          scale: isYearly ? "60,000 ops/yr" : "5,000 ops/mo",
         },
         {
           name: "Inventory SKU Capacity",

@@ -24,11 +24,12 @@ import { APP_BASE_URL } from "@/lib/config";
 
 interface PricingCalculatorProps {
   userCurrency: UserCurrencyInfo | null;
+  billingInterval?: "monthly" | "yearly";
 }
 
 type TierChoice = "auto" | "free" | "starter_500" | "growth_1000" | "business_2500" | "scale_5000";
 
-export default function PricingCalculator({ userCurrency }: PricingCalculatorProps) {
+export default function PricingCalculator({ userCurrency, billingInterval = "monthly" }: PricingCalculatorProps) {
   const operationsInputId = useId();
   const branchesInputId = useId();
   const repsInputId = useId();
@@ -37,8 +38,10 @@ export default function PricingCalculator({ userCurrency }: PricingCalculatorPro
   // Selected base tier mode: "auto" or a specific plan key
   const [selectedTier, setSelectedTier] = useState<TierChoice>("growth_1000");
 
-  // Store usage inputs
-  const [operations, setOperations] = useState<number>(1250);
+  const isYearly = billingInterval === "yearly";
+
+  // Store usage inputs - default to higher baseline if yearly
+  const [operations, setOperations] = useState<number>(isYearly ? 12000 : 1250);
   const [branches, setBranches] = useState<number>(2);
   const [salesReps, setSalesReps] = useState<number>(4);
   const [needsVendors, setNeedsVendors] = useState<boolean>(false);
@@ -52,20 +55,21 @@ export default function PricingCalculator({ userCurrency }: PricingCalculatorPro
   const calculation = useMemo(() => {
     // 1. Determine best recommended tier if in "auto" mode
     let autoTierKey: keyof typeof PLAN_TIERS = "scale_5000";
+    const quotaMultiplier = isYearly ? 12 : 1;
     if (needsVendors) {
-      if (operations <= 2500 && branches <= 3 && salesReps <= 6) {
+      if (operations <= 2500 * quotaMultiplier && branches <= 3 && salesReps <= 6) {
         autoTierKey = "business_2500";
       } else {
         autoTierKey = "scale_5000";
       }
     } else {
-      if (operations <= 100 && branches === 0 && salesReps <= 1) {
+      if (operations <= 100 * quotaMultiplier && branches === 0 && salesReps <= 1) {
         autoTierKey = "free";
-      } else if (operations <= 500 && branches <= 1 && salesReps <= 1) {
+      } else if (operations <= 500 * quotaMultiplier && branches <= 1 && salesReps <= 1) {
         autoTierKey = "starter_500";
-      } else if (operations <= 1000 && branches <= 2 && salesReps <= 4) {
+      } else if (operations <= 1000 * quotaMultiplier && branches <= 2 && salesReps <= 4) {
         autoTierKey = "growth_1000";
-      } else if (operations <= 2500 && branches <= 3 && salesReps <= 6) {
+      } else if (operations <= 2500 * quotaMultiplier && branches <= 3 && salesReps <= 6) {
         autoTierKey = "business_2500";
       } else {
         autoTierKey = "scale_5000";
@@ -80,7 +84,8 @@ export default function PricingCalculator({ userCurrency }: PricingCalculatorPro
     // 2. Calculate excess operations (Dispatches & Receipts above base quota)
     // Free tier has a strict hard cap of 100 ops; paid tiers use universal overage
     const isFreeTier = effectiveTierKey === "free";
-    const extraOps = isFreeTier ? 0 : Math.max(0, operations - tier.quota);
+    const effectiveQuota = isYearly ? tier.quota * 12 : tier.quota;
+    const extraOps = isFreeTier ? 0 : Math.max(0, operations - effectiveQuota);
     const extraBranches = isFreeTier ? 0 : Math.max(0, branches - tier.branches);
     const extraReps = isFreeTier ? 0 : Math.max(0, salesReps - tier.salesReps);
     const totalExtraStaff = extraBranches + extraReps;
@@ -92,8 +97,8 @@ export default function PricingCalculator({ userCurrency }: PricingCalculatorPro
     const staffUnitCostUsd = BRANCH_STAFF_OVERAGE_FEE_USD;
 
     // Dollar & Naira amounts
-    const baseNgn = tier.ngnMonthly;
-    const baseUsd = tier.usdMonthly;
+    const baseNgn = isYearly ? tier.ngnYearly : tier.ngnMonthly;
+    const baseUsd = isYearly ? tier.usdYearly : tier.usdMonthly;
 
     const opsOverageCostNgn = extraOps * opsUnitCostNgn;
     const opsOverageCostUsd = extraOps * opsUnitCostUsd;
@@ -120,7 +125,7 @@ export default function PricingCalculator({ userCurrency }: PricingCalculatorPro
       : `$${totalBillUsd.toFixed(2)}`;
 
     // Percentage of quota consumed
-    const quotaUsedPercent = Math.min(100, Math.round((operations / tier.quota) * 100));
+    const quotaUsedPercent = Math.min(100, Math.round((operations / effectiveQuota) * 100));
 
     return {
       tierKey: effectiveTierKey,
@@ -137,8 +142,10 @@ export default function PricingCalculator({ userCurrency }: PricingCalculatorPro
       opsOverageCostFormatted,
       staffOverageCostFormatted,
       totalBillFormatted,
+      effectiveQuota,
+      isYearly,
     };
-  }, [selectedTier, operations, branches, salesReps, needsVendors, isNigeria, userCurrency]);
+  }, [selectedTier, operations, branches, salesReps, needsVendors, isNigeria, userCurrency, isYearly]);
 
   return (
     <div className="bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-800 rounded-2xl xl:rounded-3xl p-5 sm:p-8 xl:p-12 shadow-xs space-y-8">

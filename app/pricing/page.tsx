@@ -11,6 +11,7 @@ import PricingComparisonTable from "@/components/Pricing/PricingComparisonTable"
 
 export default function PricingPage() {
   const [userCurrency, setUserCurrency] = useState<UserCurrencyInfo | null>(null);
+  const [billingInterval, setBillingInterval] = useState<"monthly" | "yearly">("monthly");
   const [growthTierKey, setGrowthTierKey] = useState<"starter_500" | "growth_1000">("growth_1000");
   const [scaleTierKey, setScaleTierKey] = useState<"business_2500" | "scale_5000">("scale_5000");
 
@@ -48,6 +49,43 @@ export default function PricingPage() {
             <p className="text-xs sm:text-sm lg:text-base xl:text-lg text-slate-600 dark:text-slate-400">
               Unified operations counter for smart QR receipts and package dispatches, paired with multi-branch inventory tracking, team roles, and transparent overage protection.
             </p>
+
+            {/* Billing Interval Toggle (Monthly vs Yearly) */}
+            <div className="pt-3 flex justify-center items-center">
+              <div className="bg-slate-200/80 dark:bg-slate-800 p-1 rounded-xl inline-flex items-center gap-1 border border-slate-300 dark:border-slate-700 shadow-2xs">
+                <button
+                  type="button"
+                  onClick={() => setBillingInterval("monthly")}
+                  className={`px-4 py-2 rounded-lg text-xs sm:text-sm font-bold transition-all cursor-pointer ${
+                    billingInterval === "monthly"
+                      ? "bg-white dark:bg-slate-900 text-slate-900 dark:text-white shadow-xs"
+                      : "text-slate-600 dark:text-slate-400 hover:text-slate-900 dark:hover:text-white"
+                  }`}
+                >
+                  Monthly
+                </button>
+                <button
+                  type="button"
+                  onClick={() => setBillingInterval("yearly")}
+                  className={`px-4 py-2 rounded-lg text-xs sm:text-sm font-bold transition-all cursor-pointer flex items-center gap-1.5 ${
+                    billingInterval === "yearly"
+                      ? "bg-blue-600 text-white shadow-xs"
+                      : "text-slate-600 dark:text-slate-400 hover:text-slate-900 dark:hover:text-white"
+                  }`}
+                >
+                  <span>Yearly</span>
+                  <span
+                    className={`text-[10px] px-1.5 py-0.5 rounded-full font-extrabold uppercase tracking-wide ${
+                      billingInterval === "yearly"
+                        ? "bg-white/20 text-white"
+                        : "bg-blue-100 dark:bg-blue-900/60 text-blue-700 dark:text-blue-300"
+                    }`}
+                  >
+                    Save 5%
+                  </span>
+                </button>
+              </div>
+            </div>
           </div>
 
             {/* Merchant Pricing Grid - 3 High-End Fintech Cards with Embedded Switchers */}
@@ -197,7 +235,7 @@ export default function PricingPage() {
                           : "text-slate-600 dark:text-slate-400 hover:text-slate-900 dark:hover:text-white"
                       }`}
                     >
-                      500 Ops (Starter)
+                      {billingInterval === "yearly" ? "6,000 Ops (Starter)" : "500 Ops (Starter)"}
                     </button>
                     <button
                       type="button"
@@ -208,17 +246,17 @@ export default function PricingPage() {
                           : "text-slate-600 dark:text-slate-400 hover:text-slate-900 dark:hover:text-white"
                       }`}
                     >
-                      1,000 Ops (Growth)
+                      {billingInterval === "yearly" ? "12,000 Ops (Growth)" : "1,000 Ops (Growth)"}
                     </button>
                   </div>
 
                   {/* Pricing */}
                   <div className="space-y-0.5">
                     <div className="text-3xl sm:text-4xl xl:text-5xl font-bold font-display text-slate-900 dark:text-white tracking-tight">
-                      {convertNgnPrice(growthTier.ngnMonthly, userCurrency).formattedLocal}
+                      {convertNgnPrice(billingInterval === "yearly" ? growthTier.ngnYearly : growthTier.ngnMonthly, userCurrency).formattedLocal}
                     </div>
                     <p className="text-xs xl:text-sm text-slate-500 dark:text-slate-400 font-medium">
-                      / month
+                      {billingInterval === "yearly" ? "/ year (5% off)" : "/ month"}
                     </p>
                   </div>
 
@@ -234,10 +272,10 @@ export default function PricingPage() {
                     </div>
                     <div className="min-w-0">
                       <div className="text-xs sm:text-sm xl:text-base font-bold text-slate-900 dark:text-white font-display truncate">
-                        {growthTier.quota.toLocaleString()} Operations
+                        {(billingInterval === "yearly" ? growthTier.quota * 12 : growthTier.quota).toLocaleString()} Operations
                       </div>
                       <div className="text-[11px] sm:text-xs xl:text-sm text-slate-500 dark:text-slate-400 truncate">
-                        Dispatches &amp; Sales Book receipts
+                        {billingInterval === "yearly" ? "Pooled annual dispatches & sales receipts" : "Dispatches & Sales Book receipts"}
                       </div>
                     </div>
                   </div>
@@ -312,7 +350,7 @@ export default function PricingPage() {
                 {/* CTA */}
                 <div className="pt-3">
                   <a
-                    href={`${APP_BASE_URL}/settings?plan=${growthTierKey}`}
+                    href={`${APP_BASE_URL}/settings?plan=${growthTierKey}&cycle=${billingInterval}`}
                     className="w-full py-3 xl:py-4 px-4 rounded-xl text-xs sm:text-sm xl:text-base font-bold text-center transition-colors cursor-pointer block bg-blue-600 hover:bg-blue-700 text-white shadow-xs"
                   >
                     Select {growthTier.name}
@@ -344,7 +382,7 @@ export default function PricingPage() {
                           : "text-slate-600 dark:text-slate-400 hover:text-slate-900 dark:hover:text-white"
                       }`}
                     >
-                      2,500 Ops (Business)
+                      {billingInterval === "yearly" ? "30,000 Ops (Business)" : "2,500 Ops (Business)"}
                     </button>
                     <button
                       type="button"
@@ -355,17 +393,17 @@ export default function PricingPage() {
                           : "text-slate-600 dark:text-slate-400 hover:text-slate-900 dark:hover:text-white"
                       }`}
                     >
-                      5,000 Ops (Scale)
+                      {billingInterval === "yearly" ? "60,000 Ops (Scale)" : "5,000 Ops (Scale)"}
                     </button>
                   </div>
 
                   {/* Pricing */}
                   <div className="space-y-0.5">
                     <div className="text-3xl sm:text-4xl xl:text-5xl font-bold font-display text-slate-900 dark:text-white tracking-tight">
-                      {convertNgnPrice(scaleTier.ngnMonthly, userCurrency).formattedLocal}
+                      {convertNgnPrice(billingInterval === "yearly" ? scaleTier.ngnYearly : scaleTier.ngnMonthly, userCurrency).formattedLocal}
                     </div>
                     <p className="text-xs xl:text-sm text-slate-500 dark:text-slate-400 font-medium">
-                      / month
+                      {billingInterval === "yearly" ? "/ year (5% off)" : "/ month"}
                     </p>
                   </div>
 
@@ -381,10 +419,10 @@ export default function PricingPage() {
                     </div>
                     <div className="min-w-0">
                       <div className="text-xs sm:text-sm xl:text-base font-bold text-slate-900 dark:text-white font-display truncate">
-                        {scaleTier.quota.toLocaleString()} Operations
+                        {(billingInterval === "yearly" ? scaleTier.quota * 12 : scaleTier.quota).toLocaleString()} Operations
                       </div>
                       <div className="text-[11px] sm:text-xs xl:text-sm text-slate-500 dark:text-slate-400 truncate">
-                        Dispatches &amp; Sales Book receipts
+                        {billingInterval === "yearly" ? "Pooled annual dispatches & sales receipts" : "Dispatches & Sales Book receipts"}
                       </div>
                     </div>
                   </div>
@@ -485,7 +523,7 @@ export default function PricingPage() {
                 {/* CTA */}
                 <div className="pt-3">
                   <a
-                    href={`${APP_BASE_URL}/settings?plan=${scaleTierKey}`}
+                    href={`${APP_BASE_URL}/settings?plan=${scaleTierKey}&cycle=${billingInterval}`}
                     className="w-full py-3 xl:py-4 px-4 rounded-xl text-xs sm:text-sm xl:text-base font-bold text-center transition-colors cursor-pointer block bg-slate-100 dark:bg-slate-800 hover:bg-slate-200 dark:hover:bg-slate-700 text-slate-900 dark:text-white border border-slate-200 dark:border-slate-700 shadow-xs"
                   >
                     Select {scaleTier.name}
@@ -509,7 +547,7 @@ export default function PricingPage() {
                   Universal Overage: {opsOverageFeeFormatted}/op · {branchStaffOverageFeeFormatted}/branch or rep
                 </span>
                 <span className="text-slate-300 dark:text-slate-700 hidden sm:inline">·</span>
-                <span>Automatic monthly billing</span>
+                <span>{billingInterval === "yearly" ? "Automatic yearly billing (5% off)" : "Automatic monthly billing"}</span>
                 <span className="text-slate-300 dark:text-slate-700 hidden sm:inline">·</span>
                 <span>Cancel or switch anytime</span>
               </div>
@@ -517,17 +555,17 @@ export default function PricingPage() {
           </div>
 
           {/* Section 2: Interactive Operations & Overage Calculator */}
-          <PricingCalculator userCurrency={userCurrency} />
+          <PricingCalculator userCurrency={userCurrency} billingInterval={billingInterval} />
 
           {/* Section 3: Full 5-Tier Comparative Matrix */}
-          <PricingComparisonTable userCurrency={userCurrency} />
+          <PricingComparisonTable userCurrency={userCurrency} billingInterval={billingInterval} />
 
           {/* Section 3: Universal Overage & Fair Pricing Guarantee */}
           <div className="bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-800 text-slate-900 dark:text-white rounded-2xl xl:rounded-3xl p-5 sm:p-8 xl:p-12 shadow-xs space-y-4">
             <div className="flex items-start sm:items-center gap-2.5">
               <ShieldCheck className="w-5 h-5 xl:w-7 xl:h-7 text-emerald-600 dark:text-emerald-400 shrink-0 mt-0.5 sm:mt-0" />
               <h2 className="text-base sm:text-xl xl:text-2xl 2xl:text-3xl font-bold font-display">
-                Universal {opsOverageFeeFormatted} Ops Overage &amp; Predictable Monthly Billing
+                Universal {opsOverageFeeFormatted} &nbsp; Ops Overage &amp; Predictable Monthly Billing
               </h2>
             </div>
             <p className="text-xs sm:text-sm xl:text-base 2xl:text-lg text-slate-600 dark:text-slate-400 leading-relaxed max-w-4xl xl:max-w-5xl">
