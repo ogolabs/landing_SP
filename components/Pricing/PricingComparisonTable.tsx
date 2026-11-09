@@ -1,12 +1,13 @@
 "use client";
 
 import { Check, Minus, HelpCircle } from "lucide-react";
-import { UserCurrencyInfo, convertNgnPrice, PLAN_TIERS, OPERATIONS_OVERAGE_FEE_NGN, BRANCH_STAFF_OVERAGE_FEE_NGN } from "@/lib/currency";
+import { UserCurrencyInfo, convertNgnPrice, getPlanTiers, OPERATIONS_OVERAGE_FEE_NGN, BRANCH_STAFF_OVERAGE_FEE_NGN } from "@/lib/currency";
 import { APP_BASE_URL } from "@/lib/config";
 
 interface PricingComparisonTableProps {
   userCurrency: UserCurrencyInfo | null;
   billingInterval?: "monthly" | "yearly";
+  discountPercent?: number;
 }
 
 interface FeatureRow {
@@ -24,16 +25,22 @@ interface FeatureSection {
   rows: FeatureRow[];
 }
 
-export default function PricingComparisonTable({ userCurrency, billingInterval = "monthly" }: PricingComparisonTableProps) {
+export default function PricingComparisonTable({
+  userCurrency,
+  billingInterval = "monthly",
+  discountPercent = 5,
+}: PricingComparisonTableProps) {
   const opsOverageFormatted = convertNgnPrice(OPERATIONS_OVERAGE_FEE_NGN, userCurrency).formattedLocal;
   const branchOverageFormatted = convertNgnPrice(BRANCH_STAFF_OVERAGE_FEE_NGN, userCurrency).formattedLocal;
 
   const isYearly = billingInterval === "yearly";
-  const freePrice = convertNgnPrice(PLAN_TIERS.free.ngnMonthly, userCurrency).formattedLocal;
-  const starterPrice = convertNgnPrice(isYearly ? PLAN_TIERS.starter_500.ngnYearly : PLAN_TIERS.starter_500.ngnMonthly, userCurrency).formattedLocal;
-  const growthPrice = convertNgnPrice(isYearly ? PLAN_TIERS.growth_1000.ngnYearly : PLAN_TIERS.growth_1000.ngnMonthly, userCurrency).formattedLocal;
-  const businessPrice = convertNgnPrice(isYearly ? PLAN_TIERS.business_2500.ngnYearly : PLAN_TIERS.business_2500.ngnMonthly, userCurrency).formattedLocal;
-  const scalePrice = convertNgnPrice(isYearly ? PLAN_TIERS.scale_5000.ngnYearly : PLAN_TIERS.scale_5000.ngnMonthly, userCurrency).formattedLocal;
+  const tiers = getPlanTiers(discountPercent);
+
+  const freePrice = convertNgnPrice(tiers.free.ngnMonthly, userCurrency).formattedLocal;
+  const starterPrice = convertNgnPrice(isYearly ? tiers.starter_500.ngnYearly : tiers.starter_500.ngnMonthly, userCurrency).formattedLocal;
+  const growthPrice = convertNgnPrice(isYearly ? tiers.growth_1000.ngnYearly : tiers.growth_1000.ngnMonthly, userCurrency).formattedLocal;
+  const businessPrice = convertNgnPrice(isYearly ? tiers.business_2500.ngnYearly : tiers.business_2500.ngnMonthly, userCurrency).formattedLocal;
+  const scalePrice = convertNgnPrice(isYearly ? tiers.scale_5000.ngnYearly : tiers.scale_5000.ngnMonthly, userCurrency).formattedLocal;
 
   const periodSuffix = isYearly ? "/yr" : "/mo";
 
@@ -42,7 +49,7 @@ export default function PricingComparisonTable({ userCurrency, billingInterval =
       title: "Core Capacities & Quotas",
       rows: [
         {
-          name: isYearly ? "Annual Base Price (5% Off)" : "Monthly Base Price",
+          name: isYearly ? `Annual Base Price (${discountPercent}% Off)` : "Monthly Base Price",
           free: freePrice,
           starter: `${starterPrice}${periodSuffix}`,
           growth: `${growthPrice}${periodSuffix}`,
