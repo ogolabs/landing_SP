@@ -234,14 +234,27 @@ export async function detectUserCurrency(): Promise<UserCurrencyInfo> {
 
 let cachedNgnUsdRate = 1480;
 
-export const YEARLY_DISCOUNT_PERCENT = 5;
+/**
+ * Safe baseline fallback used only during cold starts, offline unit tests,
+ * or if the remote API is temporarily unreachable.
+ * The authoritative runtime value is managed dynamically from the Admin Dashboard.
+ */
+export const DEFAULT_YEARLY_DISCOUNT_PERCENT = 5;
+
+// Kept purely for backward-compatibility with any legacy imports
+export const YEARLY_DISCOUNT_PERCENT = DEFAULT_YEARLY_DISCOUNT_PERCENT;
 
 /**
- * Calculates yearly price with 5% discount: Monthly * 12 * 0.95 = Monthly * 11.4
+ * Calculates yearly price with dynamic discount percentage (default: 5%):
+ * Monthly * 12 * (1 - discountPercent / 100)
  */
-export function calculateYearlyPrice(monthlyAmount: number): number {
+export function calculateYearlyPrice(
+  monthlyAmount: number,
+  discountPercent: number = DEFAULT_YEARLY_DISCOUNT_PERCENT
+): number {
   if (monthlyAmount <= 0) return 0;
-  return Math.round(monthlyAmount * 12 * (1 - YEARLY_DISCOUNT_PERCENT / 100) * 100) / 100;
+  const safeDiscount = Math.max(0, Math.min(50, discountPercent));
+  return Math.round(monthlyAmount * 12 * (1 - safeDiscount / 100) * 100) / 100;
 }
 
 export interface PlanTierConfig {
@@ -340,6 +353,37 @@ export const PLAN_TIERS: Record<string, PlanTierConfig> = {
     description: "5 branches · Unlimited items · 10 reps · 5 mgrs · 2 Accountants (Lead & Deputy) · 5,000 ops · Full Vendor & AP Suite",
   },
 };
+
+/**
+ * Returns dynamic tier configuration matrix with annual prices calculated
+ * against the provided annual discount percentage.
+ */
+export function getPlanTiers(discountPercent: number = 5): Record<string, PlanTierConfig> {
+  const safeDiscount = Math.max(0, Math.min(50, discountPercent));
+  return {
+    free: { ...PLAN_TIERS.free },
+    starter_500: {
+      ...PLAN_TIERS.starter_500,
+      ngnYearly: Math.round(calculateYearlyPrice(PLAN_TIERS.starter_500.ngnMonthly, safeDiscount)),
+      usdYearly: calculateYearlyPrice(PLAN_TIERS.starter_500.usdMonthly, safeDiscount),
+    },
+    growth_1000: {
+      ...PLAN_TIERS.growth_1000,
+      ngnYearly: Math.round(calculateYearlyPrice(PLAN_TIERS.growth_1000.ngnMonthly, safeDiscount)),
+      usdYearly: calculateYearlyPrice(PLAN_TIERS.growth_1000.usdMonthly, safeDiscount),
+    },
+    business_2500: {
+      ...PLAN_TIERS.business_2500,
+      ngnYearly: Math.round(calculateYearlyPrice(PLAN_TIERS.business_2500.ngnMonthly, safeDiscount)),
+      usdYearly: calculateYearlyPrice(PLAN_TIERS.business_2500.usdMonthly, safeDiscount),
+    },
+    scale_5000: {
+      ...PLAN_TIERS.scale_5000,
+      ngnYearly: Math.round(calculateYearlyPrice(PLAN_TIERS.scale_5000.ngnMonthly, safeDiscount)),
+      usdYearly: calculateYearlyPrice(PLAN_TIERS.scale_5000.usdMonthly, safeDiscount),
+    },
+  };
+}
 
 export const OPERATIONS_OVERAGE_FEE_NGN = 10; // ₦10 per extra dispatch or digital receipt in Nigeria
 export const OPERATIONS_OVERAGE_FEE_USD = 0.003; // $0.003 per extra dispatch or digital receipt for non-Nigeria

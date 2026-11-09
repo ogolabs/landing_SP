@@ -4,9 +4,16 @@ import { useEffect, useState } from "react";
 import Header from "@/components/Header/Header";
 import Footer from "@/components/Footer/Footer";
 import { HelpCircle, ShieldCheck, Zap, Check } from "lucide-react";
-import { detectUserCurrency, convertNgnPrice, UserCurrencyInfo, PLAN_TIERS, OPERATIONS_OVERAGE_FEE_NGN, BRANCH_STAFF_OVERAGE_FEE_NGN } from "@/lib/currency";
+import {
+  detectUserCurrency,
+  convertNgnPrice,
+  UserCurrencyInfo,
+  getPlanTiers,
+  OPERATIONS_OVERAGE_FEE_NGN,
+  BRANCH_STAFF_OVERAGE_FEE_NGN,
+  DEFAULT_YEARLY_DISCOUNT_PERCENT,
+} from "@/lib/currency";
 import { APP_BASE_URL } from "@/lib/config";
-import PricingCalculator from "@/components/Pricing/PricingCalculator";
 import PricingComparisonTable from "@/components/Pricing/PricingComparisonTable";
 
 export default function PricingPage() {
@@ -14,18 +21,32 @@ export default function PricingPage() {
   const [billingInterval, setBillingInterval] = useState<"monthly" | "yearly">("monthly");
   const [growthTierKey, setGrowthTierKey] = useState<"starter_500" | "growth_1000">("growth_1000");
   const [scaleTierKey, setScaleTierKey] = useState<"business_2500" | "scale_5000">("scale_5000");
+  const [discountPercent, setDiscountPercent] = useState<number>(DEFAULT_YEARLY_DISCOUNT_PERCENT);
 
   useEffect(() => {
     detectUserCurrency().then(setUserCurrency);
+
+    // Fetch live dynamic annual discount from central API
+    fetch(`${APP_BASE_URL}/api/v1/pricing`)
+      .then((res) => (res.ok ? res.json() : null))
+      .then((data) => {
+        if (data && typeof data.yearlyDiscountPercent === "number") {
+          setDiscountPercent(data.yearlyDiscountPercent);
+        }
+      })
+      .catch(() => {
+        // Fall back gracefully to DEFAULT_YEARLY_DISCOUNT_PERCENT
+      });
   }, []);
 
   const isNigeria = userCurrency?.currency === "NGN" || userCurrency?.countryCode === "NG";
   const opsOverageFeeFormatted = convertNgnPrice(OPERATIONS_OVERAGE_FEE_NGN, userCurrency).formattedLocal;
   const branchStaffOverageFeeFormatted = convertNgnPrice(BRANCH_STAFF_OVERAGE_FEE_NGN, userCurrency).formattedLocal;
 
-  const freeTier = PLAN_TIERS.free;
-  const growthTier = PLAN_TIERS[growthTierKey];
-  const scaleTier = PLAN_TIERS[scaleTierKey];
+  const dynamicTiers = getPlanTiers(discountPercent);
+  const freeTier = dynamicTiers.free;
+  const growthTier = dynamicTiers[growthTierKey];
+  const scaleTier = dynamicTiers[scaleTierKey];
 
   return (
     <main className="min-h-screen bg-slate-50 dark:bg-slate-950 flex flex-col justify-between transition-colors">
@@ -81,7 +102,7 @@ export default function PricingPage() {
                         : "bg-blue-100 dark:bg-blue-900/60 text-blue-700 dark:text-blue-300"
                     }`}
                   >
-                    Save 5%
+                    Save {discountPercent}%
                   </span>
                 </button>
               </div>
@@ -256,7 +277,7 @@ export default function PricingPage() {
                       {convertNgnPrice(billingInterval === "yearly" ? growthTier.ngnYearly : growthTier.ngnMonthly, userCurrency).formattedLocal}
                     </div>
                     <p className="text-xs xl:text-sm text-slate-500 dark:text-slate-400 font-medium">
-                      {billingInterval === "yearly" ? "/ year (5% off)" : "/ month"}
+                      {billingInterval === "yearly" ? `/ year (${discountPercent}% off)` : "/ month"}
                     </p>
                   </div>
 
@@ -403,7 +424,7 @@ export default function PricingPage() {
                       {convertNgnPrice(billingInterval === "yearly" ? scaleTier.ngnYearly : scaleTier.ngnMonthly, userCurrency).formattedLocal}
                     </div>
                     <p className="text-xs xl:text-sm text-slate-500 dark:text-slate-400 font-medium">
-                      {billingInterval === "yearly" ? "/ year (5% off)" : "/ month"}
+                      {billingInterval === "yearly" ? `/ year (${discountPercent}% off)` : "/ month"}
                     </p>
                   </div>
 
@@ -547,18 +568,23 @@ export default function PricingPage() {
                   Universal Overage: {opsOverageFeeFormatted}/op · {branchStaffOverageFeeFormatted}/branch or rep
                 </span>
                 <span className="text-slate-300 dark:text-slate-700 hidden sm:inline">·</span>
-                <span>{billingInterval === "yearly" ? "Automatic yearly billing (5% off)" : "Automatic monthly billing"}</span>
+                <span>
+                  {billingInterval === "yearly"
+                    ? `Automatic yearly billing (${discountPercent}% off)`
+                    : "Automatic monthly billing"}
+                </span>
                 <span className="text-slate-300 dark:text-slate-700 hidden sm:inline">·</span>
                 <span>Cancel or switch anytime</span>
               </div>
             </div>
           </div>
 
-          {/* Section 2: Interactive Operations & Overage Calculator */}
-          <PricingCalculator userCurrency={userCurrency} billingInterval={billingInterval} />
-
           {/* Section 3: Full 5-Tier Comparative Matrix */}
-          <PricingComparisonTable userCurrency={userCurrency} billingInterval={billingInterval} />
+          <PricingComparisonTable
+            userCurrency={userCurrency}
+            billingInterval={billingInterval}
+            discountPercent={discountPercent}
+          />
 
           {/* Section 3: Universal Overage & Fair Pricing Guarantee */}
           <div className="bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-800 text-slate-900 dark:text-white rounded-2xl xl:rounded-3xl p-5 sm:p-8 xl:p-12 shadow-xs space-y-4">
