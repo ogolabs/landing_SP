@@ -1,11 +1,13 @@
 "use client";
 
 import { Check, Minus, HelpCircle } from "lucide-react";
-import { UserCurrencyInfo, convertNgnPrice, PLAN_TIERS, OPERATIONS_OVERAGE_FEE_NGN, BRANCH_STAFF_OVERAGE_FEE_NGN } from "@/lib/currency";
+import { UserCurrencyInfo, convertNgnPrice, getPlanTiers, OPERATIONS_OVERAGE_FEE_NGN, BRANCH_STAFF_OVERAGE_FEE_NGN } from "@/lib/currency";
 import { APP_BASE_URL } from "@/lib/config";
 
 interface PricingComparisonTableProps {
   userCurrency: UserCurrencyInfo | null;
+  billingInterval?: "monthly" | "yearly";
+  discountPercent?: number;
 }
 
 interface FeatureRow {
@@ -23,36 +25,45 @@ interface FeatureSection {
   rows: FeatureRow[];
 }
 
-export default function PricingComparisonTable({ userCurrency }: PricingComparisonTableProps) {
+export default function PricingComparisonTable({
+  userCurrency,
+  billingInterval = "monthly",
+  discountPercent = 5,
+}: PricingComparisonTableProps) {
   const opsOverageFormatted = convertNgnPrice(OPERATIONS_OVERAGE_FEE_NGN, userCurrency).formattedLocal;
   const branchOverageFormatted = convertNgnPrice(BRANCH_STAFF_OVERAGE_FEE_NGN, userCurrency).formattedLocal;
 
-  const freePrice = convertNgnPrice(PLAN_TIERS.free.ngnMonthly, userCurrency).formattedLocal;
-  const starterPrice = convertNgnPrice(PLAN_TIERS.starter_500.ngnMonthly, userCurrency).formattedLocal;
-  const growthPrice = convertNgnPrice(PLAN_TIERS.growth_1000.ngnMonthly, userCurrency).formattedLocal;
-  const businessPrice = convertNgnPrice(PLAN_TIERS.business_2500.ngnMonthly, userCurrency).formattedLocal;
-  const scalePrice = convertNgnPrice(PLAN_TIERS.scale_5000.ngnMonthly, userCurrency).formattedLocal;
+  const isYearly = billingInterval === "yearly";
+  const tiers = getPlanTiers(discountPercent);
+
+  const freePrice = convertNgnPrice(tiers.free.ngnMonthly, userCurrency).formattedLocal;
+  const starterPrice = convertNgnPrice(isYearly ? tiers.starter_500.ngnYearly : tiers.starter_500.ngnMonthly, userCurrency).formattedLocal;
+  const growthPrice = convertNgnPrice(isYearly ? tiers.growth_1000.ngnYearly : tiers.growth_1000.ngnMonthly, userCurrency).formattedLocal;
+  const businessPrice = convertNgnPrice(isYearly ? tiers.business_2500.ngnYearly : tiers.business_2500.ngnMonthly, userCurrency).formattedLocal;
+  const scalePrice = convertNgnPrice(isYearly ? tiers.scale_5000.ngnYearly : tiers.scale_5000.ngnMonthly, userCurrency).formattedLocal;
+
+  const periodSuffix = isYearly ? "/yr" : "/mo";
 
   const sections: FeatureSection[] = [
     {
       title: "Core Capacities & Quotas",
       rows: [
         {
-          name: "Monthly Base Price",
+          name: isYearly ? `Annual Base Price (${discountPercent}% Off)` : "Monthly Base Price",
           free: freePrice,
-          starter: `${starterPrice}/mo`,
-          growth: `${growthPrice}/mo`,
-          business: `${businessPrice}/mo`,
-          scale: `${scalePrice}/mo`,
+          starter: `${starterPrice}${periodSuffix}`,
+          growth: `${growthPrice}${periodSuffix}`,
+          business: `${businessPrice}${periodSuffix}`,
+          scale: `${scalePrice}${periodSuffix}`,
         },
         {
-          name: "Unified Operations Quota",
+          name: isYearly ? "Annual Operations Quota" : "Monthly Operations Quota",
           tooltip: "Receipts issued + Package dispatches tracked combined",
           free: "100 ops/mo",
-          starter: "500 ops/mo",
-          growth: "1,000 ops/mo",
-          business: "2,500 ops/mo",
-          scale: "5,000 ops/mo",
+          starter: isYearly ? "6,000 ops/yr" : "500 ops/mo",
+          growth: isYearly ? "12,000 ops/yr" : "1,000 ops/mo",
+          business: isYearly ? "30,000 ops/yr" : "2,500 ops/mo",
+          scale: isYearly ? "60,000 ops/yr" : "5,000 ops/mo",
         },
         {
           name: "Inventory SKU Capacity",

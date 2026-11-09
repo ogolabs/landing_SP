@@ -234,12 +234,39 @@ export async function detectUserCurrency(): Promise<UserCurrencyInfo> {
 
 let cachedNgnUsdRate = 1480;
 
+/**
+ * Safe baseline fallback used only during cold starts, offline unit tests,
+ * or if the remote API is temporarily unreachable.
+ * The authoritative runtime value is managed dynamically from the Admin Dashboard.
+ */
+export const DEFAULT_YEARLY_DISCOUNT_PERCENT = 5;
+
+// Kept purely for backward-compatibility with any legacy imports
+export const YEARLY_DISCOUNT_PERCENT = DEFAULT_YEARLY_DISCOUNT_PERCENT;
+
+/**
+ * Calculates yearly price with dynamic discount percentage (default: 5%):
+ * Monthly * 12 * (1 - discountPercent / 100)
+ */
+export function calculateYearlyPrice(
+  monthlyAmount: number,
+  discountPercent: number = DEFAULT_YEARLY_DISCOUNT_PERCENT
+): number {
+  if (monthlyAmount <= 0) return 0;
+  const safeDiscount = Math.max(0, Math.min(50, discountPercent));
+  return Math.round(monthlyAmount * 12 * (1 - safeDiscount / 100) * 100) / 100;
+}
+
 export interface PlanTierConfig {
   id: string;
   name: string;
   ngnMonthly: number;
   /** Fixed international monthly USD price (no runtime multipliers). */
   usdMonthly: number;
+  /** Annual NGN price (12 months with 5% discount). */
+  ngnYearly: number;
+  /** Annual USD price (12 months with 5% discount). */
+  usdYearly: number;
   quota: number; // Dispatches and receipts combined
   branches: number;
   salesReps: number;
@@ -255,6 +282,8 @@ export const PLAN_TIERS: Record<string, PlanTierConfig> = {
     name: "Free",
     ngnMonthly: 0,
     usdMonthly: 0,
+    ngnYearly: 0,
+    usdYearly: 0,
     quota: 100,
     branches: 0,
     salesReps: 1,
@@ -268,6 +297,8 @@ export const PLAN_TIERS: Record<string, PlanTierConfig> = {
     name: "Starter",
     ngnMonthly: 1000,
     usdMonthly: 2.01,
+    ngnYearly: 11400, // ₦1,000 * 12 * 0.95 = ₦11,400 (Save ₦600)
+    usdYearly: 22.91, // $2.01 * 12 * 0.95 = $22.91 (Save $1.21)
     quota: 500,
     branches: 1,
     salesReps: 1,
@@ -281,6 +312,8 @@ export const PLAN_TIERS: Record<string, PlanTierConfig> = {
     name: "Growth",
     ngnMonthly: 2000,
     usdMonthly: 3.03,
+    ngnYearly: 22800, // ₦2,000 * 12 * 0.95 = ₦22,800 (Save ₦1,200)
+    usdYearly: 34.54, // $3.03 * 12 * 0.95 = $34.54 (Save $1.82)
     quota: 1000,
     branches: 2,
     salesReps: 4,
@@ -294,6 +327,8 @@ export const PLAN_TIERS: Record<string, PlanTierConfig> = {
     name: "Business",
     ngnMonthly: 5000,
     usdMonthly: 6.07,
+    ngnYearly: 57000, // ₦5,000 * 12 * 0.95 = ₦57,000 (Save ₦3,000)
+    usdYearly: 69.2, // $6.07 * 12 * 0.95 = $69.20 (Save $3.64)
     quota: 2500,
     branches: 3,
     salesReps: 6,
@@ -307,6 +342,8 @@ export const PLAN_TIERS: Record<string, PlanTierConfig> = {
     name: "Scale",
     ngnMonthly: 10000,
     usdMonthly: 11.14,
+    ngnYearly: 114000, // ₦10,000 * 12 * 0.95 = ₦114,000 (Save ₦6,000)
+    usdYearly: 127.0, // $11.14 * 12 * 0.95 = $127.00 (Save $6.68)
     quota: 5000,
     branches: 5,
     salesReps: 10,
@@ -316,6 +353,37 @@ export const PLAN_TIERS: Record<string, PlanTierConfig> = {
     description: "5 branches · Unlimited items · 10 reps · 5 mgrs · 2 Accountants (Lead & Deputy) · 5,000 ops · Full Vendor & AP Suite",
   },
 };
+
+/**
+ * Returns dynamic tier configuration matrix with annual prices calculated
+ * against the provided annual discount percentage.
+ */
+export function getPlanTiers(discountPercent: number = 5): Record<string, PlanTierConfig> {
+  const safeDiscount = Math.max(0, Math.min(50, discountPercent));
+  return {
+    free: { ...PLAN_TIERS.free },
+    starter_500: {
+      ...PLAN_TIERS.starter_500,
+      ngnYearly: Math.round(calculateYearlyPrice(PLAN_TIERS.starter_500.ngnMonthly, safeDiscount)),
+      usdYearly: calculateYearlyPrice(PLAN_TIERS.starter_500.usdMonthly, safeDiscount),
+    },
+    growth_1000: {
+      ...PLAN_TIERS.growth_1000,
+      ngnYearly: Math.round(calculateYearlyPrice(PLAN_TIERS.growth_1000.ngnMonthly, safeDiscount)),
+      usdYearly: calculateYearlyPrice(PLAN_TIERS.growth_1000.usdMonthly, safeDiscount),
+    },
+    business_2500: {
+      ...PLAN_TIERS.business_2500,
+      ngnYearly: Math.round(calculateYearlyPrice(PLAN_TIERS.business_2500.ngnMonthly, safeDiscount)),
+      usdYearly: calculateYearlyPrice(PLAN_TIERS.business_2500.usdMonthly, safeDiscount),
+    },
+    scale_5000: {
+      ...PLAN_TIERS.scale_5000,
+      ngnYearly: Math.round(calculateYearlyPrice(PLAN_TIERS.scale_5000.ngnMonthly, safeDiscount)),
+      usdYearly: calculateYearlyPrice(PLAN_TIERS.scale_5000.usdMonthly, safeDiscount),
+    },
+  };
+}
 
 export const OPERATIONS_OVERAGE_FEE_NGN = 10; // ₦10 per extra dispatch or digital receipt in Nigeria
 export const OPERATIONS_OVERAGE_FEE_USD = 0.003; // $0.003 per extra dispatch or digital receipt for non-Nigeria
@@ -327,16 +395,54 @@ export const OVERAGE_FEE_NGN = OPERATIONS_OVERAGE_FEE_NGN;
 export const OVERAGE_FEE_USD = OPERATIONS_OVERAGE_FEE_USD;
 
 /**
- * Returns the authoritative fixed international USD price for a plan tier.
- * Fixed pricing per tier (zero multipliers): Free: $0, Starter: $2.01, Growth: $3.03, Business: $6.07, Scale: $11.14.
+ * @param plan Stored plan ID.
+ * @param billingCycle Optional billing cycle ("monthly" | "yearly"). If yearly, returns pooled 12x annual quota.
+ * @returns Combined operations quota (receipts + dispatches) before overage.
  */
-export function getPlanUsdPrice(planOrNgn?: string | number | null): number {
+export function getPlanQuota(
+  plan?: string | null,
+  billingCycle?: "monthly" | "yearly" | null
+): number {
+  const base = (plan && PLAN_TIERS[plan]?.quota) || PLAN_TIERS.free.quota;
+  return billingCycle === "yearly" ? base * 12 : base;
+}
+
+/**
+ * Resolves the base subscription price in appropriate currency and interval.
+ */
+export function getPlanPrice(
+  plan: string | null | undefined,
+  billingCycle: "monthly" | "yearly" = "monthly",
+  isNigeria: boolean = true
+): number {
+  const tier = (plan && PLAN_TIERS[plan]) || PLAN_TIERS.free;
+  if (isNigeria) {
+    return billingCycle === "yearly" ? tier.ngnYearly : tier.ngnMonthly;
+  }
+  return billingCycle === "yearly" ? tier.usdYearly : tier.usdMonthly;
+}
+
+/**
+ * Returns the authoritative fixed international USD price for a plan tier.
+ * If yearly is requested or an annual NGN amount is passed, returns the 5% discounted annual USD price.
+ */
+export function getPlanUsdPrice(
+  planOrNgn?: string | number | null,
+  billingCycle: "monthly" | "yearly" = "monthly"
+): number {
   if (!planOrNgn) return 0;
   if (typeof planOrNgn === "string") {
-    return PLAN_TIERS[planOrNgn]?.usdMonthly ?? 0;
+    const tier = PLAN_TIERS[planOrNgn];
+    if (!tier) return 0;
+    return billingCycle === "yearly" ? tier.usdYearly : tier.usdMonthly;
   }
-  const found = Object.values(PLAN_TIERS).find((t) => t.ngnMonthly === planOrNgn);
-  return found?.usdMonthly ?? 0;
+  const found = Object.values(PLAN_TIERS).find(
+    (t) => t.ngnMonthly === planOrNgn || t.ngnYearly === planOrNgn
+  );
+  if (!found) return 0;
+  return found.ngnYearly === planOrNgn || billingCycle === "yearly"
+    ? found.usdYearly
+    : found.usdMonthly;
 }
 
 /**
