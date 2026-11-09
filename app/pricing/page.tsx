@@ -14,7 +14,6 @@ import {
   DEFAULT_YEARLY_DISCOUNT_PERCENT,
 } from "@/lib/currency";
 import { APP_BASE_URL } from "@/lib/config";
-import PricingCalculator from "@/components/Pricing/PricingCalculator";
 import PricingComparisonTable from "@/components/Pricing/PricingComparisonTable";
 
 export default function PricingPage() {
@@ -579,9 +578,6 @@ export default function PricingPage() {
               </div>
             </div>
           </div>
-
-          {/* Section 2: Interactive Operations & Overage Calculator */}
-          <PricingCalculator userCurrency={userCurrency} billingInterval={billingInterval} />
 
           {/* Section 3: Full 5-Tier Comparative Matrix */}
           <PricingComparisonTable
