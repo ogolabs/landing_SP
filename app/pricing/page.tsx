@@ -170,7 +170,7 @@ export default function PricingPage() {
                       <div className="leading-tight">
                         <span className="font-semibold text-slate-900 dark:text-white">{freeTier.skus} Inventory Items</span>
                         <span className="block text-[11px] sm:text-xs text-slate-500 dark:text-slate-400 mt-0.5">
-                          Daily, weekly &amp; monthly PDF reports
+                          On-demand receipt &amp; counter close exports
                         </span>
                       </div>
                     </div>
@@ -311,7 +311,7 @@ export default function PricingPage() {
                           {growthTier.skus.toLocaleString()} Inventory Items
                         </span>
                         <span className="block text-[11px] sm:text-xs text-slate-500 dark:text-slate-400 mt-0.5">
-                          Multi-branch catalog &amp; periodic valuation PDF reports
+                          Multi-branch catalog &amp; automated Sales and Stock valuation PDF statements
                         </span>
                       </div>
                     </div>
@@ -528,6 +528,19 @@ export default function PricingPage() {
                       </div>
                     </div>
 
+                    {/* 3-Statement Executive Reports */}
+                    <div className="flex items-start gap-2.5">
+                      <Check className="w-4 h-4 xl:w-5 xl:h-5 text-emerald-600 dark:text-emerald-400 shrink-0 mt-0.5" />
+                      <div className="leading-tight">
+                        <span className="font-semibold text-slate-900 dark:text-white">
+                          Automated 3-Statement Executive Reports
+                        </span>
+                        <span className="block text-[11px] sm:text-xs text-slate-500 dark:text-slate-400 mt-0.5">
+                          Daily, weekly, monthly &amp; annual Sales, Stock &amp; Vendor AP PDF statements
+                        </span>
+                      </div>
+                    </div>
+
                     {/* Universal Overage Line */}
                     <div className="flex items-start gap-2.5 pt-1.5 border-t border-slate-100 dark:border-slate-800">
                       <ShieldCheck className="w-4 h-4 xl:w-5 xl:h-5 text-emerald-600 dark:text-emerald-400 shrink-0 mt-0.5" />
@@ -638,9 +651,9 @@ export default function PricingPage() {
               </div>
 
               <div className="space-y-2 xl:space-y-3">
-                <h4 className="font-bold text-slate-900 dark:text-white text-sm sm:text-base xl:text-lg">Can I export official inventory and valuation reports?</h4>
+                <h4 className="font-bold text-slate-900 dark:text-white text-sm sm:text-base xl:text-lg">Can I export official financial, inventory, and supplier reports?</h4>
                 <p className="text-slate-600 dark:text-slate-400 leading-relaxed">
-                  Yes! You can generate accountant-grade A4 vector PDF inventory reports across Daily, Weekly, Monthly, or Yearly periods, complete with store portfolio valuations, stock movements, and itemized SKUs.
+                  Yes! You can generate accountant-grade A4 vector PDF reports across Daily, Weekly, Monthly, or Yearly periods, complete with store revenue, portfolio valuations, stock movements, and itemized SKUs. Paid tiers also receive automated executive email statements covering Sales, Stock Valuation, and Accounts Payable.
                 </p>
               </div>
 
