@@ -228,10 +228,48 @@ export default function TermsOfServicePage() {
                   <strong>Automatic Inventory Restoration:</strong> Voiding an issued receipt automatically restores product quantities to the issuing store&apos;s inventory with an immutable movement audit record.
                 </span>
               </div>
+              <div className="flex items-start gap-2">
+                <span className="w-1.5 h-1.5 rounded-full bg-blue-600 mt-2 shrink-0" />
+                <span>
+                  <strong>Merkle Batch Commitments:</strong> Receipts and parcel handovers are aggregated into cryptographic Merkle batch trees anchored to Avalanche C-Chain smart contracts, enabling instant offline verification with zero personal data on-chain.
+                </span>
+              </div>
             </div>
           </div>
 
-          {/* Section 4: Security & Device Concurrency */}
+          {/* Section 4: Wholesale Vendor Management & Accounts Payable */}
+          <div className="bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-800 rounded-2xl p-6 sm:p-8 space-y-4 shadow-xs">
+            <div className="flex items-start gap-3.5">
+              <div className="w-9 h-9 rounded-xl bg-blue-50 dark:bg-blue-950/60 text-blue-600 dark:text-blue-400 flex items-center justify-center shrink-0 border border-blue-200/50 dark:border-blue-800/50">
+                <Building2 className="w-4 h-4" />
+              </div>
+              <div className="space-y-1">
+                <h2 className="text-base sm:text-lg font-bold text-slate-900 dark:text-white">
+                  4. Wholesale Vendor Management &amp; Accounts Payable Suite
+                </h2>
+                <p className="text-xs sm:text-sm text-slate-600 dark:text-slate-400 leading-relaxed">
+                  SellerPadi provides non-custodial procurement accounting, goods receiving vouchers, and supplier aging ledgers.
+                </p>
+              </div>
+            </div>
+
+            <div className="border-t border-slate-100 dark:border-slate-800 pt-4 space-y-2.5 text-xs sm:text-sm text-slate-600 dark:text-slate-400">
+              <div className="flex items-start gap-2">
+                <span className="w-1.5 h-1.5 rounded-full bg-blue-600 mt-2 shrink-0" />
+                <span>
+                  <strong>Zero Custody of Supplier Payments:</strong> SellerPadi does not intermediate, escrow, hold, or disburse funds to suppliers. All bill payments, bank transfers, or credit settlements are made directly between the merchant and wholesale vendor outside the platform.
+                </span>
+              </div>
+              <div className="flex items-start gap-2">
+                <span className="w-1.5 h-1.5 rounded-full bg-blue-600 mt-2 shrink-0" />
+                <span>
+                  <strong>Goods Receiving Vouchers &amp; Audit Slips:</strong> Generating receiving slips establishes internal store audit trails but does not constitute a legal endorsement or guarantee by SellerPadi regarding merchandise quality, quantity, or warranty.
+                </span>
+              </div>
+            </div>
+          </div>
+
+          {/* Section 5: Security & Device Concurrency */}
           <div className="bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-800 rounded-2xl p-6 sm:p-8 space-y-4 shadow-xs">
             <div className="flex items-start gap-3.5">
               <div className="w-9 h-9 rounded-xl bg-blue-50 dark:bg-blue-950/60 text-blue-600 dark:text-blue-400 flex items-center justify-center shrink-0 border border-blue-200/50 dark:border-blue-800/50">
@@ -239,10 +277,10 @@ export default function TermsOfServicePage() {
               </div>
               <div className="space-y-1">
                 <h2 className="text-base sm:text-lg font-bold text-slate-900 dark:text-white">
-                  4. Staff PIN Security &amp; Anti-Fraud Device Concurrency
+                  5. Staff PIN Security, Device Concurrency &amp; Account Compliance
                 </h2>
                 <p className="text-xs sm:text-sm text-slate-600 dark:text-slate-400 leading-relaxed">
-                  To eliminate cashier fraud and credential sharing, SellerPadi enforces strict concurrency boundaries.
+                  To eliminate cashier fraud and credential sharing, SellerPadi enforces strict concurrency boundaries and compliance oversight.
                 </p>
               </div>
             </div>
@@ -261,9 +299,13 @@ export default function TermsOfServicePage() {
                 </p>
               </div>
             </div>
+
+            <div className="border-t border-slate-100 dark:border-slate-800 pt-3 text-xs text-slate-500 dark:text-slate-400 leading-relaxed">
+              <strong>Account Suspension &amp; Write Freezes:</strong> We reserve the right to audit, investigate fraud, and suspend accounts violating terms. Suspension enforces an administrative write-freeze while keeping existing public receipts and handover verification records permanently accessible to protect consumer rights.
+            </div>
           </div>
 
-          {/* Section 5: Tracked Dispatches & Scratch-Off Handover */}
+          {/* Section 6: Tracked Dispatches & Scratch-Off Handover */}
           <div className="bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-800 rounded-2xl p-6 sm:p-8 space-y-4 shadow-xs">
             <div className="flex items-start gap-3.5">
               <div className="w-9 h-9 rounded-xl bg-blue-50 dark:bg-blue-950/60 text-blue-600 dark:text-blue-400 flex items-center justify-center shrink-0 border border-blue-200/50 dark:border-blue-800/50">
@@ -271,7 +313,7 @@ export default function TermsOfServicePage() {
               </div>
               <div className="space-y-1">
                 <h2 className="text-base sm:text-lg font-bold text-slate-900 dark:text-white">
-                  5. Tracked Package Dispatches &amp; Scratch-Off Handover Verification
+                  6. Tracked Package Dispatches &amp; Scratch-Off Handover Verification
                 </h2>
                 <p className="text-xs sm:text-sm text-slate-600 dark:text-slate-400 leading-relaxed">
                   Deliveries feature a confidential 4-digit scratch-off PIN (<code className="font-mono text-xs">SP-XXXX</code>). Entering this code at <code className="font-mono text-xs">/scan/[id]</code> mathematically confirms physical parcel handover. Public tracking routes never reveal the scratch-off PIN prior to verification.
@@ -280,7 +322,7 @@ export default function TermsOfServicePage() {
             </div>
           </div>
 
-          {/* Section 6: Beta Liability Cap */}
+          {/* Section 7: Beta Liability Cap */}
           <div className="bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-800 rounded-2xl p-6 sm:p-8 space-y-4 shadow-xs">
             <div className="flex items-start gap-3.5">
               <div className="w-9 h-9 rounded-xl bg-blue-50 dark:bg-blue-950/60 text-blue-600 dark:text-blue-400 flex items-center justify-center shrink-0 border border-blue-200/50 dark:border-blue-800/50">
@@ -288,7 +330,7 @@ export default function TermsOfServicePage() {
               </div>
               <div className="space-y-1">
                 <h2 className="text-base sm:text-lg font-bold text-slate-900 dark:text-white">
-                  6. Limitation of Liability &amp; Public Beta Monetary Cap
+                  7. Limitation of Liability &amp; Public Beta Monetary Cap
                 </h2>
                 <p className="text-xs sm:text-sm text-slate-600 dark:text-slate-400 leading-relaxed">
                   To the maximum extent permitted by applicable law, SellerPadi and its operators shall not be liable for any indirect, incidental, or consequential damages. In all events, our total cumulative liability under Public Beta is strictly capped at the greater of <strong>$50.00 USD</strong> (or <strong>₦25,000 NGN</strong>) or the total subscription fees paid by you in the 30 days preceding the claim.
