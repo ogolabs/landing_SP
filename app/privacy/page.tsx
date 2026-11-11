@@ -141,6 +141,12 @@ export default function PrivacyPolicyPage() {
                 </p>
               </div>
               <div className="bg-slate-50 dark:bg-slate-800/40 p-3.5 rounded-xl border border-slate-200 dark:border-slate-800 space-y-1">
+                <span className="font-bold text-slate-900 dark:text-white">Wholesale Vendors &amp; AP</span>
+                <p className="text-slate-600 dark:text-slate-400 text-xs leading-relaxed">
+                  Supplier commercial name, contact details, payment terms, itemized purchase bills, goods receiving vouchers, and AP aging records (stored strictly off-chain).
+                </p>
+              </div>
+              <div className="bg-slate-50 dark:bg-slate-800/40 p-3.5 rounded-xl border border-slate-200 dark:border-slate-800 space-y-1">
                 <span className="font-bold text-slate-900 dark:text-white">Bot Defense &amp; Security</span>
                 <p className="text-slate-600 dark:text-slate-400 text-xs leading-relaxed">
                   Cloudflare Turnstile tokens, IP addresses, and user-agent strings to prevent bot brute-force attacks on OTP endpoints.
@@ -197,13 +203,13 @@ export default function PrivacyPolicyPage() {
                   </tr>
                   <tr>
                     <td className="py-2.5 px-3 font-semibold text-slate-900 dark:text-white">ZeptoMail (Zoho)</td>
-                    <td className="py-2.5 px-3">Transactional Email Delivery</td>
-                    <td className="py-2.5 px-3">Recipient email and OTP / staff PIN verification codes</td>
+                    <td className="py-2.5 px-3">Transactional Email &amp; Executive PDF Reports</td>
+                    <td className="py-2.5 px-3">Recipient email, login OTP, attached 3-statement PDF reports, and renewal notices</td>
                   </tr>
                   <tr>
                     <td className="py-2.5 px-3 font-semibold text-slate-900 dark:text-white">Termii</td>
-                    <td className="py-2.5 px-3">Transactional SMS (Coming Soon)</td>
-                    <td className="py-2.5 px-3">Recipient phone and SMS verification passcodes</td>
+                    <td className="py-2.5 px-3">Transactional SMS &amp; Expiry Alerts</td>
+                    <td className="py-2.5 px-3">Recipient phone number, SMS verification passcodes, and subscription expiry alerts</td>
                   </tr>
                   <tr>
                     <td className="py-2.5 px-3 font-semibold text-slate-900 dark:text-white">Cloudflare</td>
@@ -212,8 +218,8 @@ export default function PrivacyPolicyPage() {
                   </tr>
                   <tr>
                     <td className="py-2.5 px-3 font-semibold text-slate-900 dark:text-white">Avalanche C-Chain</td>
-                    <td className="py-2.5 px-3">Decentralized Cryptographic Timestamping</td>
-                    <td className="py-2.5 px-3">Non-reversible SHA-256 hashes (Zero PII on-chain)</td>
+                    <td className="py-2.5 px-3">Cryptographic Timestamping &amp; Merkle Batch Anchoring</td>
+                    <td className="py-2.5 px-3">Non-reversible SHA-256 hashes and batch roots (Zero PII on-chain)</td>
                   </tr>
                 </tbody>
               </table>
