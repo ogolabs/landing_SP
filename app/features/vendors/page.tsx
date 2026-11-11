@@ -10,6 +10,8 @@ import {
   CheckCircle2,
   ArrowRight,
   PackageCheck,
+  FileText,
+  Mail,
 } from "lucide-react";
 import { APP_BASE_URL } from "@/lib/config";
 import {
@@ -356,6 +358,71 @@ export default function VendorsPage() {
                   <span><strong className="text-slate-900 dark:text-white">Cost Trend Tracking:</strong> Monitor whether supplier unit costs are rising or falling over time.</span>
                 </li>
               </ul>
+            </div>
+          </div>
+
+          {/* Workflow 5: Accountant-Grade PDF Statements & Receiving Vouchers */}
+          <div className="pt-10 border-t border-slate-100 dark:border-slate-800 space-y-8">
+            <div className="text-center max-w-3xl mx-auto space-y-3">
+              <span className="text-xs font-bold uppercase tracking-wider text-blue-700 dark:text-blue-400 bg-blue-50 dark:bg-blue-950/60 px-3 py-1 rounded-full border border-blue-200 dark:border-blue-800">
+                Audit &amp; Reporting
+              </span>
+              <h2 className="text-2xl sm:text-4xl font-extrabold text-slate-900 dark:text-white font-display tracking-tight">
+                Accountant-grade PDF statements, vouchers, and automated emails.
+              </h2>
+              <p className="text-sm sm:text-base text-slate-600 dark:text-slate-300 leading-relaxed">
+                Keep your bookkeeping clean and audit-ready. Export official vector PDF supplier statements on-demand or receive automated executive email summaries right in your inbox.
+              </p>
+            </div>
+
+            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4">
+              <div className="bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-800 rounded-2xl p-5 space-y-3 shadow-2xs">
+                <div className="w-9 h-9 rounded-xl bg-blue-50 dark:bg-blue-950/60 text-blue-600 dark:text-blue-400 flex items-center justify-center border border-blue-200/50 dark:border-blue-800/50">
+                  <Mail className="w-4 h-4" />
+                </div>
+                <h3 className="text-sm font-bold text-slate-900 dark:text-white font-display">
+                  Automated Periodic AP Statements
+                </h3>
+                <p className="text-xs text-slate-500 dark:text-slate-400 leading-relaxed">
+                  Dispatched to your email on Daily close, Weekly, Monthly, and Annual schedules with aging maturity breakdowns and attached vector PDFs.
+                </p>
+              </div>
+
+              <div className="bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-800 rounded-2xl p-5 space-y-3 shadow-2xs">
+                <div className="w-9 h-9 rounded-xl bg-emerald-50 dark:bg-emerald-950/60 text-emerald-600 dark:text-emerald-400 flex items-center justify-center border border-emerald-200/50 dark:border-emerald-800/50">
+                  <PackageCheck className="w-4 h-4" />
+                </div>
+                <h3 className="text-sm font-bold text-slate-900 dark:text-white font-display">
+                  Goods Receiving Voucher Slips
+                </h3>
+                <p className="text-xs text-slate-500 dark:text-slate-400 leading-relaxed">
+                  Official bill receiving vouchers complete with warehouse receiving checklists, clerk signature lines, and physical audit stamp boxes.
+                </p>
+              </div>
+
+              <div className="bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-800 rounded-2xl p-5 space-y-3 shadow-2xs">
+                <div className="w-9 h-9 rounded-xl bg-indigo-50 dark:bg-indigo-950/60 text-indigo-600 dark:text-indigo-400 flex items-center justify-center border border-indigo-200/50 dark:border-indigo-800/50">
+                  <Receipt className="w-4 h-4" />
+                </div>
+                <h3 className="text-sm font-bold text-slate-900 dark:text-white font-display">
+                  Supplier Statement of Account
+                </h3>
+                <p className="text-xs text-slate-500 dark:text-slate-400 leading-relaxed">
+                  Dedicated supplier ledger PDFs covering all lifetime purchase bills, payment ledger transactions, payment terms, and running balance due.
+                </p>
+              </div>
+
+              <div className="bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-800 rounded-2xl p-5 space-y-3 shadow-2xs">
+                <div className="w-9 h-9 rounded-xl bg-slate-100 dark:bg-slate-800 text-slate-700 dark:text-slate-300 flex items-center justify-center border border-slate-200 dark:border-slate-700">
+                  <FileText className="w-4 h-4" />
+                </div>
+                <h3 className="text-sm font-bold text-slate-900 dark:text-white font-display">
+                  Price Benchmark Matrix PDF
+                </h3>
+                <p className="text-xs text-slate-500 dark:text-slate-400 leading-relaxed">
+                  Exportable procurement comparison matrix mapping unit costs, price spreads, and cost variance across multiple registered suppliers.
+                </p>
+              </div>
             </div>
           </div>
         </section>
