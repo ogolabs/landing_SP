@@ -241,6 +241,10 @@ export default function SalesReceiptsPage() {
                   <CheckCircle2 className="w-4 h-4 text-emerald-600 shrink-0 mt-0.5" />
                   <span><strong className="text-slate-900 dark:text-white">Automatic Stock Restoration:</strong> Voiding a sale automatically returns item quantities back into the branch catalog stock.</span>
                 </li>
+                <li className="flex items-start gap-2.5">
+                  <CheckCircle2 className="w-4 h-4 text-emerald-600 shrink-0 mt-0.5" />
+                  <span><strong className="text-slate-900 dark:text-white">Sales Channels, COGS &amp; Cash Flow:</strong> Attribute orders to Walk-in, WhatsApp, Instagram, Website, or Phone, track Gross Margin from item cost prices, and monitor real Money In vs. Money Out (Operating Expenses &amp; Vendor Payments).</span>
+                </li>
               </ul>
             </div>
 
