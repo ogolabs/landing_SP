@@ -332,6 +332,10 @@ export default function InventoryPage() {
                   <CheckCircle2 className="w-4 h-4 text-teal-600 shrink-0 mt-0.5" />
                   <span><strong className="text-slate-900 dark:text-white">Branch Filtering:</strong> Run consolidated company-wide reports or isolate individual store branches.</span>
                 </li>
+                <li className="flex items-start gap-2.5">
+                  <CheckCircle2 className="w-4 h-4 text-teal-600 shrink-0 mt-0.5" />
+                  <span><strong className="text-slate-900 dark:text-white">Product Packages &amp; Price Lists:</strong> Bundle 2+ products into pre-packed combos (Starter 500+) and export customer-facing Price List PDFs or CSVs scoped to All Items, Packages Only, or Single Products Only.</span>
+                </li>
               </ul>
             </div>
           </div>
