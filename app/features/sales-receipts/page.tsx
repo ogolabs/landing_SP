@@ -95,6 +95,10 @@ export default function SalesReceiptsPage() {
               <ul className="space-y-3 text-sm text-slate-600 dark:text-slate-400">
                 <li className="flex items-start gap-2.5">
                   <CheckCircle2 className="w-4 h-4 text-emerald-600 shrink-0 mt-0.5" />
+                  <span><strong className="text-slate-900 dark:text-white">Barcode Scanner &amp; Camera Scanning:</strong> Plug-and-play USB &amp; Bluetooth barcode gun support, or scan product barcodes using your phone camera for split-second checkout.</span>
+                </li>
+                <li className="flex items-start gap-2.5">
+                  <CheckCircle2 className="w-4 h-4 text-emerald-600 shrink-0 mt-0.5" />
                   <span><strong className="text-slate-900 dark:text-white">Multi-Unit Line Items:</strong> Record item name, quantity, unit price, and subtotal automatically.</span>
                 </li>
                 <li className="flex items-start gap-2.5">
