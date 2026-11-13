@@ -279,6 +279,15 @@ export default function PricingComparisonTable({
           scale: true,
         },
         {
+          name: "Smart Touch Grid POS Terminal",
+          tooltip: "Visual product matrix with category tabs, live order ticket, and debounced touch-tap checkout",
+          free: false,
+          starter: true,
+          growth: true,
+          business: true,
+          scale: true,
+        },
+        {
           name: "Instant Customer QR Code Delivery",
           tooltip: "Customers scan directly with their phone camera with zero app install",
           free: true,
