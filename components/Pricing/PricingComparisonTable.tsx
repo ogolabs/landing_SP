@@ -148,6 +148,15 @@ export default function PricingComparisonTable({
           business: true,
           scale: true,
         },
+        {
+          name: "Bulk Import (Excel .xlsx & CSV)",
+          tooltip: "Upload your entire inventory catalog in bulk using Excel or CSV spreadsheets",
+          free: true,
+          starter: true,
+          growth: true,
+          business: true,
+          scale: true,
+        },
       ],
     },
     {
@@ -254,6 +263,15 @@ export default function PricingComparisonTable({
       rows: [
         {
           name: "Counter Sales Register & Quick Presets",
+          free: true,
+          starter: true,
+          growth: true,
+          business: true,
+          scale: true,
+        },
+        {
+          name: "Barcode Scanner & Camera Scanning POS",
+          tooltip: "Plug-and-play USB/Bluetooth barcode guns plus mobile camera scanning with audio feedback",
           free: true,
           starter: true,
           growth: true,
