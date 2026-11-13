@@ -14,6 +14,7 @@ import {
   FileText,
   BadgeAlert,
   CreditCard,
+  LayoutGrid,
 } from "lucide-react";
 import { APP_BASE_URL } from "@/lib/config";
 
@@ -95,6 +96,14 @@ export default function SalesReceiptsPage() {
               <ul className="space-y-3 text-sm text-slate-600 dark:text-slate-400">
                 <li className="flex items-start gap-2.5">
                   <CheckCircle2 className="w-4 h-4 text-emerald-600 shrink-0 mt-0.5" />
+                  <span><strong className="text-slate-900 dark:text-white">Smart Touch Grid POS (Starter+):</strong> Switch with 1-click between List View and a visual Touch Grid terminal with category navigation, real-time stock badges, live order ticket, and debounced touch taps.</span>
+                </li>
+                <li className="flex items-start gap-2.5">
+                  <CheckCircle2 className="w-4 h-4 text-emerald-600 shrink-0 mt-0.5" />
+                  <span><strong className="text-slate-900 dark:text-white">Barcode Scanner &amp; Camera Scanning:</strong> Plug-and-play USB &amp; Bluetooth barcode gun support, or scan product barcodes using your phone camera for split-second checkout.</span>
+                </li>
+                <li className="flex items-start gap-2.5">
+                  <CheckCircle2 className="w-4 h-4 text-emerald-600 shrink-0 mt-0.5" />
                   <span><strong className="text-slate-900 dark:text-white">Multi-Unit Line Items:</strong> Record item name, quantity, unit price, and subtotal automatically.</span>
                 </li>
                 <li className="flex items-start gap-2.5">
@@ -153,6 +162,36 @@ export default function SalesReceiptsPage() {
                 </div>
                 <div className="p-2.5 rounded-xl bg-slate-50 dark:bg-slate-800/60 text-[10px] text-slate-500 dark:text-slate-400 font-sans">
                   Audit Reference: 0x8a9f...e43c · Secured Digital Proof of Sale
+                </div>
+              </div>
+            </div>
+          </div>
+
+          {/* Touch Grid POS Highlight */}
+          <div className="bg-linear-to-br from-blue-900 to-indigo-950 rounded-3xl p-8 sm:p-12 text-white border border-blue-800 shadow-xl relative overflow-hidden">
+            <div className="relative z-10 max-w-3xl space-y-4">
+              <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-blue-500/20 border border-blue-400/30 text-blue-200 text-xs font-bold uppercase tracking-wider">
+                <LayoutGrid className="w-3.5 h-3.5 text-blue-400" />
+                <span>Touch Grid POS Terminal (Starter 500+)</span>
+              </div>
+              <h3 className="text-2xl sm:text-4xl font-extrabold font-display tracking-tight text-white">
+                Turn any tablet, iPad, or touchscreen into a high-speed retail checkout register.
+              </h3>
+              <p className="text-sm sm:text-base text-blue-100/90 leading-relaxed">
+                Tired of slow typing during counter rush hours? SellerPadi&apos;s Touch Grid POS presents your entire product catalog as visual tiles with dynamic category navigation, instant stock badges, real-time SKU search, and an active order ticket with quantity steppers.
+              </p>
+              <div className="pt-2 grid grid-cols-1 sm:grid-cols-3 gap-3 text-xs">
+                <div className="p-3.5 rounded-xl bg-white/5 border border-white/10 space-y-1">
+                  <div className="font-bold text-white">Visual Product Tiles</div>
+                  <div className="text-blue-200/80">Category color accents, thumbnail images, and live inventory count badges.</div>
+                </div>
+                <div className="p-3.5 rounded-xl bg-white/5 border border-white/10 space-y-1">
+                  <div className="font-bold text-white">Live Active Ticket</div>
+                  <div className="text-blue-200/80">Instant item additions with touch steppers, unit subtotals, and 1-tap cart reset.</div>
+                </div>
+                <div className="p-3.5 rounded-xl bg-white/5 border border-white/10 space-y-1">
+                  <div className="font-bold text-white">Dynamic Tax &amp; Currency</div>
+                  <div className="text-blue-200/80">Automatic localized Tax/VAT calculation supporting any currency globally.</div>
                 </div>
               </div>
             </div>

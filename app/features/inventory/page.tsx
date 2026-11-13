@@ -92,6 +92,10 @@ export default function InventoryPage() {
               <ul className="space-y-3 text-sm text-slate-600 dark:text-slate-400">
                 <li className="flex items-start gap-2.5">
                   <CheckCircle2 className="w-4 h-4 text-teal-600 shrink-0 mt-0.5" />
+                  <span><strong className="text-slate-900 dark:text-white">Bulk Spreadsheet Import:</strong> Populate or update your catalog in seconds from genuine Microsoft Excel (.xlsx) or CSV files with pre-formatted sample templates.</span>
+                </li>
+                <li className="flex items-start gap-2.5">
+                  <CheckCircle2 className="w-4 h-4 text-teal-600 shrink-0 mt-0.5" />
                   <span><strong className="text-slate-900 dark:text-white">SKU &amp; Barcode Tracking:</strong> Organize merchandise with custom barcodes, internal product SKUs, and categories.</span>
                 </li>
                 <li className="flex items-start gap-2.5">
