@@ -322,7 +322,7 @@ export default function Home() {
                   <ul className="space-y-2 text-xs sm:text-sm text-slate-600 dark:text-slate-400">
                     <li className="flex items-center gap-2">
                       <span className="h-1.5 w-1.5 rounded-full bg-slate-600 shrink-0" />
-                      <span>Free tier pilot: 1 Manager or Sales Rep at Headquarters</span>
+                      <span>Free tier pilot: 1 Manager or Sales Rep at Main Store</span>
                     </li>
                     <li className="flex items-center gap-2">
                       <span className="h-1.5 w-1.5 rounded-full bg-slate-600 shrink-0" />

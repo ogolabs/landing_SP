@@ -31,7 +31,7 @@ export default function AboutPage() {
     {
       num: "04",
       title: "Multi-Branch Operations & Team Roles",
-      desc: "Collaborate seamlessly across multiple retail shops or pilot with 1 staff member at Headquarters on our Free tier. Invite branch managers and sales reps via email with 6-digit PIN logins, keeping records role-scoped so staff only see what is attached to them.",
+      desc: "Collaborate seamlessly across multiple retail shops or pilot with 1 staff member at Main Store on our Free tier. Invite branch managers and sales reps via email with 6-digit PIN logins, keeping records role-scoped so staff only see what is attached to them.",
     },
     {
       num: "05",
