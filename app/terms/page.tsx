@@ -164,7 +164,7 @@ export default function TermsOfServicePage() {
             </div>
 
             <p className="text-xs text-slate-500 dark:text-slate-400">
-              *Free tier includes the Store Owner plus up to 1 staff member (either 1 Manager or 1 Sales Rep) at Headquarters. Creating separate additional branches or inviting further staff requires upgrading to a paid tier.
+              *Free tier includes the Store Owner plus up to 1 staff member (either 1 Manager or 1 Sales Rep) at Main Store. Creating separate additional branches or inviting further staff requires upgrading to a paid tier.
             </p>
 
             <div className="grid sm:grid-cols-2 gap-3 text-xs sm:text-sm">
@@ -264,6 +264,12 @@ export default function TermsOfServicePage() {
                 <span className="w-1.5 h-1.5 rounded-full bg-blue-600 mt-2 shrink-0" />
                 <span>
                   <strong>Goods Receiving Vouchers &amp; Audit Slips:</strong> Generating receiving slips establishes internal store audit trails but does not constitute a legal endorsement or guarantee by SellerPadi regarding merchandise quality, quantity, or warranty.
+                </span>
+              </div>
+              <div className="flex items-start gap-2">
+                <span className="w-1.5 h-1.5 rounded-full bg-blue-600 mt-2 shrink-0" />
+                <span>
+                  <strong>Settled Bill Immutability:</strong> Fully settled purchase bills are strictly immutable and cannot be altered. In the event of an erroneous record, the bill can be archived with mandatory archiver attribution, preserving ledger integrity.
                 </span>
               </div>
             </div>
