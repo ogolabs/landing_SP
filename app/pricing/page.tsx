@@ -179,7 +179,7 @@ export default function PricingPage() {
                     <div className="flex items-start gap-2.5">
                       <Check className="w-4 h-4 xl:w-5 xl:h-5 text-emerald-600 dark:text-emerald-400 shrink-0 mt-0.5" />
                       <div className="leading-tight">
-                        <span className="font-semibold text-slate-900 dark:text-white">Headquarters Store</span>
+                        <span className="font-semibold text-slate-900 dark:text-white">Main Store</span>
                         <span className="block text-[11px] sm:text-xs text-slate-500 dark:text-slate-400 mt-0.5">
                           Main store branch included
                         </span>
@@ -190,9 +190,9 @@ export default function PricingPage() {
                     <div className="flex items-start gap-2.5">
                       <Check className="w-4 h-4 xl:w-5 xl:h-5 text-emerald-600 dark:text-emerald-400 shrink-0 mt-0.5" />
                       <div className="leading-tight">
-                        <span className="font-semibold text-slate-900 dark:text-white">1 HQ Staff Member</span>
+                        <span className="font-semibold text-slate-900 dark:text-white">1 Staff Member</span>
                         <span className="block text-[11px] sm:text-xs text-slate-500 dark:text-slate-400 mt-0.5">
-                          1 Manager or Sales Rep at Headquarters
+                          1 Manager or Sales Rep at Main Store
                         </span>
                       </div>
                     </div>
@@ -646,7 +646,7 @@ export default function PricingPage() {
               <div className="space-y-2 xl:space-y-3">
                 <h4 className="font-bold text-slate-900 dark:text-white text-sm sm:text-base xl:text-lg">Can I add staff on the Free tier?</h4>
                 <p className="text-slate-600 dark:text-slate-400 leading-relaxed">
-                  Yes! The Free plan allows you to assign 1 staff member (a Branch Manager or Sales Representative) to your Headquarters. Headquarters staff can only view records and sales directly attached to them, while the CEO retains complete global visibility across all store operations.
+                  Yes! The Free plan allows you to assign 1 staff member (a Branch Manager or Sales Representative) to your Main Store. Main Store staff can only view records and sales directly attached to them, while the CEO retains complete global visibility across all store operations.
                 </p>
               </div>
 

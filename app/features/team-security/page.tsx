@@ -88,7 +88,7 @@ export default function TeamSecurityPage() {
               4 distinct roles tailored for modern retail operations.
             </h2>
             <p className="text-sm sm:text-base text-slate-600 dark:text-slate-400">
-              Every staff member operates inside a strict, role-scoped boundary. Staff never interact with crypto wallets, recovery phrases, or private keys.
+              Every staff member operates inside a strict, role-scoped boundary with effortless 6-digit numeric PIN authentication.
             </p>
           </div>
 
@@ -206,7 +206,7 @@ export default function TeamSecurityPage() {
                   <span className="text-[11px] font-semibold text-indigo-600 dark:text-indigo-400">Enterprise Financial &amp; AP Officer</span>
                 </div>
                 <p className="text-xs text-slate-600 dark:text-slate-400 leading-relaxed">
-                  Enterprise-wide scope across Headquarters &amp; all branches. Available on Business (Lead Accountant) and Scale (Lead &amp; Deputy Accountants). Oversees stock valuation, purchase bills, and vendor AP with 4 optional CEO-delegated operational privileges.
+                  Enterprise-wide scope across Main Store &amp; all branches. Available on Business (Lead Accountant) and Scale (Lead &amp; Deputy Accountants). Oversees stock valuation, purchase bills, and vendor AP with 5 optional CEO-delegated operational privileges.
                 </p>
                 <ul className="space-y-2 text-xs text-slate-600 dark:text-slate-400 pt-2 border-t border-slate-100 dark:border-slate-800">
                   <li className="flex items-center gap-2">
@@ -223,7 +223,7 @@ export default function TeamSecurityPage() {
                   </li>
                   <li className="flex items-start gap-2">
                     <span className="h-1.5 w-1.5 rounded-full bg-blue-600 shrink-0 mt-1.5" />
-                    <span className="text-blue-600 dark:text-blue-400 font-semibold">4 CEO-Toggled Privileges: Sales, Dispatches, Catalog &amp; Transfers</span>
+                    <span className="text-blue-600 dark:text-blue-400 font-semibold">5 CEO-Toggled Privileges: Sales, Dispatches, Catalog, Transfers &amp; Vendor AP Mgt</span>
                   </li>
                 </ul>
               </div>
@@ -321,7 +321,7 @@ export default function TeamSecurityPage() {
                     <td className="py-3.5 px-4 text-center text-emerald-600 font-bold whitespace-nowrap">✓ All Branches</td>
                     <td className="py-3.5 px-4 text-center text-rose-500 font-bold whitespace-nowrap">✗ Blocked</td>
                     <td className="py-3.5 px-4 text-center text-rose-500 font-bold whitespace-nowrap">✗ Blocked</td>
-                    <td className="py-3.5 px-4 text-center text-emerald-600 font-bold whitespace-nowrap">✓ All Branches</td>
+                    <td className="py-3.5 px-4 text-center text-blue-600 dark:text-blue-400 font-semibold whitespace-nowrap">Read Default (Optional Write)</td>
                   </tr>
                   <tr>
                     <td className="py-3.5 px-4 sm:px-6 font-medium whitespace-nowrap">Export Financial &amp; Valuation Reports</td>
@@ -365,7 +365,7 @@ export default function TeamSecurityPage() {
                   Frictionless 6-Digit PIN Logins
                 </h3>
                 <p className="text-xs text-slate-600 dark:text-slate-400 leading-relaxed">
-                  Branch staff sign in at <code className="text-[11px] font-mono font-bold text-blue-600 bg-blue-50 dark:bg-blue-950 px-1 py-0.5 rounded-sm">/workspace/login</code> using only their email and a secure 6-digit PIN. Staff never handle crypto wallets or private keys.
+                  Branch staff sign in at <code className="text-[11px] font-mono font-bold text-blue-600 bg-blue-50 dark:bg-blue-950 px-1 py-0.5 rounded-sm">/workspace/login</code> using only their email and a secure 6-digit PIN with single-device protection.
                 </p>
                 <div className="pt-2 text-[11px] text-slate-500 font-mono">
                   Hashed via bcrypt (10 rounds) · Zero plaintext storage
