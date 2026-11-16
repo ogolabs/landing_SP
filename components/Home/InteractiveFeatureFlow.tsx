@@ -44,12 +44,12 @@ const STEPS: StepDetail[] = [
   {
     id: 2,
     label: "Step 2",
-    badge: "Instant QR Display",
-    title: "Buyer Scans Receipt from Screen",
+    badge: "Flexible Fulfillment",
+    title: "Buyer Scans QR or Gets Thermal Slip",
     description:
-      "A dynamic, tamperproof digital receipt QR code appears on the counter display. The customer scans it with their default camera app in one second.",
-    actor: "In-Store Customer",
-    keyBenefit: "Zero app download · Instant offline receipt · Forever digital copy",
+      "Choose your counter modus operandi: let customers scan a tamperproof digital QR receipt on screen, auto-print high-speed thermal paper slips with cash drawer kick, or prompt on demand.",
+    actor: "In-Store Customer & Counter",
+    keyBenefit: "Digital QR on screen · 80mm/58mm thermal auto-print · Cash drawer auto-kick",
   },
   {
     id: 3,

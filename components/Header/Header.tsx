@@ -24,7 +24,7 @@ export const FEATURE_LINKS = [
     name: "Smart QR Receipts",
     href: "/features/sales-receipts",
     badge: "Sales Book",
-    description: "Counter checkout, instant QR slips, debtor tracking & audit-safe voiding.",
+    description: "Counter checkout, paperless QR or thermal printing, cash drawer kick & debtor tracking.",
     icon: Receipt,
     colorClass: "text-emerald-600 dark:text-emerald-400 bg-emerald-50 dark:bg-emerald-950/60",
   },

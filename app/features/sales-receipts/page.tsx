@@ -168,7 +168,7 @@ export default function SalesReceiptsPage() {
           </div>
 
           {/* Touch Grid POS Highlight */}
-          <div className="bg-linear-to-br from-blue-900 to-indigo-950 rounded-3xl p-8 sm:p-12 text-white border border-blue-800 shadow-xl relative overflow-hidden">
+          <div className="bg-slate-900 rounded-3xl p-8 sm:p-12 text-white border border-slate-800 shadow-xl relative overflow-hidden">
             <div className="relative z-10 max-w-3xl space-y-4">
               <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-blue-500/20 border border-blue-400/30 text-blue-200 text-xs font-bold uppercase tracking-wider">
                 <LayoutGrid className="w-3.5 h-3.5 text-blue-400" />
@@ -194,6 +194,89 @@ export default function SalesReceiptsPage() {
                   <div className="text-blue-200/80">Automatic localized Tax/VAT calculation supporting any currency globally.</div>
                 </div>
               </div>
+            </div>
+          </div>
+
+          {/* Workflow: Counter Hardware Flexibility — Tailored to Your Business */}
+          <div className="p-8 sm:p-12 rounded-3xl bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-800 shadow-xs space-y-8">
+            <div className="max-w-3xl space-y-3">
+              <span className="text-xs font-bold uppercase tracking-wider text-blue-700 dark:text-blue-400 bg-blue-50 dark:bg-blue-950/60 px-3 py-1 rounded-full border border-blue-200 dark:border-blue-800">
+                Counter Flexibility &amp; Modus Operandi
+              </span>
+              <h2 className="text-2xl sm:text-4xl font-extrabold text-slate-900 dark:text-white font-display tracking-tight">
+                Run paperless, print physical slips, or do both. You choose.
+              </h2>
+              <p className="text-sm sm:text-base text-slate-600 dark:text-slate-300 leading-relaxed">
+                Every business operates differently. Whether you run a high-volume supermarket where long checkout queues need auto-printed slips and cash drawers, or a modern boutique going 100% paperless, SellerPadi adapts to your exact store workflow.
+              </p>
+            </div>
+
+            <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
+              {/* Option 1: Supermarket & High-Volume */}
+              <div className="p-6 rounded-2xl bg-slate-50 dark:bg-slate-800/40 border border-slate-200/80 dark:border-slate-800 space-y-3 flex flex-col justify-between">
+                <div className="space-y-3">
+                  <div className="w-10 h-10 rounded-xl bg-blue-100 dark:bg-blue-950/80 text-blue-600 dark:text-blue-400 flex items-center justify-center font-bold">
+                    <Printer className="w-5 h-5" />
+                  </div>
+                  <h3 className="text-base font-bold text-slate-900 dark:text-white">
+                    Supermarket &amp; Fast Retail
+                  </h3>
+                  <p className="text-xs text-slate-500 dark:text-slate-400 leading-relaxed">
+                    Set checkout to <strong>Auto-Print</strong>. As soon as a cash sale is rung up, the thermal receipt auto-prints on 80mm or 58mm continuous roll while the 24V cash drawer auto-kicks open simultaneously.
+                  </p>
+                </div>
+                <div className="pt-2 border-t border-slate-200/60 dark:border-slate-700/60 text-[11px] font-semibold text-blue-600 dark:text-blue-400">
+                  Best for: Grocery stores, supermarkets, pharmacies
+                </div>
+              </div>
+
+              {/* Option 2: Pure Paperless Boutique */}
+              <div className="p-6 rounded-2xl bg-slate-50 dark:bg-slate-800/40 border border-slate-200/80 dark:border-slate-800 space-y-3 flex flex-col justify-between">
+                <div className="space-y-3">
+                  <div className="w-10 h-10 rounded-xl bg-emerald-100 dark:bg-emerald-950/80 text-emerald-600 dark:text-emerald-400 flex items-center justify-center font-bold">
+                    <Smartphone className="w-5 h-5" />
+                  </div>
+                  <h3 className="text-base font-bold text-slate-900 dark:text-white">
+                    Pure Paperless Digital QR
+                  </h3>
+                  <p className="text-xs text-slate-500 dark:text-slate-400 leading-relaxed">
+                    Set checkout to <strong>Pure Paperless</strong>. A high-resolution tamperproof QR code appears on your screen. The customer scans it with their phone camera to view and save their verified proof of purchase.
+                  </p>
+                </div>
+                <div className="pt-2 border-t border-slate-200/60 dark:border-slate-700/60 text-[11px] font-semibold text-emerald-600 dark:text-emerald-400">
+                  Best for: Boutiques, electronics, salons, cafes
+                </div>
+              </div>
+
+              {/* Option 3: Instant Fulfillment Modal (Prompt) */}
+              <div className="p-6 rounded-2xl bg-slate-50 dark:bg-slate-800/40 border border-slate-200/80 dark:border-slate-800 space-y-3 flex flex-col justify-between">
+                <div className="space-y-3">
+                  <div className="w-10 h-10 rounded-xl bg-purple-100 dark:bg-purple-950/80 text-purple-600 dark:text-purple-400 flex items-center justify-center font-bold">
+                    <Share2 className="w-5 h-5" />
+                  </div>
+                  <h3 className="text-base font-bold text-slate-900 dark:text-white">
+                    Hybrid Customer Choice
+                  </h3>
+                  <p className="text-xs text-slate-500 dark:text-slate-400 leading-relaxed">
+                    Set checkout to <strong>Instant Prompt</strong>. The cashier gets instant 1-click buttons: scan QR on screen, send via WhatsApp, download vector PDF, or print an 80mm receipt slip on request.
+                  </p>
+                </div>
+                <div className="pt-2 border-t border-slate-200/60 dark:border-slate-700/60 text-[11px] font-semibold text-purple-600 dark:text-purple-400">
+                  Best for: Mixed retail, wholesale, general trade
+                </div>
+              </div>
+            </div>
+
+            <div className="p-4 rounded-2xl bg-slate-100 dark:bg-slate-800/60 border border-slate-200 dark:border-slate-700 flex flex-col sm:flex-row items-center justify-between gap-4">
+              <div className="text-xs text-slate-600 dark:text-slate-300">
+                <strong className="text-slate-900 dark:text-white">Plug-and-play with your existing equipment:</strong> Works with standard ESC/POS 80mm &amp; 58mm printers, RJ11 24V cash drawers, and USB/Bluetooth barcode scanners.
+              </div>
+              <a
+                href={`${APP_BASE_URL}/hardware-setup`}
+                className="inline-flex items-center gap-1.5 px-4 py-2 text-xs font-bold rounded-xl text-white bg-blue-600 hover:bg-blue-700 transition-colors shadow-2xs shrink-0"
+              >
+                <span>View Hardware Setup Guide &rarr;</span>
+              </a>
             </div>
           </div>
 
