@@ -54,7 +54,7 @@ export const metadata: Metadata = {
     "multi-branch store management",
     "debtor tracking",
     "paperless retail receipts",
-    "Avalanche",
+    "Electroneum",
   ],
   authors: [{ name: "SellerPadi" }],
   creator: "SellerPadi",

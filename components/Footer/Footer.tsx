@@ -162,8 +162,8 @@ export default function Footer() {
             <div className="bg-slate-50 dark:bg-slate-900 border border-slate-200 dark:border-slate-800 rounded-2xl p-4 space-y-3 shadow-xs">
               <div className="flex items-center gap-3">
                 <Image
-                  src="/avax.svg"
-                  alt="Avalanche Logo"
+                  src="/electroneum.svg"
+                  alt="Electroneum Logo"
                   width={28}
                   height={28}
                   className="w-7 h-7 object-contain shrink-0"
@@ -187,7 +187,7 @@ export default function Footer() {
                 Every sales receipt and custody handover is certified with an immutable cryptographic audit reference.
               </p>
               <div className="pt-1 border-t border-slate-200/80 dark:border-slate-800 text-[10px] text-slate-500 flex items-center justify-between font-mono">
-                <span>Consensus: Snowman</span>
+                <span>Consensus: PoR</span>
                 <span className="text-emerald-600 dark:text-emerald-400 font-semibold">Verified</span>
               </div>
             </div>

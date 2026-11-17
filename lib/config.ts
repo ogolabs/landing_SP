@@ -13,10 +13,9 @@ export const isTestnet =
   process.env.NEXT_PUBLIC_NETWORK?.toLowerCase() !== "mainnet";
 
 export const NETWORK_NAME = isTestnet
-  ? "Avalanche Fuji Testnet"
-  : "Avalanche C-Chain";
+  ? "Electroneum Testnet"
+  : "Electroneum Smart Chain";
 
 export const BLOCK_EXPLORER_URL = isTestnet
-  ? "https://testnet.snowtrace.io"
-  : "https://snowtrace.io";
-
+  ? "https://testnet-blockexplorer.electroneum.com"
+  : "https://blockexplorer.electroneum.com";
