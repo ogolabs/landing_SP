@@ -106,7 +106,7 @@ export default function PrivacyPolicyPage() {
 
             <div className="border-t border-slate-100 dark:border-slate-800 pt-4 space-y-2.5 text-xs sm:text-sm text-slate-600 dark:text-slate-400 leading-relaxed">
               <p>
-                <strong>Zero Personal Data Touches the Ledger:</strong> Under no circumstances are customer names, telephone numbers, purchased product line items, staff emails, or store physical addresses broadcast or written to the Avalanche C-Chain.
+                <strong>Zero Personal Data Touches the Ledger:</strong> Under no circumstances are customer names, telephone numbers, purchased product line items, staff emails, or store physical addresses broadcast or written to the Electroneum Smart Chain.
               </p>
               <p>
                 <strong>Cryptographic SHA-256 Hashes Only:</strong> The only data recorded on-chain are non-reversible mathematical digests (<code className="font-mono text-xs">receiptHash</code> and <code className="font-mono text-xs">innerSecretHash</code>) anchored into periodic Merkle batch trees. These establish immutable mathematical proof of transaction timestamp and validity without exposing any human-readable content.
@@ -235,7 +235,7 @@ export default function PrivacyPolicyPage() {
                     <td className="py-2.5 px-3">Client IP address, browser telemetry, and challenge response tokens</td>
                   </tr>
                   <tr>
-                    <td className="py-2.5 px-3 font-semibold text-slate-900 dark:text-white">Avalanche C-Chain</td>
+                    <td className="py-2.5 px-3 font-semibold text-slate-900 dark:text-white">Electroneum Smart Chain</td>
                     <td className="py-2.5 px-3">Decentralized Merkle Tree Anchoring</td>
                     <td className="py-2.5 px-3">Non-reversible SHA-256 root hashes only (Zero PII on-chain)</td>
                   </tr>

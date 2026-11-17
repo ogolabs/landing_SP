@@ -434,7 +434,7 @@ export default function TermsOfServicePage() {
                   9. Decentralized Ledger Anchoring &amp; The Zero-PII Guarantee
                 </h2>
                 <p className="text-xs sm:text-sm text-slate-600 dark:text-slate-400 leading-relaxed">
-                  SellerPadi bridges non-custodial cloud bookkeeping with immutable cryptographic audit references on Avalanche C-Chain.
+                  SellerPadi bridges non-custodial cloud bookkeeping with immutable cryptographic audit references on Electroneum Smart Chain.
                 </p>
               </div>
             </div>
