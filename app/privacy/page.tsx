@@ -12,6 +12,11 @@ import {
   Server,
   Mail,
   ArrowRight,
+  Building2,
+  CheckCircle2,
+  UserCheck,
+  PackageCheck,
+  Layers,
 } from "lucide-react";
 import Link from "next/link";
 
@@ -29,22 +34,23 @@ export default function PrivacyPolicyPage() {
                 <ShieldCheck className="w-3.5 h-3.5 text-blue-600 dark:text-blue-400" />
                 <span>Data Privacy &amp; Cryptographic Security</span>
               </div>
-              <div className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-slate-200/80 dark:bg-slate-800 border border-slate-300/60 dark:border-slate-700 text-xs text-slate-700 dark:text-slate-300 font-mono font-medium">
-                <span>Release: Public Beta (v1.0-beta)</span>
+              <div className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-emerald-50 dark:bg-emerald-950/60 border border-emerald-200 dark:border-emerald-800 text-xs text-emerald-700 dark:text-emerald-300 font-mono font-medium">
+                <CheckCircle2 className="w-3.5 h-3.5 text-emerald-600 dark:text-emerald-400" />
+                <span>Statutory Entity: RC 10005885</span>
               </div>
             </div>
 
             <h1 className="text-3xl sm:text-4xl xl:text-5xl font-bold tracking-tight text-slate-900 dark:text-white font-display">
-              Public Beta Privacy Policy
+              Privacy Policy &amp; Data Protection Charter
             </h1>
 
             <div className="flex flex-wrap items-center gap-x-4 gap-y-1 text-xs sm:text-sm text-slate-500 dark:text-slate-400">
               <div className="flex items-center gap-1.5">
                 <Clock className="w-3.5 h-3.5" />
-                <span>Effective Date: November 2, 2026</span>
+                <span>Effective Date: November 12, 2026</span>
               </div>
               <span>&bull;</span>
-              <span>Data Controller: SellerPadi Software Initiative (Pre-Incorporation)</span>
+              <span>Data Controller: OGOLABS TECHNOLOGY LTD (RC: 10005885)</span>
             </div>
           </div>
 
@@ -55,24 +61,30 @@ export default function PrivacyPolicyPage() {
               <span>Our Commercial Non-Monetization Pledge</span>
             </div>
             <p className="text-xs sm:text-sm text-slate-700 dark:text-slate-300 leading-relaxed">
-              <strong>SellerPadi will never sell, rent, monetize, or trade your store sales records, inventory lists, or customer receipt details to data brokers, advertisers, or third parties.</strong> Your sales book and customer relationships belong strictly to your store. We monetize solely through transparent software subscription tiers and flat overage fees.
+              <strong>OGOLABS TECHNOLOGY LTD will never sell, rent, monetize, broker, or harvest your retail sales records, inventory stock positions, customer receipt details, or supplier purchase bills.</strong> Your commercial sales book belongs strictly to your enterprise. We monetize exclusively through transparent software subscription tiers and flat overage fees.
             </p>
           </div>
 
-          {/* Section 1: Pre-Incorporation Operator & Beta Scope */}
+          {/* Section 1: Statutory Controller & Legal Framework */}
           <div className="bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-800 rounded-2xl p-6 sm:p-8 space-y-4 shadow-xs">
             <div className="flex items-start gap-3.5">
               <div className="w-9 h-9 rounded-xl bg-blue-50 dark:bg-blue-950/60 text-blue-600 dark:text-blue-400 flex items-center justify-center shrink-0 border border-blue-200/50 dark:border-blue-800/50">
-                <FileText className="w-4 h-4" />
+                <Building2 className="w-4 h-4" />
               </div>
               <div className="space-y-1">
                 <h2 className="text-base sm:text-lg font-bold text-slate-900 dark:text-white">
-                  1. Pre-Incorporation Controller &amp; Scope of Beta Operations
+                  1. Statutory Data Controller &amp; Regulatory Framework
                 </h2>
                 <p className="text-xs sm:text-sm text-slate-600 dark:text-slate-400 leading-relaxed">
-                  SellerPadi is currently deployed in a pre-incorporation Public Beta. The data controller responsible for personal and commercial data is the SellerPadi founding developer team. Upon statutory corporate incorporation, all controller commitments will automatically assign to the registered entity.
+                  The data controller responsible for the personal and commercial data processed across <strong>SellerPadi</strong> is <strong>OGOLABS TECHNOLOGY LTD</strong>, a private company limited by shares incorporated under the <strong>Companies and Allied Matters Act 2020 (CAMA 2020)</strong> by the Corporate Affairs Commission (CAC), Nigeria, with <strong>RC 10005885</strong>, <strong>TIN 2623024126994</strong>, having its registered office at <strong>45, Lagbe Area, Moniya, Oyo State, Nigeria</strong>.
                 </p>
               </div>
+            </div>
+
+            <div className="border-t border-slate-100 dark:border-slate-800 pt-4 space-y-2 text-xs sm:text-sm text-slate-600 dark:text-slate-400 leading-relaxed">
+              <p>
+                <strong>Statutory Compliance:</strong> This Privacy Policy is constructed in strict conformity with the <strong>Nigeria Data Protection Act 2023 (NDPA 2023)</strong>, oversight guidelines issued by the <strong>Nigeria Data Protection Commission (NDPC)</strong>, and international benchmarks including the General Data Protection Regulation (GDPR) and the California Consumer Privacy Act (CCPA/CPRA) for international cross-border transactions.
+              </p>
             </div>
           </div>
 
@@ -84,23 +96,23 @@ export default function PrivacyPolicyPage() {
               </div>
               <div className="space-y-1">
                 <h2 className="text-base sm:text-lg font-bold text-slate-900 dark:text-white">
-                  2. The Zero-PII On-Chain Guarantee
+                  2. The Zero-PII On-Chain Cryptographic Guarantee
                 </h2>
                 <p className="text-xs sm:text-sm text-slate-600 dark:text-slate-400 leading-relaxed">
-                  Public blockchains are globally readable. Writing personal customer data or invoice prices directly to a public ledger violates privacy laws and creates business surveillance risks.
+                  Public blockchains are globally permanent and transparent. Writing consumer names, phone numbers, or itemized prices to a decentralized ledger violates statutory privacy rights and exposes businesses to commercial surveillance.
                 </p>
               </div>
             </div>
 
             <div className="border-t border-slate-100 dark:border-slate-800 pt-4 space-y-2.5 text-xs sm:text-sm text-slate-600 dark:text-slate-400 leading-relaxed">
               <p>
-                <strong>Zero Personal Data Touches the Chain:</strong> Under no circumstances are customer names, phone numbers, items, staff emails, or store addresses written to the decentralized ledger.
+                <strong>Zero Personal Data Touches the Ledger:</strong> Under no circumstances are customer names, telephone numbers, purchased product line items, staff emails, or store physical addresses broadcast or written to the Avalanche C-Chain.
               </p>
               <p>
-                <strong>One-Way SHA-256 Hashes Only:</strong> The only data recorded on-chain are non-reversible mathematical digests (<code className="font-mono text-xs">receiptHash</code> and <code className="font-mono text-xs">innerSecretHash</code>) anchoring immutable proof of sale and delivery timestamps without exposing transaction content.
+                <strong>Cryptographic SHA-256 Hashes Only:</strong> The only data recorded on-chain are non-reversible mathematical digests (<code className="font-mono text-xs">receiptHash</code> and <code className="font-mono text-xs">innerSecretHash</code>) anchored into periodic Merkle batch trees. These establish immutable mathematical proof of transaction timestamp and validity without exposing any human-readable content.
               </p>
               <p>
-                <strong>Confidential Scratch-Off PIN:</strong> Package delivery PINs (<code className="font-mono text-xs">SP-XXXX</code>) remain private between merchant and recipient. Public scan routes (<code className="font-mono text-xs">/scan/[id]</code>) never expose the PIN prior to verification.
+                <strong>Confidential Scratch-Off PIN:</strong> Package dispatch PINs (<code className="font-mono text-xs">SP-XXXX</code>) remain strictly confidential between merchant and recipient. Public scan routes (<code className="font-mono text-xs">/scan/[id]</code>) never expose the inner PIN prior to physical doorstep verification.
               </p>
             </div>
           </div>
@@ -113,49 +125,55 @@ export default function PrivacyPolicyPage() {
               </div>
               <div className="space-y-1">
                 <h2 className="text-base sm:text-lg font-bold text-slate-900 dark:text-white">
-                  3. Information We Collect &amp; Store
+                  3. Information We Collect &amp; Secure Off-Chain Storage
                 </h2>
                 <p className="text-xs sm:text-sm text-slate-600 dark:text-slate-400 leading-relaxed">
-                  All readable operational data is stored in encrypted off-chain MongoDB Atlas cloud databases.
+                  All readable operational data is stored in encrypted off-chain MongoDB Atlas cloud database clusters with strict network boundary isolation.
                 </p>
               </div>
             </div>
 
             <div className="border-t border-slate-100 dark:border-slate-800 pt-4 grid sm:grid-cols-2 gap-3.5 text-xs sm:text-sm">
               <div className="bg-slate-50 dark:bg-slate-800/40 p-3.5 rounded-xl border border-slate-200 dark:border-slate-800 space-y-1">
-                <span className="font-bold text-slate-900 dark:text-white">Store Identity &amp; Staff</span>
+                <span className="font-bold text-slate-900 dark:text-white flex items-center gap-1.5">
+                  <UserCheck className="w-3.5 h-3.5 text-blue-600 dark:text-blue-400" />
+                  <span>Store Identity &amp; Staff Security</span>
+                </span>
                 <p className="text-slate-600 dark:text-slate-400 text-xs leading-relaxed">
-                  Business name, handle, support phone, and staff emails. Staff PINs are hashed using <code className="font-mono text-xs">bcrypt</code> (10 salt rounds)—we never store raw PINs.
+                  Business name, store handle, verified support phone, and staff emails. Staff 6-digit numeric PINs are hashed using <code className="font-mono text-xs">bcryptjs</code> (10 salt rounds)—we never store or log plaintext PINs.
                 </p>
               </div>
               <div className="bg-slate-50 dark:bg-slate-800/40 p-3.5 rounded-xl border border-slate-200 dark:border-slate-800 space-y-1">
-                <span className="font-bold text-slate-900 dark:text-white">Sales &amp; Receipt Records</span>
+                <span className="font-bold text-slate-900 dark:text-white flex items-center gap-1.5">
+                  <FileText className="w-3.5 h-3.5 text-blue-600 dark:text-blue-400" />
+                  <span>Sales &amp; Receipt Records</span>
+                </span>
                 <p className="text-slate-600 dark:text-slate-400 text-xs leading-relaxed">
-                  Line items, prices, and attached customer name/phone to prevent customer disputes and power loyalty references.
+                  Product line items, pricing, tax calculations, payment channels (Cash, Transfer, POS/Card, Store Credit), and optional customer name/phone to prevent disputes and power receipts lookup.
                 </p>
               </div>
               <div className="bg-slate-50 dark:bg-slate-800/40 p-3.5 rounded-xl border border-slate-200 dark:border-slate-800 space-y-1">
-                <span className="font-bold text-slate-900 dark:text-white">Package Dispatches</span>
+                <span className="font-bold text-slate-900 dark:text-white flex items-center gap-1.5">
+                  <PackageCheck className="w-3.5 h-3.5 text-blue-600 dark:text-blue-400" />
+                  <span>Tracked Package Dispatches</span>
+                </span>
                 <p className="text-slate-600 dark:text-slate-400 text-xs leading-relaxed">
-                  Recipient name, phone, delivery address, parcel tracking identifier (<code className="font-mono text-xs">SHPT-XXXXXXXXXXXX</code>), and encrypted scratch-off PIN commitments.
+                  Recipient name (locked from sale), delivery phone, destination address, package tracking code (<code className="font-mono text-xs">SHPT-XXXXXX</code>), and cryptographic scratch-off PIN commitments.
                 </p>
               </div>
               <div className="bg-slate-50 dark:bg-slate-800/40 p-3.5 rounded-xl border border-slate-200 dark:border-slate-800 space-y-1">
-                <span className="font-bold text-slate-900 dark:text-white">Wholesale Vendors &amp; AP</span>
+                <span className="font-bold text-slate-900 dark:text-white flex items-center gap-1.5">
+                  <Layers className="w-3.5 h-3.5 text-blue-600 dark:text-blue-400" />
+                  <span>Wholesale Vendors &amp; AP</span>
+                </span>
                 <p className="text-slate-600 dark:text-slate-400 text-xs leading-relaxed">
-                  Supplier commercial name, contact details, payment terms, itemized purchase bills, goods receiving vouchers, and AP aging records (stored strictly off-chain).
-                </p>
-              </div>
-              <div className="bg-slate-50 dark:bg-slate-800/40 p-3.5 rounded-xl border border-slate-200 dark:border-slate-800 space-y-1">
-                <span className="font-bold text-slate-900 dark:text-white">Bot Defense &amp; Security</span>
-                <p className="text-slate-600 dark:text-slate-400 text-xs leading-relaxed">
-                  Cloudflare Turnstile tokens, IP addresses, and user-agent strings to prevent bot brute-force attacks on OTP endpoints.
+                  Supplier business names, contact details, payment terms, itemized purchase bills, goods receiving vouchers, and AP aging buckets (stored strictly off-chain).
                 </p>
               </div>
             </div>
           </div>
 
-          {/* Section 4: Sub-Processors */}
+          {/* Section 4: Enterprise Infrastructure & Sub-Processors */}
           <div className="bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-800 rounded-2xl p-6 sm:p-8 space-y-4 shadow-xs">
             <div className="flex items-start gap-3.5">
               <div className="w-9 h-9 rounded-xl bg-blue-50 dark:bg-blue-950/60 text-blue-600 dark:text-blue-400 flex items-center justify-center shrink-0 border border-blue-200/50 dark:border-blue-800/50">
@@ -166,7 +184,7 @@ export default function PrivacyPolicyPage() {
                   4. Enterprise Infrastructure &amp; Third-Party Sub-Processors
                 </h2>
                 <p className="text-xs sm:text-sm text-slate-600 dark:text-slate-400 leading-relaxed">
-                  SellerPadi works strictly with SOC-2 and PCI-DSS certified enterprise infrastructure partners:
+                  OGOLABS TECHNOLOGY LTD partners strictly with certified SOC-2, ISO 27001, and PCI-DSS compliant infrastructure providers:
                 </p>
               </div>
             </div>
@@ -175,58 +193,58 @@ export default function PrivacyPolicyPage() {
               <table className="w-full text-left text-xs sm:text-sm">
                 <thead className="bg-slate-100/70 dark:bg-slate-800/60 text-slate-900 dark:text-white font-semibold">
                   <tr className="border-b border-slate-200 dark:border-slate-800">
-                    <th className="py-2.5 px-3">Provider</th>
+                    <th className="py-2.5 px-3">Sub-Processor</th>
                     <th className="py-2.5 px-3">Role</th>
-                    <th className="py-2.5 px-3">Data Handled</th>
+                    <th className="py-2.5 px-3">Data Processed</th>
                   </tr>
                 </thead>
                 <tbody className="divide-y divide-slate-100 dark:divide-slate-800 text-slate-600 dark:text-slate-400">
                   <tr>
                     <td className="py-2.5 px-3 font-semibold text-slate-900 dark:text-white">MongoDB Atlas</td>
                     <td className="py-2.5 px-3">Encrypted Cloud Database</td>
-                    <td className="py-2.5 px-3">Encrypted merchant, receipt, and inventory data</td>
+                    <td className="py-2.5 px-3">Encrypted merchant store, receipt, inventory, and staff records</td>
                   </tr>
                   <tr>
-                    <td className="py-2.5 px-3 font-semibold text-slate-900 dark:text-white">Paystack</td>
-                    <td className="py-2.5 px-3">Domestic NGN &amp; International USD Billing</td>
-                    <td className="py-2.5 px-3">Merchant email, phone, and subscription transaction references</td>
+                    <td className="py-2.5 px-3 font-semibold text-slate-900 dark:text-white">Paystack (Stripe Subsidiary)</td>
+                    <td className="py-2.5 px-3">Domestic NGN &amp; USD Gateway</td>
+                    <td className="py-2.5 px-3">Merchant email, phone, and subscription payment transaction references</td>
                   </tr>
                   <tr>
                     <td className="py-2.5 px-3 font-semibold text-slate-900 dark:text-white">Stripe</td>
                     <td className="py-2.5 px-3">International Subscription Billing</td>
-                    <td className="py-2.5 px-3">Tokenized customer ID and billing addresses</td>
+                    <td className="py-2.5 px-3">Tokenized customer billing ID and payment method tokens</td>
                   </tr>
                   <tr>
-                    <td className="py-2.5 px-3 font-semibold text-slate-900 dark:text-white">Google Identity</td>
+                    <td className="py-2.5 px-3 font-semibold text-slate-900 dark:text-white">Google Identity Services</td>
                     <td className="py-2.5 px-3">Merchant Single Sign-On</td>
-                    <td className="py-2.5 px-3">Verified email, Google sub ID, and profile picture</td>
+                    <td className="py-2.5 px-3">Verified email, Google subject ID, and merchant profile picture</td>
                   </tr>
                   <tr>
                     <td className="py-2.5 px-3 font-semibold text-slate-900 dark:text-white">ZeptoMail (Zoho)</td>
-                    <td className="py-2.5 px-3">Transactional Email &amp; Executive PDF Reports</td>
-                    <td className="py-2.5 px-3">Recipient email, login OTP, attached 3-statement PDF reports, and renewal notices</td>
+                    <td className="py-2.5 px-3">Transactional Email &amp; PDF Statements</td>
+                    <td className="py-2.5 px-3">Merchant email, login OTP passcodes, and attached automated 3-statement PDF bundles</td>
                   </tr>
                   <tr>
                     <td className="py-2.5 px-3 font-semibold text-slate-900 dark:text-white">Termii</td>
-                    <td className="py-2.5 px-3">Transactional SMS &amp; Expiry Alerts</td>
-                    <td className="py-2.5 px-3">Recipient phone number, SMS verification passcodes, and subscription expiry alerts</td>
+                    <td className="py-2.5 px-3">Transactional SMS Routing</td>
+                    <td className="py-2.5 px-3">Recipient telephone number, SMS verification passcodes, and subscription expiry alerts</td>
                   </tr>
                   <tr>
                     <td className="py-2.5 px-3 font-semibold text-slate-900 dark:text-white">Cloudflare</td>
-                    <td className="py-2.5 px-3">Turnstile Bot Defense &amp; CDN</td>
-                    <td className="py-2.5 px-3">Client IP, browser telemetry, and challenge tokens</td>
+                    <td className="py-2.5 px-3">Turnstile Bot Mitigation &amp; Edge CDN</td>
+                    <td className="py-2.5 px-3">Client IP address, browser telemetry, and challenge response tokens</td>
                   </tr>
                   <tr>
                     <td className="py-2.5 px-3 font-semibold text-slate-900 dark:text-white">Avalanche C-Chain</td>
-                    <td className="py-2.5 px-3">Cryptographic Timestamping &amp; Merkle Batch Anchoring</td>
-                    <td className="py-2.5 px-3">Non-reversible SHA-256 hashes and batch roots (Zero PII on-chain)</td>
+                    <td className="py-2.5 px-3">Decentralized Merkle Tree Anchoring</td>
+                    <td className="py-2.5 px-3">Non-reversible SHA-256 root hashes only (Zero PII on-chain)</td>
                   </tr>
                 </tbody>
               </table>
             </div>
           </div>
 
-          {/* Section 5: Data Rights & Security Controls */}
+          {/* Section 5: Data Subject Rights & Security */}
           <div className="bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-800 rounded-2xl p-6 sm:p-8 space-y-4 shadow-xs">
             <div className="flex items-start gap-3.5">
               <div className="w-9 h-9 rounded-xl bg-blue-50 dark:bg-blue-950/60 text-blue-600 dark:text-blue-400 flex items-center justify-center shrink-0 border border-blue-200/50 dark:border-blue-800/50">
@@ -234,12 +252,21 @@ export default function PrivacyPolicyPage() {
               </div>
               <div className="space-y-1">
                 <h2 className="text-base sm:text-lg font-bold text-slate-900 dark:text-white">
-                  5. Data Security, Export Rights &amp; Deactivation
+                  5. Data Subject Rights, Export Controls &amp; Deactivation
                 </h2>
                 <p className="text-xs sm:text-sm text-slate-600 dark:text-slate-400 leading-relaxed">
-                  Merchants can export PDF sales statements and CSV spreadsheets at any time. You may request account deactivation by emailing our privacy desk. Issued receipts and movement logs remain archived with cryptographic hashes to maintain accounting audit integrity.
+                  Under the Nigeria Data Protection Act 2023 (NDPA) and global privacy standards, you maintain rights to access, rectify, port, and request deactivation of your personal information:
                 </p>
               </div>
+            </div>
+
+            <div className="border-t border-slate-100 dark:border-slate-800 pt-4 space-y-2 text-xs sm:text-sm text-slate-600 dark:text-slate-400 leading-relaxed">
+              <p>
+                <strong>Data Portability:</strong> Merchants can export vector PDF sales statements, debtors aging lists, inventory valuations, and CSV reports at any time directly from their workspace.
+              </p>
+              <p>
+                <strong>Accounting &amp; Tax Audit Retention:</strong> Because issued receipts and stock movements constitute accountant-grade commercial records subject to statutory tax audit rules, finalized financial ledger entries remain archived with cryptographic hash commitments to prevent accounting fraud.
+              </p>
             </div>
           </div>
 
@@ -248,9 +275,12 @@ export default function PrivacyPolicyPage() {
             <div className="space-y-1">
               <p className="font-bold text-slate-900 dark:text-white flex items-center gap-1.5">
                 <Mail className="w-4 h-4 text-blue-600 dark:text-blue-400" />
-                <span>Privacy Inquiries or Data Requests?</span>
+                <span>Privacy Inquiries &amp; Data Protection Officer (DPO)</span>
               </p>
-              <p>Contact our dedicated data protection desk for any questions or requests.</p>
+              <p>
+                <strong>OGOLABS TECHNOLOGY LTD</strong> (RC: 10005885) &bull; 45, Lagbe Area, Moniya, Oyo State, Nigeria.
+              </p>
+              <p className="text-xs text-slate-500">Official Desk: <a href="mailto:privacy@sellerpadi.com" className="text-blue-600 hover:underline">privacy@sellerpadi.com</a> &bull; <a href="mailto:support@ogolabs.si" className="text-blue-600 hover:underline">support@ogolabs.si</a></p>
             </div>
             <a
               href="mailto:privacy@sellerpadi.com"
@@ -273,7 +303,7 @@ export default function PrivacyPolicyPage() {
               href="/terms"
               className="font-semibold text-blue-600 dark:text-blue-400 hover:underline transition-colors"
             >
-              Read Public Beta Terms of Service &rarr;
+              Read Terms of Service &rarr;
             </Link>
           </div>
         </div>

@@ -204,7 +204,7 @@ export default function Footer() {
               height={20}
               className="w-4 h-4 xl:w-5 xl:h-5 object-contain shrink-0"
             />
-            <span>© {new Date().getFullYear()} SellerPadi. Digital Sales Book &amp; Logistics OS.</span>
+            <span>© {new Date().getFullYear()} SellerPadi by OGOLABS TECHNOLOGY LTD (RC: 10005885). Digital Sales Book &amp; Logistics OS.</span>
           </div>
           <div className="flex items-center gap-5 text-xs font-medium">
             <Link href="/privacy" className="hover:text-slate-900 dark:hover:text-white transition-colors">
