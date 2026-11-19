@@ -306,7 +306,7 @@ export default function PrivacyPolicyPage() {
                 <strong>Cloud Security Posture:</strong> All operational databases are hosted on <strong>MongoDB Atlas</strong> with enterprise AES-256 encryption at rest, automated replica sets, and strict network isolation. Web and API traffic is served via <strong>Vercel</strong> edge infrastructure over TLS 1.3 encryption.
               </p>
               <p>
-                <strong>Beta Security Inquiries:</strong> Any privacy questions or vulnerability reports regarding the Public Beta may be submitted directly to our dedicated security desk at <a href="mailto:security@sellerpadi.com" className="text-blue-600 dark:text-blue-400 hover:underline font-medium">security@sellerpadi.com</a> or <a href="mailto:beta@sellerpadi.com" className="text-blue-600 dark:text-blue-400 hover:underline font-medium">beta@sellerpadi.com</a>.
+                <strong>Beta Security Inquiries:</strong> Any privacy questions or vulnerability reports regarding the Public Beta may be submitted directly to our dedicated support desk at <a href="mailto:support@sellerpadi.com" className="text-blue-600 dark:text-blue-400 hover:underline font-medium">support@sellerpadi.com</a>.
               </p>
             </div>
           </div>
@@ -321,10 +321,10 @@ export default function PrivacyPolicyPage() {
               <p>
                 <strong>OGOLABS TECHNOLOGY LTD</strong> (RC: 10005885) &bull; 45, Lagbe Area, Moniya, Oyo State, Nigeria.
               </p>
-              <p className="text-xs text-slate-500">Official Desk: <a href="mailto:privacy@sellerpadi.com" className="text-blue-600 hover:underline">privacy@sellerpadi.com</a> &bull; <a href="mailto:support@ogolabs.si" className="text-blue-600 hover:underline">support@ogolabs.si</a></p>
+              <p className="text-xs text-slate-500">Official Desk: <a href="mailto:support@sellerpadi.com" className="text-blue-600 hover:underline">support@sellerpadi.com</a> &bull; <a href="mailto:support@ogolabs.si" className="text-blue-600 hover:underline">support@ogolabs.si</a></p>
             </div>
             <a
-              href="mailto:privacy@sellerpadi.com"
+              href="mailto:support@sellerpadi.com"
               className="inline-flex items-center gap-1.5 px-4 py-2 rounded-xl bg-blue-600 hover:bg-blue-500 text-white font-semibold text-xs sm:text-sm transition-colors shadow-2xs shrink-0"
             >
               <span>Email Privacy Desk</span>

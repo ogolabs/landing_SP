@@ -97,7 +97,7 @@ export default function TermsOfServicePage() {
                 <strong>Continuous Deployment &amp; Cloud Infrastructure SLA:</strong> The platform is hosted on high-availability <strong>Vercel edge infrastructure</strong> coupled with an encrypted <strong>MongoDB Atlas</strong> cloud database layer and blockchain ledger proofing on Electroneum Smart Chain. Because the platform is in active Public Beta, OGOLABS TECHNOLOGY LTD deploys frequent software enhancements, performance patches, and minor UI updates. Brief scheduled maintenance windows may occur and will be communicated transparently.
               </p>
               <p>
-                <strong>Beta Support &amp; Feedback Channel:</strong> Paying merchants and early partners are encouraged to submit operational feedback, software observations, or feature suggestions directly to our dedicated engineering and support desk at <a href="mailto:beta@sellerpadi.com" className="text-blue-600 dark:text-blue-400 font-semibold hover:underline">beta@sellerpadi.com</a> or <a href="mailto:support@sellerpadi.com" className="text-blue-600 dark:text-blue-400 font-semibold hover:underline">support@sellerpadi.com</a>.
+                <strong>Beta Support &amp; Feedback Channel:</strong> Paying merchants and early partners are encouraged to submit operational feedback, software observations, or feature suggestions directly to our dedicated engineering and support desk at <a href="mailto:support@sellerpadi.com" className="text-blue-600 dark:text-blue-400 font-semibold hover:underline">support@sellerpadi.com</a>.
               </p>
             </div>
           </div>
@@ -521,10 +521,10 @@ export default function TermsOfServicePage() {
               <p>
                 <strong>OGOLABS TECHNOLOGY LTD</strong> (RC: 10005885) &bull; 45, Lagbe Area, Moniya, Oyo State, Nigeria.
               </p>
-              <p className="text-xs text-slate-500">Official Inquiries: <a href="mailto:support@ogolabs.si" className="text-blue-600 hover:underline">support@ogolabs.si</a> &bull; <a href="mailto:legal@sellerpadi.com" className="text-blue-600 hover:underline">legal@sellerpadi.com</a></p>
+              <p className="text-xs text-slate-500">Official Inquiries: <a href="mailto:support@ogolabs.si" className="text-blue-600 hover:underline">support@ogolabs.si</a> &bull; <a href="mailto:support@sellerpadi.com" className="text-blue-600 hover:underline">support@sellerpadi.com</a></p>
             </div>
             <a
-              href="mailto:legal@sellerpadi.com"
+              href="mailto:support@sellerpadi.com"
               className="inline-flex items-center gap-1.5 px-4 py-2 rounded-xl bg-blue-600 hover:bg-blue-500 text-white font-semibold text-xs sm:text-sm transition-colors shadow-2xs shrink-0"
             >
               <span>Contact Legal Team</span>
