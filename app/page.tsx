@@ -21,6 +21,7 @@ import {
   ShieldCheck,
   Boxes,
   Calendar,
+  Handshake,
 } from "lucide-react";
 
 export default function Home() {
@@ -36,6 +37,8 @@ export default function Home() {
   const workspaceUrl = `${APP_BASE_URL}/workspace`;
   const vendorsUrl = `${APP_BASE_URL}/workspace?tab=vendors`;
   const teamUrl = `${APP_BASE_URL}/settings`;
+  const partnersUrl = `${APP_BASE_URL}/partners`;
+  const partnerPortalUrl = `${APP_BASE_URL}/partners/dashboard`;
 
   const overageText = userCurrency
     ? `universal ${convertNgnPrice(OVERAGE_FEE_NGN, userCurrency).formattedLocal} overage fees`
@@ -539,6 +542,52 @@ export default function Home() {
                 <p className="text-xs sm:text-sm xl:text-base 2xl:text-lg text-slate-600 dark:text-slate-400 leading-relaxed">
                   Supervise sales across all store locations in real time while keeping staff access locked to their respective branch.
                 </p>
+              </div>
+            </div>
+
+            {/* Partner Program Showcase Banner */}
+            <div className="mt-8 xl:mt-12 bg-linear-to-br from-blue-900 via-slate-900 to-slate-950 text-white rounded-2xl xl:rounded-3xl p-6 sm:p-8 xl:p-12 2xl:p-16 border border-blue-800/60 shadow-xl relative overflow-hidden flex flex-col lg:flex-row items-start lg:items-center justify-between gap-6 xl:gap-10">
+              <div className="space-y-3 max-w-2xl relative z-10">
+                <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full text-xs font-bold uppercase tracking-wider bg-blue-500/20 text-blue-300 border border-blue-400/30">
+                  <Handshake className="w-3.5 h-3.5" />
+                  <span>Partner &amp; Affiliate Program</span>
+                </div>
+                <h3 className="text-xl sm:text-2xl xl:text-3xl 2xl:text-4xl font-extrabold font-display tracking-tight text-white leading-tight">
+                  Earn 20% Recurring Share on Every Merchant Referral
+                </h3>
+                <p className="text-xs sm:text-sm xl:text-base text-blue-100/80 leading-relaxed font-normal">
+                  Introduce retail stores, supermarkets, pharmacies, boutiques, and logistics couriers to SellerPadi. Your referrals get 20% off their first subscription, and you earn 20% recurring commission on every renewal for 24 full months.
+                </p>
+                <div className="pt-1 flex flex-wrap items-center gap-x-5 gap-y-2 text-xs sm:text-sm text-blue-200">
+                  <span className="flex items-center gap-1.5 font-medium">
+                    <CheckCircle2 className="w-4 h-4 text-emerald-400 shrink-0" />
+                    2-Year Revenue Lock
+                  </span>
+                  <span className="flex items-center gap-1.5 font-medium">
+                    <CheckCircle2 className="w-4 h-4 text-emerald-400 shrink-0" />
+                    Real-Time Commission Tracking
+                  </span>
+                  <span className="flex items-center gap-1.5 font-medium">
+                    <CheckCircle2 className="w-4 h-4 text-emerald-400 shrink-0" />
+                    Automated Bank Payouts
+                  </span>
+                </div>
+              </div>
+
+              <div className="flex flex-col sm:flex-row items-stretch sm:items-center gap-3 shrink-0 relative z-10 w-full lg:w-auto">
+                <a
+                  href={partnersUrl}
+                  className="bg-blue-600 hover:bg-blue-500 text-white font-bold text-xs sm:text-sm xl:text-base py-3 px-5 xl:py-4 xl:px-6 rounded-xl transition-all shadow-xs inline-flex items-center justify-center gap-2 cursor-pointer"
+                >
+                  <span>Become a Partner</span>
+                  <ArrowRight className="w-4 h-4" />
+                </a>
+                <a
+                  href={partnerPortalUrl}
+                  className="bg-white/10 hover:bg-white/15 border border-white/20 text-white font-semibold text-xs sm:text-sm xl:text-base py-3 px-5 xl:py-4 xl:px-6 rounded-xl transition-all inline-flex items-center justify-center gap-2 cursor-pointer"
+                >
+                  <span>Partner Portal Login</span>
+                </a>
               </div>
             </div>
 

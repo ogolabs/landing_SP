@@ -202,9 +202,12 @@ export default function Footer() {
               <li>
                 <a
                   href={`${APP_BASE_URL}/partners`}
-                  className="hover:text-blue-600 dark:hover:text-white transition-colors"
+                  className="hover:text-blue-600 dark:hover:text-white transition-colors inline-flex items-center gap-1.5"
                 >
-                  Partner Program &amp; Affiliates
+                  <span>Partner Program &amp; Affiliates</span>
+                  <span className="px-1.5 py-0.5 rounded-md text-[9px] font-extrabold uppercase bg-emerald-50 dark:bg-emerald-950/80 text-emerald-600 dark:text-emerald-400 border border-emerald-200/80 dark:border-emerald-800/80 leading-none">
+                    Earn 20%
+                  </span>
                 </a>
               </li>
             </ul>
