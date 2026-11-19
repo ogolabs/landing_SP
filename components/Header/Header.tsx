@@ -70,6 +70,7 @@ export default function Header() {
   const pathname = usePathname();
 
   const workspaceUrl = `${APP_BASE_URL}/workspace`;
+  const partnersUrl = `${APP_BASE_URL}/partners`;
 
   const isFeaturesActive = pathname.startsWith("/features");
 
@@ -202,6 +203,16 @@ export default function Header() {
                 Pricing
               </Link>
 
+              <a
+                href={partnersUrl}
+                className="px-3.5 py-2 xl:px-4.5 xl:py-2.5 rounded-xl text-xs xl:text-sm 2xl:text-base font-semibold text-slate-600 dark:text-slate-400 hover:text-slate-900 dark:hover:text-white hover:bg-slate-50 dark:hover:bg-slate-900 transition-all inline-flex items-center gap-1.5"
+              >
+                <span>Partners</span>
+                <span className="px-1.5 py-0.5 rounded-full text-[9px] xl:text-[10px] font-extrabold uppercase bg-emerald-50 dark:bg-emerald-950/80 text-emerald-600 dark:text-emerald-400 border border-emerald-200/80 dark:border-emerald-800/80 leading-none">
+                  20%
+                </span>
+              </a>
+
               <Link
                 href="/about"
                 className={`px-3.5 py-2 xl:px-4.5 xl:py-2.5 rounded-xl text-xs xl:text-sm 2xl:text-base font-semibold transition-all ${
@@ -307,6 +318,17 @@ export default function Header() {
               >
                 Pricing &amp; Calculator
               </Link>
+
+              <a
+                href={partnersUrl}
+                onClick={() => setMobileMenuOpen(false)}
+                className="flex items-center justify-between px-3.5 py-2.5 rounded-xl text-sm font-semibold text-slate-700 dark:text-slate-300 hover:bg-slate-50 dark:hover:bg-slate-900 transition-all"
+              >
+                <span>Partner Program</span>
+                <span className="px-2 py-0.5 rounded-full text-[10px] font-extrabold uppercase bg-emerald-50 dark:bg-emerald-950/80 text-emerald-600 dark:text-emerald-400 border border-emerald-200/80 dark:border-emerald-800/80">
+                  Earn 20%
+                </span>
+              </a>
 
               <Link
                 href="/about"

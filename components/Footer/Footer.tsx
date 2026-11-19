@@ -86,16 +86,16 @@ export default function Footer() {
             <div className="inline-flex items-center gap-2 px-3 py-1.5 rounded-xl bg-slate-50 dark:bg-slate-900 border border-slate-200 dark:border-slate-800 text-slate-700 dark:text-slate-300 font-medium whitespace-nowrap shrink-0">
               <span className="w-2 h-2 rounded-full bg-emerald-500 animate-pulse shrink-0" />
               <span className="font-mono text-[11px] whitespace-nowrap">
-                {isTestnet ? "Testnet Operational" : "Mainnet Operational"}
+                {isTestnet ? "Secured Testnet Operational" : "Secured Network Operational"}
               </span>
             </div>
             <div className="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-xl bg-slate-50 dark:bg-slate-900 border border-slate-200 dark:border-slate-800 text-slate-700 dark:text-slate-300 font-medium whitespace-nowrap shrink-0">
               <Zap className="w-3.5 h-3.5 text-blue-500 shrink-0" />
-              <span className="font-mono text-[11px] whitespace-nowrap">~42ms Latency</span>
+              <span className="font-mono text-[11px] whitespace-nowrap">Real-Time Sync</span>
             </div>
             <div className="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-xl bg-slate-50 dark:bg-slate-900 border border-slate-200 dark:border-slate-800 text-slate-700 dark:text-slate-300 font-medium whitespace-nowrap shrink-0">
               <Lock className="w-3.5 h-3.5 text-emerald-500 shrink-0" />
-              <span className="font-mono text-[11px] whitespace-nowrap">Zero-Knowledge Proofs</span>
+              <span className="font-mono text-[11px] whitespace-nowrap">Tamper-Proof Audit Ledger</span>
             </div>
           </div>
         </div>
@@ -202,9 +202,12 @@ export default function Footer() {
               <li>
                 <a
                   href={`${APP_BASE_URL}/partners`}
-                  className="hover:text-blue-600 dark:hover:text-white transition-colors"
+                  className="hover:text-blue-600 dark:hover:text-white transition-colors inline-flex items-center gap-1.5"
                 >
-                  Partner Program &amp; Affiliates
+                  <span>Partner Program &amp; Affiliates</span>
+                  <span className="px-1.5 py-0.5 rounded-md text-[9px] font-extrabold uppercase bg-emerald-50 dark:bg-emerald-950/80 text-emerald-600 dark:text-emerald-400 border border-emerald-200/80 dark:border-emerald-800/80 leading-none">
+                    Earn 20%
+                  </span>
                 </a>
               </li>
             </ul>
