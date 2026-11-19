@@ -38,6 +38,10 @@ export default function PrivacyPolicyPage() {
                 <CheckCircle2 className="w-3.5 h-3.5 text-emerald-600 dark:text-emerald-400" />
                 <span>Statutory Entity: RC 10005885</span>
               </div>
+              <div className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-blue-50 dark:bg-blue-950/60 border border-blue-200 dark:border-blue-800 text-xs text-blue-700 dark:text-blue-300 font-mono font-medium">
+                <FileText className="w-3.5 h-3.5 text-blue-600 dark:text-blue-400" />
+                <span>Release: Live Public Beta (v1.0-beta)</span>
+              </div>
             </div>
 
             <h1 className="text-3xl sm:text-4xl xl:text-5xl font-bold tracking-tight text-slate-900 dark:text-white font-display">
@@ -202,7 +206,12 @@ export default function PrivacyPolicyPage() {
                   <tr>
                     <td className="py-2.5 px-3 font-semibold text-slate-900 dark:text-white">MongoDB Atlas</td>
                     <td className="py-2.5 px-3">Encrypted Cloud Database</td>
-                    <td className="py-2.5 px-3">Encrypted merchant store, receipt, inventory, and staff records</td>
+                    <td className="py-2.5 px-3">Encrypted merchant store, receipt, inventory, and staff records (AES-256 at rest)</td>
+                  </tr>
+                  <tr>
+                    <td className="py-2.5 px-3 font-semibold text-slate-900 dark:text-white">Vercel Inc.</td>
+                    <td className="py-2.5 px-3">Edge Web Hosting &amp; Serverless Runtime</td>
+                    <td className="py-2.5 px-3">Encrypted HTTPS web traffic delivery (TLS 1.3), edge caching, and stateless API execution (no persistent database storage)</td>
                   </tr>
                   <tr>
                     <td className="py-2.5 px-3 font-semibold text-slate-900 dark:text-white">Paystack (Stripe Subsidiary)</td>
@@ -266,6 +275,38 @@ export default function PrivacyPolicyPage() {
               </p>
               <p>
                 <strong>Accounting &amp; Tax Audit Retention:</strong> Because issued receipts and stock movements constitute accountant-grade commercial records subject to statutory tax audit rules, finalized financial ledger entries remain archived with cryptographic hash commitments to prevent accounting fraud.
+              </p>
+            </div>
+          </div>
+
+          {/* Section 6: Public Beta Data Protection & Continuity Charter */}
+          <div className="bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-800 rounded-2xl p-6 sm:p-8 space-y-4 shadow-xs">
+            <div className="flex items-start gap-3.5">
+              <div className="w-9 h-9 rounded-xl bg-blue-50 dark:bg-blue-950/60 text-blue-600 dark:text-blue-400 flex items-center justify-center shrink-0 border border-blue-200/50 dark:border-blue-800/50">
+                <ShieldCheck className="w-4 h-4" />
+              </div>
+              <div className="space-y-1">
+                <h2 className="text-base sm:text-lg font-bold text-slate-900 dark:text-white">
+                  6. Public Beta Data Protection, Cloud Infrastructure &amp; Continuity Guarantee
+                </h2>
+                <p className="text-xs sm:text-sm text-slate-600 dark:text-slate-400 leading-relaxed">
+                  During this live commercial Public Beta (<code className="font-mono text-xs">v1.0-beta</code>), your personal, commercial, and financial records are governed by the same rigorous privacy standards as our General Availability platform:
+                </p>
+              </div>
+            </div>
+
+            <div className="border-t border-slate-100 dark:border-slate-800 pt-4 space-y-2.5 text-xs sm:text-sm text-slate-600 dark:text-slate-400 leading-relaxed">
+              <p>
+                <strong>Zero Data Loss Guarantee:</strong> All merchant account registrations, verified store branches, inventory catalog items, digital receipts, customer debts, tracked packages, and partner commission balances generated during the Public Beta will permanently persist without interruption, wipes, or resets into General Availability (GA).
+              </p>
+              <p>
+                <strong>Statutory Data Protection Standards:</strong> All statutory protections under the Nigeria Data Protection Act 2023 (NDPA), NDPC guidelines, and GDPR apply with full force and effect during the Public Beta. We do not degrade privacy safeguards, encryption standards, or compliance monitoring for Beta participants.
+              </p>
+              <p>
+                <strong>Cloud Security Posture:</strong> All operational databases are hosted on <strong>MongoDB Atlas</strong> with enterprise AES-256 encryption at rest, automated replica sets, and strict network isolation. Web and API traffic is served via <strong>Vercel</strong> edge infrastructure over TLS 1.3 encryption.
+              </p>
+              <p>
+                <strong>Beta Security Inquiries:</strong> Any privacy questions or vulnerability reports regarding the Public Beta may be submitted directly to our dedicated security desk at <a href="mailto:security@sellerpadi.com" className="text-blue-600 dark:text-blue-400 hover:underline font-medium">security@sellerpadi.com</a> or <a href="mailto:beta@sellerpadi.com" className="text-blue-600 dark:text-blue-400 hover:underline font-medium">beta@sellerpadi.com</a>.
               </p>
             </div>
           </div>
