@@ -17,6 +17,7 @@ import {
   UserCheck,
   PackageCheck,
   Layers,
+  Cookie,
 } from "lucide-react";
 import Link from "next/link";
 
@@ -37,6 +38,10 @@ export default function PrivacyPolicyPage() {
               <div className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-emerald-50 dark:bg-emerald-950/60 border border-emerald-200 dark:border-emerald-800 text-xs text-emerald-700 dark:text-emerald-300 font-mono font-medium">
                 <CheckCircle2 className="w-3.5 h-3.5 text-emerald-600 dark:text-emerald-400" />
                 <span>Statutory Entity: RC 10005885</span>
+              </div>
+              <div className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-blue-50 dark:bg-blue-950/60 border border-blue-200 dark:border-blue-800 text-xs text-blue-700 dark:text-blue-300 font-mono font-medium">
+                <FileText className="w-3.5 h-3.5 text-blue-600 dark:text-blue-400" />
+                <span>Release: Live Public Beta (v1.0-beta)</span>
               </div>
             </div>
 
@@ -202,7 +207,12 @@ export default function PrivacyPolicyPage() {
                   <tr>
                     <td className="py-2.5 px-3 font-semibold text-slate-900 dark:text-white">MongoDB Atlas</td>
                     <td className="py-2.5 px-3">Encrypted Cloud Database</td>
-                    <td className="py-2.5 px-3">Encrypted merchant store, receipt, inventory, and staff records</td>
+                    <td className="py-2.5 px-3">Encrypted merchant store, receipt, inventory, and staff records (AES-256 at rest)</td>
+                  </tr>
+                  <tr>
+                    <td className="py-2.5 px-3 font-semibold text-slate-900 dark:text-white">Vercel Inc.</td>
+                    <td className="py-2.5 px-3">Edge Web Hosting &amp; Serverless Runtime</td>
+                    <td className="py-2.5 px-3">Encrypted HTTPS web traffic delivery (TLS 1.3), edge caching, and stateless API execution (no persistent database storage)</td>
                   </tr>
                   <tr>
                     <td className="py-2.5 px-3 font-semibold text-slate-900 dark:text-white">Paystack (Stripe Subsidiary)</td>
@@ -244,7 +254,68 @@ export default function PrivacyPolicyPage() {
             </div>
           </div>
 
-          {/* Section 5: Data Subject Rights & Security */}
+          {/* Section 5: Cookies & Local Storage Disclosure */}
+          <div className="bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-800 rounded-2xl p-6 sm:p-8 space-y-4 shadow-xs">
+            <div className="flex items-start gap-3.5">
+              <div className="w-9 h-9 rounded-xl bg-blue-50 dark:bg-blue-950/60 text-blue-600 dark:text-blue-400 flex items-center justify-center shrink-0 border border-blue-200/50 dark:border-blue-800/50">
+                <Cookie className="w-4 h-4" />
+              </div>
+              <div className="space-y-1">
+                <h2 className="text-base sm:text-lg font-bold text-slate-900 dark:text-white">
+                  5. Strictly Necessary Cookies &amp; Local Storage (No Cross-Site Ad Tracking)
+                </h2>
+                <p className="text-xs sm:text-sm text-slate-600 dark:text-slate-400 leading-relaxed">
+                  SellerPadi operates under a privacy-first engineering model. We do not use third-party advertising cookies, behavioral profiling pixels, or cross-site commercial trackers.
+                </p>
+              </div>
+            </div>
+
+            <div className="border-t border-slate-100 dark:border-slate-800 pt-4 space-y-3 text-xs sm:text-sm text-slate-600 dark:text-slate-400 leading-relaxed">
+              <p>
+                <strong>Exemption from Consent Banners:</strong> Under the Nigeria Data Protection Act 2023 (NDPA), the EU/UK ePrivacy Directive (Article 5(3)), and global privacy benchmarks, digital platforms do not require intrusive cookie consent banners when cookies are strictly technical and essential for service delivery. SellerPadi utilizes exclusively <strong>Strictly Necessary</strong> identifiers:
+              </p>
+
+              <div className="overflow-x-auto">
+                <table className="w-full text-left text-xs sm:text-sm border border-slate-200/80 dark:border-slate-800 rounded-xl overflow-hidden">
+                  <thead className="bg-slate-100/70 dark:bg-slate-800/60 text-slate-900 dark:text-white font-semibold">
+                    <tr className="border-b border-slate-200 dark:border-slate-800">
+                      <th className="py-2.5 px-3">Identifier</th>
+                      <th className="py-2.5 px-3">Type</th>
+                      <th className="py-2.5 px-3">Purpose &amp; Expiry</th>
+                    </tr>
+                  </thead>
+                  <tbody className="divide-y divide-slate-100 dark:divide-slate-800 text-slate-600 dark:text-slate-400">
+                    <tr>
+                      <td className="py-2.5 px-3 font-mono font-semibold text-slate-900 dark:text-white">auth_token</td>
+                      <td className="py-2.5 px-3">HTTP-Only Cookie (Secure)</td>
+                      <td className="py-2.5 px-3">Authenticates merchant owner sessions via passwordless OTP. Inaccessible to JavaScript; multi-device enforcement.</td>
+                    </tr>
+                    <tr>
+                      <td className="py-2.5 px-3 font-mono font-semibold text-slate-900 dark:text-white">workspace_session</td>
+                      <td className="py-2.5 px-3">HTTP-Only Cookie (Secure)</td>
+                      <td className="py-2.5 px-3">Authenticates staff PIN logins (Manager, Sales Rep, Accountant) with single-device enforcement (7-day duration).</td>
+                    </tr>
+                    <tr>
+                      <td className="py-2.5 px-3 font-mono font-semibold text-slate-900 dark:text-white">sellerpadi_access</td>
+                      <td className="py-2.5 px-3">HTTP-Only Cookie (Secure)</td>
+                      <td className="py-2.5 px-3">Verifies authorized staging / early access passphrase entry.</td>
+                    </tr>
+                    <tr>
+                      <td className="py-2.5 px-3 font-mono font-semibold text-slate-900 dark:text-white">theme</td>
+                      <td className="py-2.5 px-3">Client LocalStorage</td>
+                      <td className="py-2.5 px-3">Persists user light or dark mode visual preference on the client device.</td>
+                    </tr>
+                  </tbody>
+                </table>
+              </div>
+
+              <p>
+                <strong>Zero Ad Trackers or Third-Party Pixels:</strong> We do not load Meta (Facebook) Pixel, Google Ads Remarketing, TikTok Pixel, or any commercial audience tracking scripts. Because no personal data is transferred to behavioral ad brokers, no consent banner or tracking opt-out is required.
+              </p>
+            </div>
+          </div>
+
+          {/* Section 6: Data Subject Rights & Security */}
           <div className="bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-800 rounded-2xl p-6 sm:p-8 space-y-4 shadow-xs">
             <div className="flex items-start gap-3.5">
               <div className="w-9 h-9 rounded-xl bg-blue-50 dark:bg-blue-950/60 text-blue-600 dark:text-blue-400 flex items-center justify-center shrink-0 border border-blue-200/50 dark:border-blue-800/50">
@@ -252,7 +323,7 @@ export default function PrivacyPolicyPage() {
               </div>
               <div className="space-y-1">
                 <h2 className="text-base sm:text-lg font-bold text-slate-900 dark:text-white">
-                  5. Data Subject Rights, Export Controls &amp; Deactivation
+                  6. Data Subject Rights, Export Controls &amp; Deactivation
                 </h2>
                 <p className="text-xs sm:text-sm text-slate-600 dark:text-slate-400 leading-relaxed">
                   Under the Nigeria Data Protection Act 2023 (NDPA) and global privacy standards, you maintain rights to access, rectify, port, and request deactivation of your personal information:
@@ -270,6 +341,38 @@ export default function PrivacyPolicyPage() {
             </div>
           </div>
 
+          {/* Section 7: Public Beta Data Protection & Continuity Charter */}
+          <div className="bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-800 rounded-2xl p-6 sm:p-8 space-y-4 shadow-xs">
+            <div className="flex items-start gap-3.5">
+              <div className="w-9 h-9 rounded-xl bg-blue-50 dark:bg-blue-950/60 text-blue-600 dark:text-blue-400 flex items-center justify-center shrink-0 border border-blue-200/50 dark:border-blue-800/50">
+                <ShieldCheck className="w-4 h-4" />
+              </div>
+              <div className="space-y-1">
+                <h2 className="text-base sm:text-lg font-bold text-slate-900 dark:text-white">
+                  7. Public Beta Data Protection, Cloud Infrastructure &amp; Continuity Guarantee
+                </h2>
+                <p className="text-xs sm:text-sm text-slate-600 dark:text-slate-400 leading-relaxed">
+                  During this live commercial Public Beta (<code className="font-mono text-xs">v1.0-beta</code>), your personal, commercial, and financial records are governed by the same rigorous privacy standards as our General Availability platform:
+                </p>
+              </div>
+            </div>
+
+            <div className="border-t border-slate-100 dark:border-slate-800 pt-4 space-y-2.5 text-xs sm:text-sm text-slate-600 dark:text-slate-400 leading-relaxed">
+              <p>
+                <strong>Zero Data Loss Guarantee:</strong> All merchant account registrations, verified store branches, inventory catalog items, digital receipts, customer debts, tracked packages, and partner commission balances generated during the Public Beta will permanently persist without interruption, wipes, or resets into General Availability (GA).
+              </p>
+              <p>
+                <strong>Statutory Data Protection Standards:</strong> All statutory protections under the Nigeria Data Protection Act 2023 (NDPA), NDPC guidelines, and GDPR apply with full force and effect during the Public Beta. We do not degrade privacy safeguards, encryption standards, or compliance monitoring for Beta participants.
+              </p>
+              <p>
+                <strong>Cloud Security Posture:</strong> All operational databases are hosted on <strong>MongoDB Atlas</strong> with enterprise AES-256 encryption at rest, automated replica sets, and strict network isolation. Web and API traffic is served via <strong>Vercel</strong> edge infrastructure over TLS 1.3 encryption.
+              </p>
+              <p>
+                <strong>Beta Security Inquiries:</strong> Any privacy questions or vulnerability reports regarding the Public Beta may be submitted directly to our dedicated support desk at <a href="mailto:support@sellerpadi.com" className="text-blue-600 dark:text-blue-400 hover:underline font-medium">support@sellerpadi.com</a>.
+              </p>
+            </div>
+          </div>
+
           {/* Contact Notice Card */}
           <div className="rounded-2xl bg-slate-100 dark:bg-slate-800/60 border border-slate-200 dark:border-slate-800 p-5 sm:p-6 text-xs sm:text-sm text-slate-600 dark:text-slate-400 flex flex-col sm:flex-row items-start sm:items-center justify-between gap-4">
             <div className="space-y-1">
@@ -280,10 +383,10 @@ export default function PrivacyPolicyPage() {
               <p>
                 <strong>OGOLABS TECHNOLOGY LTD</strong> (RC: 10005885) &bull; 45, Lagbe Area, Moniya, Oyo State, Nigeria.
               </p>
-              <p className="text-xs text-slate-500">Official Desk: <a href="mailto:privacy@sellerpadi.com" className="text-blue-600 hover:underline">privacy@sellerpadi.com</a> &bull; <a href="mailto:support@ogolabs.si" className="text-blue-600 hover:underline">support@ogolabs.si</a></p>
+              <p className="text-xs text-slate-500">Official Desk: <a href="mailto:support@sellerpadi.com" className="text-blue-600 hover:underline">support@sellerpadi.com</a> &bull; <a href="mailto:support@ogolabs.si" className="text-blue-600 hover:underline">support@ogolabs.si</a></p>
             </div>
             <a
-              href="mailto:privacy@sellerpadi.com"
+              href="mailto:support@sellerpadi.com"
               className="inline-flex items-center gap-1.5 px-4 py-2 rounded-xl bg-blue-600 hover:bg-blue-500 text-white font-semibold text-xs sm:text-sm transition-colors shadow-2xs shrink-0"
             >
               <span>Email Privacy Desk</span>

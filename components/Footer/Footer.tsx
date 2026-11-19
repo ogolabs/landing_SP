@@ -10,7 +10,40 @@ import {
   Store,
   ExternalLink,
 } from "lucide-react";
+import {
+  FaInstagram,
+  FaXTwitter,
+  FaTiktok,
+  FaWhatsapp,
+} from "react-icons/fa6";
 import { APP_BASE_URL, isTestnet, NETWORK_NAME, BLOCK_EXPLORER_URL } from "@/lib/config";
+
+const SOCIAL_LINKS = [
+  {
+    name: "Instagram",
+    href: "https://www.instagram.com/sellerpadi",
+    icon: FaInstagram,
+    ariaLabel: "Follow SellerPadi on Instagram",
+  },
+  {
+    name: "X (formerly Twitter)",
+    href: "https://x.com/sellerpadi",
+    icon: FaXTwitter,
+    ariaLabel: "Follow SellerPadi on X",
+  },
+  {
+    name: "TikTok",
+    href: "https://www.tiktok.com/@sellerpadi",
+    icon: FaTiktok,
+    ariaLabel: "Follow SellerPadi on TikTok",
+  },
+  {
+    name: "WhatsApp Channel",
+    href: "https://whatsapp.com/channel/0029VbDmkAr9mrGkR2v3IX1H",
+    icon: FaWhatsapp,
+    ariaLabel: "Join SellerPadi WhatsApp Channel",
+  },
+];
 
 export default function Footer() {
   return (
@@ -19,7 +52,7 @@ export default function Footer() {
         
         {/* Top Guarantee / Telemetry Ribbon */}
         <div className="mb-12 pb-8 border-b border-slate-100 dark:border-slate-800/80 flex flex-col lg:flex-row lg:items-center justify-between gap-6">
-          <div className="flex items-center gap-3">
+          <div className="flex flex-col sm:flex-row sm:items-center gap-4 sm:gap-6">
             <Link href="/" className="shrink-0 flex items-center group">
               <Image
                 src="/logo-full.svg"
@@ -30,6 +63,22 @@ export default function Footer() {
                 className="h-7 sm:h-8 lg:h-9 w-auto object-contain shrink-0 group-hover:scale-105 transition-transform"
               />
             </Link>
+
+            <div className="flex items-center gap-2">
+              {SOCIAL_LINKS.map((social) => (
+                <a
+                  key={social.name}
+                  href={social.href}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  aria-label={social.ariaLabel}
+                  title={social.name}
+                  className="w-8 h-8 rounded-xl bg-slate-50 dark:bg-slate-900 border border-slate-200 dark:border-slate-800 flex items-center justify-center text-slate-600 dark:text-slate-400 hover:text-blue-600 dark:hover:text-blue-400 hover:border-blue-300 dark:hover:border-blue-700/60 transition-all hover:scale-105 shrink-0"
+                >
+                  <social.icon className="w-3.5 h-3.5" />
+                </a>
+              ))}
+            </div>
           </div>
 
           {/* Live Network & Security Telemetry */}
@@ -37,16 +86,16 @@ export default function Footer() {
             <div className="inline-flex items-center gap-2 px-3 py-1.5 rounded-xl bg-slate-50 dark:bg-slate-900 border border-slate-200 dark:border-slate-800 text-slate-700 dark:text-slate-300 font-medium whitespace-nowrap shrink-0">
               <span className="w-2 h-2 rounded-full bg-emerald-500 animate-pulse shrink-0" />
               <span className="font-mono text-[11px] whitespace-nowrap">
-                {isTestnet ? "Testnet Operational" : "Mainnet Operational"}
+                {isTestnet ? "Secured Testnet Operational" : "Secured Network Operational"}
               </span>
             </div>
             <div className="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-xl bg-slate-50 dark:bg-slate-900 border border-slate-200 dark:border-slate-800 text-slate-700 dark:text-slate-300 font-medium whitespace-nowrap shrink-0">
               <Zap className="w-3.5 h-3.5 text-blue-500 shrink-0" />
-              <span className="font-mono text-[11px] whitespace-nowrap">~42ms Latency</span>
+              <span className="font-mono text-[11px] whitespace-nowrap">Real-Time Sync</span>
             </div>
             <div className="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-xl bg-slate-50 dark:bg-slate-900 border border-slate-200 dark:border-slate-800 text-slate-700 dark:text-slate-300 font-medium whitespace-nowrap shrink-0">
               <Lock className="w-3.5 h-3.5 text-emerald-500 shrink-0" />
-              <span className="font-mono text-[11px] whitespace-nowrap">Zero-Knowledge Proofs</span>
+              <span className="font-mono text-[11px] whitespace-nowrap">Tamper-Proof Audit Ledger</span>
             </div>
           </div>
         </div>
@@ -149,6 +198,17 @@ export default function Footer() {
                 <Link href="/terms" className="hover:text-blue-600 dark:hover:text-white transition-colors">
                   Merchant Terms of Service
                 </Link>
+              </li>
+              <li>
+                <a
+                  href={`${APP_BASE_URL}/partners`}
+                  className="hover:text-blue-600 dark:hover:text-white transition-colors inline-flex items-center gap-1.5"
+                >
+                  <span>Partner Program &amp; Affiliates</span>
+                  <span className="px-1.5 py-0.5 rounded-md text-[9px] font-extrabold uppercase bg-emerald-50 dark:bg-emerald-950/80 text-emerald-600 dark:text-emerald-400 border border-emerald-200/80 dark:border-emerald-800/80 leading-none">
+                    Earn 20%
+                  </span>
+                </a>
               </li>
             </ul>
           </div>

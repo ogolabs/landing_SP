@@ -70,6 +70,7 @@ export default function Header() {
   const pathname = usePathname();
 
   const workspaceUrl = `${APP_BASE_URL}/workspace`;
+  const partnersUrl = `${APP_BASE_URL}/partners`;
 
   const isFeaturesActive = pathname.startsWith("/features");
 
@@ -91,7 +92,7 @@ export default function Header() {
           <div className="flex h-20 lg:h-22 xl:h-24 items-center justify-between gap-4">
             {/* Logo */}
             <div className="flex items-center shrink-0">
-              <Link href="/" className="flex items-center space-x-2.5 group">
+              <Link href="/" className="flex items-center space-x-2 sm:space-x-2.5 group">
                 <Image
                   src="/logo-icon.svg"
                   alt="SellerPadi Logo"
@@ -110,6 +111,9 @@ export default function Header() {
                   className="h-7 sm:h-8 lg:h-9 w-auto shrink-0 hidden sm:block object-contain"
                   priority
                 />
+                <span className="px-1.5 sm:px-2 py-0.5 rounded-full text-[9px] sm:text-[10px] font-extrabold uppercase tracking-wider bg-blue-50 text-blue-700 dark:bg-blue-950/80 dark:text-blue-300 border border-blue-200/80 dark:border-blue-800/80 shadow-2xs select-none shrink-0">
+                  Beta
+                </span>
               </Link>
             </div>
 
@@ -198,6 +202,16 @@ export default function Header() {
               >
                 Pricing
               </Link>
+
+              <a
+                href={partnersUrl}
+                className="px-3.5 py-2 xl:px-4.5 xl:py-2.5 rounded-xl text-xs xl:text-sm 2xl:text-base font-semibold text-slate-600 dark:text-slate-400 hover:text-slate-900 dark:hover:text-white hover:bg-slate-50 dark:hover:bg-slate-900 transition-all inline-flex items-center gap-1.5"
+              >
+                <span>Partners</span>
+                <span className="px-1.5 py-0.5 rounded-full text-[9px] xl:text-[10px] font-extrabold uppercase bg-emerald-50 dark:bg-emerald-950/80 text-emerald-600 dark:text-emerald-400 border border-emerald-200/80 dark:border-emerald-800/80 leading-none">
+                  20%
+                </span>
+              </a>
 
               <Link
                 href="/about"
@@ -304,6 +318,17 @@ export default function Header() {
               >
                 Pricing &amp; Calculator
               </Link>
+
+              <a
+                href={partnersUrl}
+                onClick={() => setMobileMenuOpen(false)}
+                className="flex items-center justify-between px-3.5 py-2.5 rounded-xl text-sm font-semibold text-slate-700 dark:text-slate-300 hover:bg-slate-50 dark:hover:bg-slate-900 transition-all"
+              >
+                <span>Partner Program</span>
+                <span className="px-2 py-0.5 rounded-full text-[10px] font-extrabold uppercase bg-emerald-50 dark:bg-emerald-950/80 text-emerald-600 dark:text-emerald-400 border border-emerald-200/80 dark:border-emerald-800/80">
+                  Earn 20%
+                </span>
+              </a>
 
               <Link
                 href="/about"

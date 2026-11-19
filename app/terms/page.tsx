@@ -39,6 +39,10 @@ export default function TermsOfServicePage() {
                 <CheckCircle2 className="w-3.5 h-3.5 text-emerald-600 dark:text-emerald-400" />
                 <span>Statutory Entity: RC 10005885</span>
               </div>
+              <div className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-blue-50 dark:bg-blue-950/60 border border-blue-200 dark:border-blue-800 text-xs text-blue-700 dark:text-blue-300 font-mono font-medium">
+                <FileCheck className="w-3.5 h-3.5 text-blue-600 dark:text-blue-400" />
+                <span>Release: Live Public Beta (v1.0-beta)</span>
+              </div>
             </div>
 
             <h1 className="text-3xl sm:text-4xl xl:text-5xl font-bold tracking-tight text-slate-900 dark:text-white font-display">
@@ -64,6 +68,38 @@ export default function TermsOfServicePage() {
             <p className="text-xs sm:text-sm text-slate-700 dark:text-slate-300 leading-relaxed">
               <strong>SellerPadi</strong> (accessible via <code className="font-mono text-xs font-semibold">sellerpadi.com</code> and related applications) is a proprietary business operating system and commercial software platform developed, owned, and operated by <strong>OGOLABS TECHNOLOGY LTD</strong>, a private company limited by shares duly registered and incorporated under the <strong>Companies and Allied Matters Act 2020 (CAMA 2020)</strong> by the <strong>Corporate Affairs Commission (CAC), Federal Republic of Nigeria</strong> with Company Registration Number <strong>RC 10005885</strong> and Tax Identification Number <strong>TIN 2623024126994</strong>, having its registered corporate address at <strong>45, Lagbe Area, Moniya, Oyo State, Nigeria</strong>.
             </p>
+          </div>
+
+          {/* Public Beta Status, Commercial Licenses & Data Continuity Guarantee */}
+          <div className="bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-800 rounded-2xl p-6 sm:p-8 space-y-4 shadow-xs">
+            <div className="flex items-start gap-3.5">
+              <div className="w-9 h-9 rounded-xl bg-blue-50 dark:bg-blue-950/60 text-blue-600 dark:text-blue-400 flex items-center justify-center shrink-0 border border-blue-200/50 dark:border-blue-800/50">
+                <FileCheck className="w-4 h-4" />
+              </div>
+              <div className="space-y-1">
+                <h2 className="text-base sm:text-lg font-bold text-slate-900 dark:text-white">
+                  Public Beta Release, Commercial Operations &amp; Data Continuity Guarantee
+                </h2>
+                <p className="text-xs sm:text-sm text-slate-600 dark:text-slate-400 leading-relaxed">
+                  SellerPadi is currently deployed in its commercial <strong>Public Beta ("Beta Release" or "v1.0-beta")</strong>. This release provides active commercial utility for real merchants, supporting cash sales, instant QR checkout, multi-branch stock movements, and tracked logistics.
+                </p>
+              </div>
+            </div>
+
+            <div className="border-t border-slate-100 dark:border-slate-800 pt-4 space-y-2.5 text-xs sm:text-sm text-slate-600 dark:text-slate-400 leading-relaxed">
+              <p>
+                <strong>Commercial Paid Subscriptions:</strong> Subscriptions and operations quota upgrades paid via Paystack (in Nigerian Naira) or Stripe (in US Dollars) grant active commercial capacity. Paid subscriptions, promotional discounts, and universal overage guarantees operate with full commercial enforceability during Public Beta.
+              </p>
+              <p>
+                <strong>Data Continuity Guarantee (Zero Data Loss):</strong> OGOLABS TECHNOLOGY LTD formally guarantees that all merchant profiles, branch stores, SKU catalogs, sales ledger entries, customer QR receipts, debt records, and cryptographic transaction commitments created during the Public Beta <strong>will persist and carry forward seamlessly into General Availability (GA)</strong> without any database wipe, purge, or administrative reset.
+              </p>
+              <p>
+                <strong>Continuous Deployment &amp; Cloud Infrastructure SLA:</strong> The platform is hosted on high-availability <strong>Vercel edge infrastructure</strong> coupled with an encrypted <strong>MongoDB Atlas</strong> cloud database layer and blockchain ledger proofing on Electroneum Smart Chain. Because the platform is in active Public Beta, OGOLABS TECHNOLOGY LTD deploys frequent software enhancements, performance patches, and minor UI updates. Brief scheduled maintenance windows may occur and will be communicated transparently.
+              </p>
+              <p>
+                <strong>Beta Support &amp; Feedback Channel:</strong> Paying merchants and early partners are encouraged to submit operational feedback, software observations, or feature suggestions directly to our dedicated engineering and support desk at <a href="mailto:support@sellerpadi.com" className="text-blue-600 dark:text-blue-400 font-semibold hover:underline">support@sellerpadi.com</a>.
+              </p>
+            </div>
           </div>
 
           {/* Section 1: Non-Custodial Operating OS */}
@@ -485,10 +521,10 @@ export default function TermsOfServicePage() {
               <p>
                 <strong>OGOLABS TECHNOLOGY LTD</strong> (RC: 10005885) &bull; 45, Lagbe Area, Moniya, Oyo State, Nigeria.
               </p>
-              <p className="text-xs text-slate-500">Official Inquiries: <a href="mailto:support@ogolabs.si" className="text-blue-600 hover:underline">support@ogolabs.si</a> &bull; <a href="mailto:legal@sellerpadi.com" className="text-blue-600 hover:underline">legal@sellerpadi.com</a></p>
+              <p className="text-xs text-slate-500">Official Inquiries: <a href="mailto:support@ogolabs.si" className="text-blue-600 hover:underline">support@ogolabs.si</a> &bull; <a href="mailto:support@sellerpadi.com" className="text-blue-600 hover:underline">support@sellerpadi.com</a></p>
             </div>
             <a
-              href="mailto:legal@sellerpadi.com"
+              href="mailto:support@sellerpadi.com"
               className="inline-flex items-center gap-1.5 px-4 py-2 rounded-xl bg-blue-600 hover:bg-blue-500 text-white font-semibold text-xs sm:text-sm transition-colors shadow-2xs shrink-0"
             >
               <span>Contact Legal Team</span>
