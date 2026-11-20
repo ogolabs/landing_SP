@@ -1,6 +1,7 @@
 import type { Metadata, Viewport } from "next";
 import Script from "next/script";
 import { Inter, Sora, JetBrains_Mono } from "next/font/google";
+import { Analytics } from "@vercel/analytics/next";
 import "./globals.css";
 import { Providers } from "@/provider";
 import { sharedOpenGraph, getMetadataBaseUrl } from "@/lib/metadata";
@@ -104,6 +105,7 @@ export default function RootLayout({
         className={`${inter.variable} ${sora.variable} ${jetbrainsMono.variable} antialiased bg-slate-50 dark:bg-slate-950 text-slate-900 dark:text-slate-50 transition-colors`}
       >
         <Providers>{children}</Providers>
+        <Analytics />
       </body>
     </html>
   );
