@@ -27,12 +27,12 @@ async function fetchLiveStats(): Promise<StatsResponse["stats"]> {
     const json: StatsResponse = await res.json();
     return json.stats;
   } catch {
-    // Resilient fallback for standalone landing build and offline mode
+    // Resilient fallback for standalone landing build and offline mode (includes main stores & branches)
     return {
       receiptsCount: 12480,
       inventoryItemsCount: 8950,
       dispatchesCount: 4320,
-      branchesCount: 86,
+      branchesCount: 148,
       staffCount: 142,
       verificationRate: "100%",
       avgGenerationSeconds: "0.8s",
@@ -121,7 +121,7 @@ export default function LiveNetworkStats() {
             )}
             <span className="text-[11px] sm:text-xs xl:text-sm text-slate-500 dark:text-slate-400 font-medium flex items-center gap-1.5 justify-center md:justify-start mt-1">
               <Building2 className="w-3.5 h-3.5 xl:w-4 xl:h-4 text-blue-500 shrink-0" />
-              <span>Multi-outlet sync</span>
+              <span>Main stores &amp; branch sync</span>
             </span>
           </div>
 
