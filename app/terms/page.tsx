@@ -20,6 +20,7 @@ import {
   CheckCircle2,
 } from "lucide-react";
 import Link from "next/link";
+import { APP_VERSION_LABEL } from "@/lib/version";
 
 export default function TermsOfServicePage() {
   return (
@@ -41,7 +42,7 @@ export default function TermsOfServicePage() {
               </div>
               <div className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-blue-50 dark:bg-blue-950/60 border border-blue-200 dark:border-blue-800 text-xs text-blue-700 dark:text-blue-300 font-mono font-medium">
                 <FileCheck className="w-3.5 h-3.5 text-blue-600 dark:text-blue-400" />
-                <span>Release: Live Public Beta (v1.0-beta)</span>
+                <span>Release: Live Public Beta ({APP_VERSION_LABEL})</span>
               </div>
             </div>
 
@@ -81,7 +82,7 @@ export default function TermsOfServicePage() {
                   Public Beta Release, Commercial Operations &amp; Data Continuity Guarantee
                 </h2>
                 <p className="text-xs sm:text-sm text-slate-600 dark:text-slate-400 leading-relaxed">
-                  SellerPadi is currently deployed in its commercial <strong>Public Beta ("Beta Release" or "v1.0-beta")</strong>. This release provides active commercial utility for real merchants, supporting cash sales, instant QR checkout, multi-branch stock movements, and tracked logistics.
+                  SellerPadi is currently deployed in its commercial <strong>Public Beta (&quot;Beta Release&quot; or &quot;{APP_VERSION_LABEL}&quot;)</strong>. This release provides active commercial utility for real merchants, supporting cash sales, instant QR checkout, multi-branch stock movements, and tracked logistics.
                 </p>
               </div>
             </div>
