@@ -183,7 +183,7 @@ export async function detectUserCurrency(): Promise<UserCurrencyInfo> {
 
     // Static fallback rates if FX API times out, rate limits (429), or errors (5xx)
     const FALLBACK_RATES: Record<string, number> = {
-      NGN: 1480,
+      NGN: 1440,
       EUR: 0.92,
       GBP: 0.79,
       GHS: 15.5,
@@ -232,7 +232,7 @@ export async function detectUserCurrency(): Promise<UserCurrencyInfo> {
   }
 }
 
-let cachedNgnUsdRate = 1480;
+let cachedNgnUsdRate = 1440;
 
 /**
  * Safe baseline fallback used only during cold starts, offline unit tests,
@@ -290,7 +290,7 @@ export const PLAN_TIERS: Record<string, PlanTierConfig> = {
     managers: 1,
     accountants: 0,
     skus: 25,
-    description: "CEO + 1 HQ Staff · 25 items · 100 dispatches & receipts",
+    description: "CEO + 1 HQ Staff · 25 items · 100 operations starter trial",
   },
   starter_500: {
     id: "starter_500",

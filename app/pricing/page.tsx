@@ -138,7 +138,7 @@ export default function PricingPage() {
                       {convertNgnPrice(0, userCurrency).formattedLocal}
                     </div>
                     <p className="text-xs xl:text-sm text-slate-500 dark:text-slate-400 font-medium">
-                      forever free
+                      starter trial pool
                     </p>
                   </div>
 
@@ -154,7 +154,7 @@ export default function PricingPage() {
                     </div>
                     <div className="min-w-0">
                       <div className="text-xs sm:text-sm xl:text-base font-bold text-slate-900 dark:text-white font-display truncate">
-                        {freeTier.quota.toLocaleString()} Operations
+                        {freeTier.quota.toLocaleString()} Starter Operations
                       </div>
                       <div className="text-[11px] sm:text-xs xl:text-sm text-slate-500 dark:text-slate-400 truncate">
                         Dispatches &amp; Sales Book receipts

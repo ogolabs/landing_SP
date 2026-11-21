@@ -59,7 +59,7 @@ export default function PricingComparisonTable({
         {
           name: isYearly ? "Annual Operations Quota" : "Monthly Operations Quota",
           tooltip: "Receipts issued + Package dispatches tracked combined",
-          free: "100 ops/mo",
+          free: "100 ops trial",
           starter: isYearly ? "6,000 ops/yr" : "500 ops/mo",
           growth: isYearly ? "12,000 ops/yr" : "1,000 ops/mo",
           business: isYearly ? "30,000 ops/yr" : "2,500 ops/mo",
