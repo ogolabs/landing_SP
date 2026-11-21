@@ -20,6 +20,7 @@ import {
   Cookie,
 } from "lucide-react";
 import Link from "next/link";
+import { APP_VERSION_LABEL } from "@/lib/version";
 
 export default function PrivacyPolicyPage() {
   return (
@@ -41,7 +42,7 @@ export default function PrivacyPolicyPage() {
               </div>
               <div className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-blue-50 dark:bg-blue-950/60 border border-blue-200 dark:border-blue-800 text-xs text-blue-700 dark:text-blue-300 font-mono font-medium">
                 <FileText className="w-3.5 h-3.5 text-blue-600 dark:text-blue-400" />
-                <span>Release: Live Public Beta (v1.0-beta)</span>
+                <span>Release: Live Public Beta ({APP_VERSION_LABEL})</span>
               </div>
             </div>
 
@@ -352,7 +353,7 @@ export default function PrivacyPolicyPage() {
                   7. Public Beta Data Protection, Cloud Infrastructure &amp; Continuity Guarantee
                 </h2>
                 <p className="text-xs sm:text-sm text-slate-600 dark:text-slate-400 leading-relaxed">
-                  During this live commercial Public Beta (<code className="font-mono text-xs">v1.0-beta</code>), your personal, commercial, and financial records are governed by the same rigorous privacy standards as our General Availability platform:
+                  During this live commercial Public Beta (<code className="font-mono text-xs">{APP_VERSION_LABEL}</code>), your personal, commercial, and financial records are governed by the same rigorous privacy standards as our General Availability platform:
                 </p>
               </div>
             </div>
