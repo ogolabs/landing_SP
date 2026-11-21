@@ -1,8 +1,9 @@
 {
   "name": "landing",
-  "version": "0.1.0",
+  "version": "0.1.7-beta",
   "private": true,
   "scripts": {
+    "prebuild": "node scripts/stamp-version.mjs",
     "dev": "next dev --webpack",
     "build": "next build --webpack",
     "start": "next start",
