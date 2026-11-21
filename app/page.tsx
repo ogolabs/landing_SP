@@ -128,7 +128,7 @@ export default function Home() {
                 </div>
                 <div className="flex items-center gap-1.5 xl:gap-2 font-medium">
                   <CheckCircle2 className="w-4 h-4 xl:w-5 xl:h-5 text-emerald-600 dark:text-emerald-400 shrink-0" />
-                  <span>100 free operations monthly</span>
+                  <span>100 starter operations trial</span>
                 </div>
               </div>
             </div>
@@ -595,10 +595,10 @@ export default function Home() {
             <div className="mt-8 xl:mt-12 bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-800 rounded-2xl xl:rounded-3xl p-6 sm:p-8 xl:p-12 2xl:p-16 flex flex-col sm:flex-row items-center justify-between gap-5 xl:gap-8 shadow-2xs">
               <div className="space-y-1 text-center sm:text-left">
                 <h3 className="text-base sm:text-lg xl:text-2xl 2xl:text-3xl font-bold text-slate-900 dark:text-white font-display">
-                  Start with 100 free operations each month
+                  Start with 100 free operations trial
                 </h3>
                 <p className="text-xs sm:text-sm xl:text-base 2xl:text-lg text-slate-600 dark:text-slate-400">
-                  Free for solo entrepreneurs. Scale up with predictable tiers and {overageText}.
+                  Free starter trial for modern stores. Scale up with predictable tiers and {overageText}.
                 </p>
               </div>
               <div className="flex items-center gap-3 shrink-0">

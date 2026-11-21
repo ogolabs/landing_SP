@@ -475,7 +475,7 @@ export default function SalesReceiptsPage() {
                 Ready to upgrade your store sales book?
               </h2>
               <p className="text-sm sm:text-base text-slate-600 dark:text-slate-300 max-w-2xl mx-auto">
-                Start with 100 free operations monthly. No hardware contracts, no thermal paper costs, and zero app download required for your shoppers.
+                Start with 100 free operations to test your store workflow. No hardware contracts, no thermal paper costs, and zero app download required for your shoppers.
               </p>
               <div className="flex flex-col sm:flex-row gap-3 justify-center items-center">
                 <a

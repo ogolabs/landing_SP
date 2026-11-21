@@ -159,8 +159,8 @@ export default function TermsOfServicePage() {
                 </thead>
                 <tbody className="divide-y divide-slate-100 dark:divide-slate-800 text-slate-600 dark:text-slate-400">
                   <tr>
-                    <td className="py-2.5 px-3 font-semibold text-slate-900 dark:text-white">Free</td>
-                    <td className="py-2.5 px-3">100 / mo</td>
+                    <td className="py-2.5 px-3 font-semibold text-slate-900 dark:text-white">Free Starter Trial</td>
+                    <td className="py-2.5 px-3">100 ops trial</td>
                     <td className="py-2.5 px-3">25 SKUs</td>
                     <td className="py-2.5 px-3 font-mono font-medium">₦0 / mo</td>
                     <td className="py-2.5 px-3 font-mono font-medium">$0.00 / mo</td>
