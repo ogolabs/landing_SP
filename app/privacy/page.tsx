@@ -18,6 +18,7 @@ import {
   PackageCheck,
   Layers,
   Cookie,
+  Handshake,
 } from "lucide-react";
 import Link from "next/link";
 import { APP_VERSION_LABEL } from "@/lib/version";
@@ -174,6 +175,15 @@ export default function PrivacyPolicyPage() {
                 </span>
                 <p className="text-slate-600 dark:text-slate-400 text-xs leading-relaxed">
                   Supplier business names, contact details, payment terms, itemized purchase bills, goods receiving vouchers, and AP aging buckets (stored strictly off-chain).
+                </p>
+              </div>
+              <div className="bg-slate-50 dark:bg-slate-800/40 p-3.5 rounded-xl border border-slate-200 dark:border-slate-800 space-y-1 sm:col-span-2">
+                <span className="font-bold text-slate-900 dark:text-white flex items-center gap-1.5">
+                  <Handshake className="w-3.5 h-3.5 text-blue-600 dark:text-blue-400" />
+                  <span>Partner Program &amp; Payout Credentials</span>
+                </span>
+                <p className="text-slate-600 dark:text-slate-400 text-xs leading-relaxed">
+                  Full name or registered business entity, contact email, country of residence, marketing channel profile (TikTok, Instagram, or Facebook), and payout credentials (verified domestic bank account credentials in Nigeria or personal Electroneum EVM wallet addresses for Hyperlane synthetic stablecoin disbursements globally).
                 </p>
               </div>
             </div>
