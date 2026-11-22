@@ -569,7 +569,7 @@ export default function Home() {
                   </span>
                   <span className="flex items-center gap-1.5 font-medium">
                     <CheckCircle2 className="w-4 h-4 text-emerald-400 shrink-0" />
-                    Automated Bank Payouts
+                    Bank &amp; Stablecoin Payouts
                   </span>
                 </div>
               </div>
