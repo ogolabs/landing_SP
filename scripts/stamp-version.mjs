@@ -1,4 +1,5 @@
 #!/usr/bin/env node
+/* eslint-disable no-undef, no-empty */
 import { execSync } from "node:child_process";
 import fs from "node:fs";
 import path from "node:path";
