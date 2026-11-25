@@ -193,6 +193,10 @@ export default function Home() {
                       <span className="h-1.5 w-1.5 rounded-full bg-emerald-600 shrink-0" />
                       <span>Audit-safe voiding with mandatory reasons</span>
                     </li>
+                    <li className="flex items-center gap-2">
+                      <span className="h-1.5 w-1.5 rounded-full bg-emerald-600 shrink-0" />
+                      <span>Works offline &amp; auto-syncs to the cloud</span>
+                    </li>
                   </ul>
                 </div>
                 <div className="pt-4 border-t border-slate-200/80 dark:border-slate-800">

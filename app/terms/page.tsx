@@ -313,6 +313,12 @@ export default function TermsOfServicePage() {
                   <strong>Combo Bundles &amp; Packages:</strong> Selling product bundles triggers automated component stock deductions from underlying individual inventory SKUs.
                 </span>
               </div>
+              <div className="flex items-start gap-2">
+                <span className="w-1.5 h-1.5 rounded-full bg-blue-600 mt-2 shrink-0" />
+                <span>
+                  <strong>Offline Mode &amp; Cloud Sync Responsibility:</strong> Sales, stock edits, shipments, and bills recorded while offline are queued locally in your browser&apos;s IndexedDB until internet connectivity is restored. Merchants are responsible for reconnecting periodically so pending records sync globally to the cloud before clearing browser site data, uninstalling the PWA, or resetting/switching devices. Automatic local storage trimming at 75% capacity only removes already-synced history beyond the most recent 200 records and never affects cloud data.
+                </span>
+              </div>
             </div>
           </div>
 

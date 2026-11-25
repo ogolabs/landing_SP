@@ -316,6 +316,16 @@ export default function PrivacyPolicyPage() {
                       <td className="py-2.5 px-3">Client LocalStorage</td>
                       <td className="py-2.5 px-3">Persists user light or dark mode visual preference on the client device.</td>
                     </tr>
+                    <tr>
+                      <td className="py-2.5 px-3 font-mono font-semibold text-slate-900 dark:text-white">SellerPadi_Core_v1</td>
+                      <td className="py-2.5 px-3">Client IndexedDB</td>
+                      <td className="py-2.5 px-3">Stores offline sales receipts, inventory, expenses, shipments, vendor bills, and pending sync actions locally during network interruptions. Cached snapshots expire after 30 days, and synced history above 200 items trims automatically at 75% device storage usage.</td>
+                    </tr>
+                    <tr>
+                      <td className="py-2.5 px-3 font-mono font-semibold text-slate-900 dark:text-white">SellerPadi-cache-*</td>
+                      <td className="py-2.5 px-3">Service Worker CacheStorage</td>
+                      <td className="py-2.5 px-3">Caches static application bundles and navigation shells for offline PWA loading (never caches raw API responses).</td>
+                    </tr>
                   </tbody>
                 </table>
               </div>
